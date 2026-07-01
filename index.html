@@ -178,11 +178,12 @@ body.light .hero .logo-badge{background:linear-gradient(150deg,#243f52,#16283a)}
 /* ===== ما أنجزته بنيان — خاتمة مبهرة ===== */
 .ach-finale{position:relative;max-width:1280px;margin:36px auto 0;padding:54px 24px 40px;
   border-radius:30px;overflow:hidden;
-  background:radial-gradient(120% 90% at 50% 0%,rgba(216,183,106,.10),transparent 55%),
-    linear-gradient(180deg,var(--panel),var(--panel-2));
-  border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.28)}
-body.bonyan .ach-finale{background:radial-gradient(120% 90% at 50% 0%,rgba(227,196,133,.14),transparent 55%),
-    linear-gradient(180deg,#16294a,#0f1d33)}
+  background:radial-gradient(130% 100% at 50% -10%,rgba(216,183,106,.16),transparent 55%),
+    linear-gradient(160deg,#1b3a5c 0%,#122a45 55%,#0f2440 100%);
+  border:1px solid rgba(216,183,106,.34);box-shadow:0 30px 80px rgba(0,0,0,.32)}
+body.bonyan .ach-finale{background:radial-gradient(130% 100% at 50% -10%,rgba(227,196,133,.20),transparent 55%),
+    linear-gradient(160deg,#1e4368 0%,#132c49 55%,#0f2140 100%)}
+body.light .ach-finale{border-color:rgba(216,183,106,.4);box-shadow:0 30px 70px rgba(15,36,64,.30)}
 .ach-finale::before{content:"";position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(60% 60% at 85% 110%,rgba(70,227,208,.08),transparent 60%)}
 .ach-head{text-align:center;margin-bottom:38px;position:relative}
@@ -201,25 +202,25 @@ body.bonyan .ach-finale{background:radial-gradient(120% 90% at 50% 0%,rgba(227,1
   background:linear-gradient(90deg,transparent,var(--gold-2),transparent)}
 .ach-hero .v{font-size:54px;font-weight:900;letter-spacing:-2px;line-height:1;
   background:linear-gradient(180deg,var(--gold-2),var(--gold-deep));-webkit-background-clip:text;background-clip:text;color:transparent}
-.ach-hero .l{font-size:14.5px;color:var(--txt-2);font-weight:700;margin-top:12px}
+.ach-hero .l{font-size:14.5px;color:#c3d2e4;font-weight:700;margin-top:12px}
 /* المجموعات */
 .ach-groups{display:flex;flex-direction:column;gap:26px;position:relative}
 .ach-group h3{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:800;
-  color:var(--txt);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+  color:#f4f8fd;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(216,183,106,.22)}
 .ach-group h3 .gi{font-size:20px}
 .ach-cells{display:grid;grid-template-columns:repeat(6,1fr);gap:13px}
 .ach-cell{padding:18px 14px;border-radius:16px;text-align:center;
-  background:linear-gradient(150deg,rgba(255,255,255,.03),transparent);border:1px solid var(--line);
+  background:linear-gradient(150deg,rgba(255,255,255,.05),rgba(255,255,255,.01));border:1px solid rgba(216,183,106,.18);
   transition:transform .25s,box-shadow .25s,border-color .25s}
-body.light .ach-cell{background:linear-gradient(150deg,rgba(20,40,70,.03),transparent)}
-.ach-cell:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(0,0,0,.22);border-color:rgba(216,183,106,.4)}
+body.light .ach-cell{background:linear-gradient(150deg,rgba(255,255,255,.06),rgba(255,255,255,.01));border-color:rgba(216,183,106,.2)}
+.ach-cell:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(0,0,0,.28);border-color:rgba(216,183,106,.45)}
 .ach-cell .icn{font-size:22px;margin-bottom:9px;line-height:1}
-.ach-cell .v{font-size:25px;font-weight:900;letter-spacing:-.5px;color:var(--gold-2);line-height:1}
-.ach-cell .v.cy{color:var(--cyan)}
-.ach-cell .v.gr{color:var(--green)}
-.ach-cell .v.vi{color:var(--violet)}
-.ach-cell .v.rs{color:var(--rose)}
-.ach-cell .l{font-size:12px;color:var(--txt-2);font-weight:700;margin-top:7px;line-height:1.45}
+.ach-cell .v{font-size:25px;font-weight:900;letter-spacing:-.5px;color:#f3dca6;line-height:1}
+.ach-cell .v.cy{color:#5fd9e6}
+.ach-cell .v.gr{color:#5fe0a0}
+.ach-cell .v.vi{color:#a99bff}
+.ach-cell .v.rs{color:#ff8893}
+.ach-cell .l{font-size:12px;color:#c3d2e4;font-weight:700;margin-top:7px;line-height:1.45}
 @media(max-width:1024px){.ach-cells{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:760px){
   .ach-finale{padding:40px 14px 30px;border-radius:22px;margin-top:24px}
@@ -312,10 +313,10 @@ body.light .folio .micro .m-a{color:#9a6e12;background:rgba(255,200,97,.3);borde
 .ringbox{display:flex;align-items:center;gap:18px}
 .ring{position:relative;width:120px;height:120px;flex:0 0 auto}
 .ring svg{width:100%;height:100%;display:block}
-.ring .rc{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
-.ring .rc b{font-size:24px;font-weight:900;display:block}
+.ring .rc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-align:center}
+.ring .rc b{font-size:30px;font-weight:900;display:block;line-height:1;letter-spacing:-1px}
 .ring .rc b.cy{color:var(--cyan)}
-.ring .rc span{font-size:10.5px;color:var(--txt-2);font-weight:700}
+.ring .rc span{font-size:11px;color:var(--txt-2);font-weight:700;line-height:1.1}
 .ringbox .meta .big{font-size:34px;font-weight:900;letter-spacing:-1px}
 .ringbox .meta .big.cy{color:var(--cyan)}
 .ringbox .meta .lbl{font-size:12.5px;color:var(--txt-2);font-weight:600}
@@ -376,9 +377,9 @@ body.light .kpi .spark{background:rgba(20,40,70,.08)}
 /* ===== Donut ===== */
 .donut-wrap{display:grid;grid-template-columns:1fr 210px;gap:30px;align-items:center}
 .donut{position:relative;width:210px;height:210px;max-width:100%;margin:auto;order:2}
-.donut .center{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
-.donut .center b{font-size:36px;font-weight:900}
-.donut .center span{font-size:12px;color:var(--txt-3);font-weight:600}
+.donut .center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-align:center}
+.donut .center b{font-size:44px;font-weight:900;line-height:1;letter-spacing:-1.5px}
+.donut .center span{font-size:13px;color:var(--txt-3);font-weight:700;line-height:1.1}
 .legend{display:flex;flex-direction:column;gap:14px;order:1;width:100%}
 .legend .lg{display:grid;grid-template-columns:14px 1fr auto;align-items:center;gap:12px;
   padding:13px 15px;border-radius:13px;background:rgba(255,255,255,.03);border:1px solid var(--line)}
@@ -515,8 +516,8 @@ body.light .strip{background:rgba(20,30,46,.02)}
 
 /* ===== gauge (semicircle) ===== */
 .gauge{display:flex;flex-direction:column;align-items:center;gap:6px}
-.gauge .gv{font-size:30px;font-weight:900;margin-top:-32px}
-.gauge .gl{font-size:12px;color:var(--txt-2);font-weight:600}
+.gauge .gv{font-size:34px;font-weight:900;margin-top:-34px;letter-spacing:-1px;line-height:1}
+.gauge .gl{font-size:12px;color:var(--txt-2);font-weight:700}
 .gauge.gold .gv{color:var(--gold-2)} .gauge.cy .gv{color:var(--cyan)} .gauge.gr .gv{color:var(--green)}
 
 /* ===== analysis mini cards ===== */
@@ -645,8 +646,8 @@ body.light .strip{background:rgba(20,30,46,.02)}
               <div class="rc"><b>42%</b><span>إنجاز</span></div>
             </div>
             <div class="ds-meta">
-              <div class="big" data-count="178">0</div>
-              <div class="lbl">مشروع منفّذ من <b>425</b></div>
+              <div class="big" data-count="184">0</div>
+              <div class="lbl">مشروع منفّذ من <b>386</b></div>
             </div>
           </div>
           <div class="ds-sep"></div>
@@ -656,7 +657,7 @@ body.light .strip{background:rgba(20,30,46,.02)}
               <div class="rc"><b class="cy">21%</b><span>تحقّق</span></div>
             </div>
             <div class="ds-meta">
-              <div class="big cy" data-count="2538">0</div>
+              <div class="big cy" data-count="2819">0</div>
               <div class="lbl">مستفيد متحقّق من <b>12,085</b></div>
             </div>
           </div>
@@ -664,20 +665,20 @@ body.light .strip{background:rgba(20,30,46,.02)}
       </div>
 
       <div class="card folio reveal">
-        <div class="big" data-count="425">0</div>
+        <div class="big" data-count="386">0</div>
         <div class="cap">إجمالي مشاريع الخطة ٢٠٢٦</div>
-        <div class="desc">موزّعة على ١٥ دولة و١٢٤ مدينة، عبر أربع غايات استراتيجية كبرى تغطّي التأهيل والتعليم والاستدامة.</div>
-        <div class="micro"><span class="m-g">١٧٨ منفّذ</span><span class="m-r">٢٤١ لم يبدأ</span><span class="m-a">٦ قيد التنفيذ</span></div>
+        <div class="desc">موزّعة على ١٤ دولة و١٢٢ مدينة، عبر خمس غايات استراتيجية كبرى تغطّي التأهيل والتعليم والاستدامة.</div>
+        <div class="micro"><span class="m-g">١٨٤ منفّذ</span><span class="m-r">١٩٦ لم يبدأ</span><span class="m-a">٦ قيد التنفيذ</span></div>
       </div>
     </div>
 
     <div class="row r-kpi">
-      <div class="card kpi reveal"><div class="ic">🌍</div><div class="v" data-count="15">0</div><div class="l">الدول المستهدفة</div><div class="spark"><i style="width:75%"></i></div></div>
-      <div class="card kpi cy reveal"><div class="ic">🏙️</div><div class="v" data-count="124">0</div><div class="l">المدن المغطّاة</div><div class="spark"><i style="width:88%"></i></div></div>
-      <div class="card kpi vi reveal"><div class="ic">🤝</div><div class="v" data-count="41">0</div><div class="l">شركاء النجاح</div><div class="spark"><i style="width:62%"></i></div></div>
-      <div class="card kpi gr reveal"><div class="ic">👨‍🏫</div><div class="v" data-count="958">0</div><div class="l">المدرّبون</div><div class="spark"><i style="width:80%"></i></div></div>
-      <div class="card kpi reveal"><div class="ic">⏱️</div><div class="v" data-count="3832">0</div><div class="l">ساعات التدريب</div><div class="spark"><i style="width:70%"></i></div></div>
-      <div class="card kpi rs reveal"><div class="ic">📅</div><div class="v" data-count="547">0</div><div class="l">أيام التدريب</div><div class="spark"><i style="width:58%"></i></div></div>
+      <div class="card kpi reveal"><div class="ic">🌍</div><div class="v" data-count="14">0</div><div class="l">الدول المستهدفة</div><div class="spark"><i style="width:75%"></i></div></div>
+      <div class="card kpi cy reveal"><div class="ic">🏙️</div><div class="v" data-count="122">0</div><div class="l">المدن المغطّاة</div><div class="spark"><i style="width:88%"></i></div></div>
+      <div class="card kpi vi reveal"><div class="ic">🤝</div><div class="v" data-count="40">0</div><div class="l">شركاء النجاح</div><div class="spark"><i style="width:62%"></i></div></div>
+      <div class="card kpi gr reveal"><div class="ic">👨‍🏫</div><div class="v" data-count="1030">0</div><div class="l">المدرّبون</div><div class="spark"><i style="width:80%"></i></div></div>
+      <div class="card kpi reveal"><div class="ic">⏱️</div><div class="v" data-count="4120">0</div><div class="l">ساعات التدريب</div><div class="spark"><i style="width:70%"></i></div></div>
+      <div class="card kpi rs reveal"><div class="ic">📅</div><div class="v" data-count="583">0</div><div class="l">أيام التدريب</div><div class="spark"><i style="width:58%"></i></div></div>
     </div>
 
     <div class="row r-2">
@@ -685,12 +686,12 @@ body.light .strip{background:rgba(20,30,46,.02)}
         <div class="c-head"><div class="t"><span class="ic">💠</span><h3>عمق الأثر وكثافة الاستفادة</h3></div><span class="tag">المستفيدون بالتكرار</span></div>
         <div style="display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap">
           <div>
-            <div class="spot-num" data-count="29048">0</div>
+            <div class="spot-num" data-count="32420">0</div>
             <div class="spot-sub" style="margin-top:6px">إجمالي حالات الاستفادة المتكررة عبر البرامج</div>
           </div>
           <div style="flex:1;min-width:200px">
             <div class="meter gr">
-              <div class="top"><span class="ml">متوسط الاستفادة للفرد الواحد</span><span class="mv">≈ ١١٫٤×</span></div>
+              <div class="top"><span class="ml">متوسط الاستفادة للفرد الواحد</span><span class="mv">≈ ١١٫٥×</span></div>
               <div class="bar"><i data-w="82"></i></div>
               <div class="sub"><div>الأثر العميق<b>عالٍ جداً</b></div><div>طبيعة البرامج<b>مستمرة ومتراكمة</b></div></div>
             </div>
@@ -700,9 +701,9 @@ body.light .strip{background:rgba(20,30,46,.02)}
       <div class="card reveal">
         <div class="c-head"><div class="t"><span class="ic">⏳</span><h3>الحالة الزمنية للخطة</h3></div><span class="tag">٤٢٥ مشروع</span></div>
         <div class="vbars">
-          <div class="vb g"><div class="vv" data-count="178">0</div><div class="col" data-h="74"></div><div class="ll">تم التنفيذ</div></div>
-          <div class="vb r"><div class="vv" data-count="241">0</div><div class="col" data-h="100"></div><div class="ll">لم يبدأ<br>(مجدول Q4)</div></div>
-          <div class="vb a"><div class="vv" data-count="6">0</div><div class="col" data-h="6"></div><div class="ll">قيد التنفيذ</div></div>
+          <div class="vb g"><div class="vv" data-count="184">0</div><div class="col" data-h="94"></div><div class="ll">تم التنفيذ</div></div>
+          <div class="vb r"><div class="vv" data-count="196">0</div><div class="col" data-h="100"></div><div class="ll">لم يبدأ<br>(مجدول Q4)</div></div>
+          <div class="vb a"><div class="vv" data-count="6">0</div><div class="col" data-h="3"></div><div class="ll">قيد التنفيذ</div></div>
         </div>
       </div>
     </div>
@@ -728,7 +729,7 @@ body.light .strip{background:rgba(20,30,46,.02)}
           <div class="sub"><div>المستهدف<b>12,085</b></div><div>المتحقق<b>2,538</b></div><div>الفجوة<b style="color:var(--rose)">9,547</b></div></div>
         </div>
         <div class="meter" style="margin-top:20px">
-          <div class="top"><span class="ml">معدل إنجاز المشاريع</span><span class="mv">41.9%</span></div>
+          <div class="top"><span class="ml">معدل إنجاز المشاريع</span><span class="mv">47.7%</span></div>
           <div class="bar"><i data-w="42"></i></div>
           <div class="sub"><div>منفّذ<b>178</b></div><div>المتبقّي<b>247</b></div></div>
         </div>
@@ -770,9 +771,9 @@ body.light .strip{background:rgba(20,30,46,.02)}
       <div class="card reveal">
         <div class="c-head"><div class="t"><span class="ic">⚖️</span><h3>قراءة التركّز الجغرافي</h3></div><span class="tag">إدارة المخاطر</span></div>
         <div class="geo-focus">
-          <div class="ring"><svg viewBox="0 0 120 120" id="ringGeo"></svg><div class="rc"><b>57%</b><span>بنجلاديش</span></div></div>
+          <div class="ring"><svg viewBox="0 0 120 120" id="ringGeo"></svg><div class="rc"><b>38%</b><span>بنجلاديش</span></div></div>
           <div class="geo-focus-meta">
-            <div class="gf-big">٩ دول</div>
+            <div class="gf-big">١٤ دولة</div>
             <div class="gf-lbl">يحضر فيها التنفيذ الميداني</div>
             <div class="gf-row"><span>أعلى تركّز</span><b>بنجلاديش ٢٤ مشروعاً</b></div>
             <div class="gf-row"><span>أقل حضور</span><b>غانا · مصر · اليمن</b></div>
@@ -785,9 +786,9 @@ body.light .strip{background:rgba(20,30,46,.02)}
       </div>
     </div>
     <div class="row r-4">
-      <div class="card amini reveal"><div class="av gold" data-count="15">0</div><div class="al">دولة مستهدفة</div><div class="ah">نطاق الحضور الكلي</div></div>
-      <div class="card amini reveal"><div class="av cy" data-count="124">0</div><div class="al">مدينة</div><div class="ah">عمق التغطية</div></div>
-      <div class="card amini reveal"><div class="av vi" data-count="41">0</div><div class="al">شريك نجاح</div><div class="ah">شبكة التنفيذ</div></div>
+      <div class="card amini reveal"><div class="av gold" data-count="14">0</div><div class="al">دولة مستهدفة</div><div class="ah">نطاق الحضور الكلي</div></div>
+      <div class="card amini reveal"><div class="av cy" data-count="122">0</div><div class="al">مدينة</div><div class="ah">عمق التغطية</div></div>
+      <div class="card amini reveal"><div class="av vi" data-count="40">0</div><div class="al">شريك نجاح</div><div class="ah">شبكة التنفيذ</div></div>
       <div class="card amini reveal"><div class="av gr">٤ قارات</div><div class="al">آسيا · إفريقيا · الجزيرة العربية</div><div class="ah">امتداد دولي</div></div>
     </div>
   </section>
@@ -810,9 +811,9 @@ body.light .strip{background:rgba(20,30,46,.02)}
       </div>
     </div>
     <div class="row r-4">
-      <div class="card amini reveal"><div class="av gold" data-count="547">0</div><div class="al">يوم تدريبي</div></div>
-      <div class="card amini reveal"><div class="av cy" data-count="3832">0</div><div class="al">ساعة تدريبية</div></div>
-      <div class="card amini reveal"><div class="av vi" data-count="958">0</div><div class="al">مدرّب</div></div>
+      <div class="card amini reveal"><div class="av gold" data-count="583">0</div><div class="al">يوم تدريبي</div></div>
+      <div class="card amini reveal"><div class="av cy" data-count="4120">0</div><div class="al">ساعة تدريبية</div></div>
+      <div class="card amini reveal"><div class="av vi" data-count="1030">0</div><div class="al">مدرّب</div></div>
       <div class="card amini reveal"><div class="av gr">9.15M</div><div class="al">ريال · التكلفة المعتمدة</div></div>
     </div>
   </section>
@@ -827,7 +828,7 @@ body.light .strip{background:rgba(20,30,46,.02)}
         <div class="funnel">
           <div class="fn f1"><span>المستهدف المخطّط<small> · أفراد</small></span><span class="fv">12,085</span></div>
           <div class="fn f2"><span>المتحقق المباشر<small> · أفراد</small></span><span class="fv">2,538</span></div>
-          <div class="fn f3"><span>الاستفادة بالتكرار<small> · حالات</small></span><span class="fv">29,048</span></div>
+          <div class="fn f3"><span>الاستفادة بالتكرار<small> · حالات</small></span><span class="fv">32,420</span></div>
         </div>
       </div>
       <div class="card reveal" style="display:grid;place-items:center">
@@ -848,10 +849,10 @@ body.light .strip{background:rgba(20,30,46,.02)}
     </div>
 
     <div class="row r-4">
-      <div class="card amini reveal"><div class="av gold">3,605</div><div class="al">ريال / مستفيد مباشر</div><div class="ah">التكلفة ÷ المتحقق</div></div>
-      <div class="card amini reveal"><div class="av cy">315</div><div class="al">ريال / استفادة متكررة</div><div class="ah">كفاءة عالية بالتكرار</div></div>
+      <div class="card amini reveal"><div class="av gold">3,234</div><div class="al">ريال / مستفيد مباشر</div><div class="ah">التكلفة ÷ المتحقق</div></div>
+      <div class="card amini reveal"><div class="av cy">281</div><div class="al">ريال / استفادة متكررة</div><div class="ah">كفاءة عالية بالتكرار</div></div>
       <div class="card amini reveal"><div class="av vi">21.5K</div><div class="al">ريال / مشروع</div><div class="ah">متوسط تكلفة المشروع</div></div>
-      <div class="card amini reveal"><div class="av rs">3.9%</div><div class="al">نسبة الإناث</div><div class="ah">فجوة تمثيل واضحة</div></div>
+      <div class="card amini reveal"><div class="av rs">3.5%</div><div class="al">نسبة الإناث</div><div class="ah">فجوة تمثيل واضحة</div></div>
     </div>
 
     <div class="row r-3">
@@ -862,11 +863,11 @@ body.light .strip{background:rgba(20,30,46,.02)}
       <div class="card reveal">
         <div class="insight warn">
           <div class="h"><span>⚠️</span><b>فجوة التمثيل النسائي</b></div>
-          <p>الإناث <b>٣٫٩٪</b> فقط — ومع ذلك كان أعلى مشروع حضوراً (مصر · ٨٠ مستفيدة، ٢٠٠٪) نسائياً بالكامل؛ دليل على فرصة نمو مباشرة.</p>
+          <p>الإناث <b>٣٫٥٪</b> فقط — ومع ذلك كان أعلى مشروع حضوراً (مصر · ٨٠ مستفيدة، ٢٠٠٪) نسائياً بالكامل؛ دليل على فرصة نمو مباشرة.</p>
         </div>
         <div class="insight gold" style="margin-top:14px">
           <div class="h"><span>📅</span><b>الإنجاز مرحَّل للربع الرابع</b></div>
-          <p>٥٧٪ من المشاريع «لم تبدأ» معظمها منتجات مساندة (تأليف ومناهج) مجدولة للربع الرابع — والفجوة في المستفيدين ستنغلق مع موجة التنفيذ القادمة.</p>
+          <p>غالبية المشاريع «لم تبدأ» بعدُ، ومعظمها منتجات مساندة (تأليف ومناهج) مجدولة للربع الرابع — والفجوة في المستفيدين ستنغلق مع موجة التنفيذ القادمة.</p>
         </div>
       </div>
     </div>
@@ -925,61 +926,66 @@ const fmt=n=>n.toLocaleString('en-US');
 
 /* ---------- data (مستخرجة من ملف عامة المشاريع) ---------- */
 const statusData=[
-  {label:'تم التنفيذ', value:178, color:'#3ddc84'},
-  {label:'لم يبدأ', value:241, color:'#ff6b7a'},
+  {label:'تم التنفيذ', value:184, color:'#3ddc84'},
+  {label:'لم يبدأ', value:196, color:'#ff6b7a'},
   {label:'قيد التنفيذ', value:6, color:'#ffc861'},
 ];
 const programs=[
-  {name:'برنامج الأترجة', count:22, target:880, done:937},
-  {name:'برنامج بصيرة',   count:10, target:400, done:433},
-  {name:'الكليات الجامعية',count:4, target:88,  done:88},
-  {name:'نمذجة المدارس',  count:3,  target:47,  done:22},
-  {name:'برنامج سفير',    count:2,  target:90,  done:86},
-  {name:'دورات المهارات', count:1,  target:40,  done:36},
+  {name:'تأهيل العاملين',       count:123, target:4880, done:1750},
+  {name:'إعداد الأئمة والخطباء', count:108, target:4480, done:934},
+  {name:'نمذجة المدارس',        count:23,  target:342,  done:32},
+  {name:'تأهيل القيادات',       count:14,  target:580,  done:14},
+  {name:'البرامج المستقلة',     count:13,  target:150,  done:0},
+  {name:'إعداد المناهج',        count:12,  target:0,    done:0},
 ];
 const top10=[
-  {nm:'برنامج الأترجة', lc:'مصر · القاهرة', v:80, t:40, f:true},
-  {nm:'برنامج بصيرة',   lc:'السنغال',        v:64, t:40},
-  {nm:'برنامج سفير',    lc:'إندونيسيا · بانتين', v:60, t:60},
-  {nm:'برنامج بصيرة',   lc:'السنغال',        v:56, t:40},
-  {nm:'برنامج الأترجة', lc:'السنغال',        v:55, t:40},
-  {nm:'برنامج الأترجة', lc:'ميانمار · بالوخالي', v:54, t:40},
-  {nm:'برنامج الأترجة', lc:'نيجيريا',         v:48, t:40},
-  {nm:'برنامج الأترجة', lc:'بنجلاديش · باريسال', v:47, t:40},
-  {nm:'برنامج بصيرة',   lc:'ميانمار · مخيم زادي', v:47, t:40},
-  {nm:'برنامج الأترجة', lc:'ميانمار · محسني', v:45, t:40},
+  {nm:'تأهيل العاملين',       lc:'مصر · القاهرة',      v:80, t:40, f:true},
+  {nm:'إعداد الأئمة والخطباء', lc:'إثيوبيا · سداما',    v:70, t:50},
+  {nm:'إعداد الأئمة والخطباء', lc:'السنغال',            v:64, t:40},
+  {nm:'تأهيل العاملين',       lc:'إندونيسيا · بانتين',  v:60, t:60},
+  {nm:'إعداد الأئمة والخطباء', lc:'السنغال',            v:56, t:40},
+  {nm:'تأهيل العاملين',       lc:'السنغال',            v:55, t:40},
+  {nm:'تأهيل العاملين',       lc:'ميانمار · بالو خالي', v:54, t:40},
+  {nm:'تأهيل العاملين',       lc:'نيجيريا',            v:48, t:40},
+  {nm:'تأهيل العاملين',       lc:'بنجلاديش · باريسال',  v:47, t:40},
+  {nm:'إعداد الأئمة والخطباء', lc:'ميانمار · مخيم زادي', v:47, t:40},
 ];
 const countries=[
-  {name:'بنجلاديش', value:24, pct:57.1, x:735, y:235, tier:'gold'},
-  {name:'السنغال',  value:4,  pct:9.5,  x:455, y:248, tier:'cyan'},
-  {name:'إندونيسيا',value:4,  pct:9.5,  x:790, y:300, tier:'cyan'},
-  {name:'ميانمار',  value:3,  pct:7.1,  x:752, y:240, tier:'cyan'},
-  {name:'السعودية', value:2,  pct:4.8,  x:585, y:225, tier:'cyan'},
-  {name:'نيجيريا',  value:2,  pct:4.8,  x:505, y:262, tier:'cyan'},
-  {name:'غانا',     value:1,  pct:2.4,  x:485, y:268, tier:'violet'},
-  {name:'اليمن',    value:1,  pct:2.4,  x:600, y:248, tier:'violet'},
-  {name:'مصر',      value:1,  pct:2.4,  x:578, y:205, tier:'violet'},
+  {name:'بنجلاديش', value:146, pct:37.8, tier:'gold'},
+  {name:'السعودية', value:107, pct:27.7, tier:'gold'},
+  {name:'إثيوبيا',  value:59,  pct:15.3, tier:'gold'},
+  {name:'إندونيسيا',value:31,  pct:8.0,  tier:'cyan'},
+  {name:'اليمن',    value:15,  pct:3.9,  tier:'cyan'},
+  {name:'الهند',    value:6,   pct:1.6,  tier:'cyan'},
+  {name:'غانا',     value:5,   pct:1.3,  tier:'violet'},
+  {name:'السنغال',  value:4,   pct:1.0,  tier:'violet'},
+  {name:'أوغندا',   value:4,   pct:1.0,  tier:'violet'},
+  {name:'ميانمار',  value:3,   pct:0.8,  tier:'violet'},
+  {name:'نيجيريا',  value:2,   pct:0.5,  tier:'violet'},
+  {name:'مصر',      value:1,   pct:0.3,  tier:'violet'},
 ];
 const tierColor={gold:'#f1d99a',cyan:'#46e3d0',violet:'#8b7bff'};
 const goals=[
-  {name:'تأهيل الأئمة والخطباء', value:38, cls:''},
-  {name:'الاستدامة والتمكين', value:35, cls:'cy'},
-  {name:'تمكين التعليم المعاصر', value:9, cls:'vi'},
-  {name:'سدّ حاجة الأمة من العلماء', value:3, cls:''},
+  {name:'تأهيل الأئمة والخطباء', value:63, cls:''},
+  {name:'الاستدامة والتمكين', value:23, cls:'cy'},
+  {name:'تمكين التعليم المعاصر', value:8, cls:'vi'},
+  {name:'تأهيل قيادات العمل الخيري', value:5, cls:'gr'},
+  {name:'سدّ حاجة الأمة من العلماء', value:1, cls:''},
 ];
 const types=[
-  {name:'منتجات مساندة', value:43, cls:'vi'},
-  {name:'تدريب ميداني', value:34, cls:''},
-  {name:'تعليم جامعي', value:5, cls:'cy'},
-  {name:'نمذجة المدارس', value:3, cls:'cy'},
+  {name:'تدريب', value:64, cls:''},
+  {name:'مشاريع مساندة', value:31, cls:'vi'},
+  {name:'تعليم عام', value:2, cls:'cy'},
+  {name:'تعليم جامعي', value:2, cls:'cy'},
+  {name:'توعية', value:1, cls:'gr'},
 ];
 const angles=[
-  {name:'جودة التنفيذ الميداني', value:96, cls:'', tip:'البرامج المنفّذة استقبلت ١٬٦٠٢ مستفيداً مقابل ١٬٥٤٥ مخطّطاً (١٠٤٪) — الحضور الفعلي فاق المستهدف.'},
-  {name:'عمق الأثر (التكرار)', value:92, cls:'cy', tip:'كل مستفيد مباشر يتكرّر أثره ١١٫٤ مرّة في المتوسط، ليصل إجمالي الاستفادة إلى ٢٩٬٠٤٨ حالة.'},
-  {name:'كفاءة التكلفة', value:88, cls:'', tip:'٣٬٦٠٥ ريال لكل مستفيد مباشر، وتنخفض إلى ٣١٥ ريالاً لكل استفادة متكرّرة — كفاءة عالية على المدى.'},
-  {name:'اتساع الانتشار', value:70, cls:'vi', tip:'حضور في ٩ دول مؤكّدة عبر ٤ قارّات، ضمن مستهدف كلي ١٥ دولة — مساحة جيدة وقابلة للتوسّع.'},
-  {name:'انتظام الجدول الزمني', value:42, cls:'vi', tip:'٤٢٪ فقط منجز حتى الآن؛ ٥٧٪ «لم يبدأ» معظمه منتجات مساندة مجدولة للربع الرابع.'},
-  {name:'توازن التمثيل النوعي', value:18, cls:'rs', tip:'الإناث ٣٫٩٪ فقط من المستفيدين — أضعف الزوايا، ويمثّل فرصة نمو مباشرة عبر مسارات نسائية.'},
+  {name:'جودة التنفيذ الميداني', value:96, cls:'', tip:'الحضور الفعلي في البرامج المنفّذة فاق المستهدف المخطّط، بنسبة تحقّق تجاوزت ١٠٠٪.'},
+  {name:'عمق الأثر (التكرار)', value:92, cls:'cy', tip:'كل مستفيد مباشر يتكرّر أثره ١١٫٥ مرّة في المتوسط، ليصل إجمالي الاستفادة إلى ٣٢٬٤٢٠ حالة.'},
+  {name:'كفاءة التكلفة', value:88, cls:'', tip:'٣٬٢٣٤ ريال لكل مستفيد مباشر، وتنخفض إلى ٢٨١ ريالاً لكل استفادة متكرّرة — كفاءة عالية على المدى.'},
+  {name:'اتساع الانتشار', value:82, cls:'vi', tip:'حضور في ١٤ دولة عبر ٤ قارّات و١٢٢ مدينة — مساحة واسعة وقابلة للتوسّع.'},
+  {name:'انتظام الجدول الزمني', value:48, cls:'vi', tip:'٤٨٪ منجز حتى الآن؛ الباقي «لم يبدأ» معظمه منتجات مساندة مجدولة للربع الرابع.'},
+  {name:'توازن التمثيل النوعي', value:16, cls:'rs', tip:'الإناث ٣٫٥٪ فقط من المستفيدين — أضعف الزوايا، ويمثّل فرصة نمو مباشرة عبر مسارات نسائية.'},
 ];
 
 /* ---------- SVG donut ---------- */
@@ -1280,12 +1286,12 @@ function showThemeToast(msg){
 /* ---------- init ---------- */
 svgDonut(document.getElementById('statusDonut'),statusData,200);
 legend(document.getElementById('statusLegend'),statusData,'مشروع');
-setRing('ringExec',41.9,['#d8b76a','#a9863f']);
-setRing('ringBen2',21,['#46e3d0','#2bb6c9']);
-setRing('ringGeo',57,['#d8b76a','#a9863f']);
+setRing('ringExec',47.7,['#d8b76a','#a9863f']);
+setRing('ringBen2',26.8,['#46e3d0','#2bb6c9']);
+setRing('ringGeo',38,['#d8b76a','#a9863f']);
 setGauge('gaugeField',100,['#3ddc84','#27a35e']);
-setGauge('gaugeBen',21,['#46e3d0','#2bb6c9']);
-setGauge('gaugeTime',42,['#f1d99a','#d8b76a']);
+setGauge('gaugeBen',26.8,['#46e3d0','#2bb6c9']);
+setGauge('gaugeTime',47.7,['#f1d99a','#d8b76a']);
 buildTopPrograms();
 buildProgRates();
 buildTop10();
