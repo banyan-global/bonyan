@@ -3977,6 +3977,12 @@ html.rp-lock, body.rp-lock{ overflow:hidden !important; }
 /* ظهور متدرج */
 #rp-imm .rv{ opacity:0; transform:translateY(22px); animation:im-in .9s var(--ez) forwards; }
 @keyframes im-in{ to{ opacity:1; transform:none } }
+/* شبكة أمان: بعد استقرار المشهد — أو عند تعطيل الحركة في الجهاز — تظهر العناصر مهما حدث */
+#rp-imm.settled .rv{ opacity:1 !important; transform:none !important; animation:none !important; }
+@media (prefers-reduced-motion:reduce){
+  #rp-imm .rv{ opacity:1 !important; transform:none !important; animation:none !important; }
+  #rp-imm .im-dust{ display:none; }
+}
 
 /* ======================= مشهد الكيان: المحفظة المؤسسية ======================= */
 .ent-hero{ display:grid; grid-template-columns:auto 1fr; gap:38px; align-items:center; padding:36px 0 26px; }
@@ -5029,19 +5035,25 @@ function imShell(gc, crumb, body){
       '<button class="ibtn" data-im="close" title="إغلاق" aria-label="إغلاق"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>' +
     '</div>' + body + '</div>';
 }
+var IM_SETTLE = null;
 function imShow(gc){
   var el = immEl();
   el.style.setProperty('--gc', gc || 'var(--gold)');
   el.scrollTop = 0;
   L.classList.add('im-lock');
+  el.classList.remove('settled');
   el.classList.add('on');
   requestAnimationFrame(function(){ requestAnimationFrame(function(){ el.classList.add('in'); }); });
+  clearTimeout(IM_SETTLE);
+  if (RED) el.classList.add('settled');
+  else IM_SETTLE = setTimeout(function(){ el.classList.add('settled'); }, 1400);
 }
 function imClose(){
   if (!IMM) return;
   IMM.classList.remove('in');
   if (IM_TIP) IM_TIP.hidden = true;
-  setTimeout(function(){ IMM.classList.remove('on'); IMM.innerHTML=''; L.classList.remove('im-lock'); IM_STATE = null; }, 420);
+  clearTimeout(IM_SETTLE);
+  setTimeout(function(){ IMM.classList.remove('on','settled'); IMM.innerHTML=''; L.classList.remove('im-lock'); IM_STATE = null; }, 420);
 }
 
 /* ---------- أدوات هندسية ---------- */
