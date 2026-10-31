@@ -3062,7 +3062,7 @@ html.rp-lock, body.rp-lock{ overflow:hidden !important; }
   padding:7px 16px; border-radius:999px; border:1px solid var(--line); background:rgba(227,196,133,.07); }
 .rp-badge i{ width:7px; height:7px; border-radius:50%; background:var(--gold); animation:rp-live 2.4s infinite; }
 @keyframes rp-live{ 0%{box-shadow:0 0 0 0 rgba(227,196,133,.5)} 70%,100%{box-shadow:0 0 0 7px rgba(227,196,133,0)} }
-#rp-layer h1{ font-weight:900; font-size:clamp(40px,8.6vw,100px); line-height:1.24; margin:18px 0 0; padding-bottom:.06em;
+#rp-layer h1{ font-weight:900; font-size:clamp(34px,6.6vw,76px); line-height:1.24; margin:18px 0 0; padding-bottom:.06em;
   letter-spacing:-1.5px;
   background:linear-gradient(170deg,#fff,var(--gold-2) 44%,var(--gold));
   -webkit-background-clip:text; background-clip:text; color:transparent;
@@ -3547,6 +3547,583 @@ html.rp-lock, body.rp-lock{ overflow:hidden !important; }
   #rp-layer *{ animation:none !important; transition:none !important }
   .rp-rv{ opacity:1; transform:none }
 }
+
+/* ======================= غلاف الكيان ======================= */
+#rp-hero{ text-align:center; padding:38px 0 18px; display:flex; flex-direction:column; align-items:center; }
+.rp-lock{ display:flex; align-items:flex-end; justify-content:center; gap:clamp(12px,2.6vw,26px); margin-bottom:clamp(14px,2vw,22px); }
+.rp-lk{ display:block; cursor:pointer; padding:0; border:0; background:none; transition:transform .35s var(--ez); }
+.rp-lk .plate{ display:grid; place-items:center; width:clamp(132px,17vw,208px); height:clamp(74px,9.4vw,110px);
+  padding:13px 16px; border-radius:19px; background:#fff;
+  box-shadow:0 16px 38px rgba(6,14,28,.42), 0 0 0 1px rgba(227,196,133,.26), inset 0 -1px 0 rgba(20,40,70,.06);
+  transition:box-shadow .35s var(--ez); }
+#rp-layer.light .rp-lk .plate{ box-shadow:0 12px 30px rgba(40,60,90,.14), 0 0 0 1px rgba(169,134,63,.2); }
+.rp-lk img{ max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block; }
+.rp-lk:hover{ transform:translateY(-6px); }
+.rp-lk:hover .plate{ box-shadow:0 24px 52px rgba(6,14,28,.5), 0 0 0 1px rgba(227,196,133,.6), 0 0 34px rgba(227,196,133,.3); }
+.rp-lk.mid{ transform:translateY(-20px); }
+.rp-lk.mid:hover{ transform:translateY(-26px); }
+.rp-lk.mid .plate{ width:clamp(152px,20vw,242px); height:clamp(86px,11vw,128px); }
+
+.rp-orbwrap{ position:relative; display:grid; place-items:center; margin:14px 0 16px; isolation:isolate; }
+.rp-orb{ position:relative; z-index:1; width:clamp(128px,17vw,178px); aspect-ratio:1; border-radius:50%; cursor:pointer;
+  display:grid; place-items:center; border:1.5px solid rgba(243,220,166,.75);
+  background:
+    radial-gradient(circle at 50% 30%, rgba(243,220,166,.42), rgba(227,196,133,.12) 44%, rgba(29,52,86,.95) 70%, rgba(22,41,66,.98));
+  box-shadow:
+    0 0 0 1px rgba(243,220,166,.3),
+    0 0 26px rgba(243,220,166,.55),
+    0 0 72px rgba(227,196,133,.45),
+    0 0 130px rgba(227,196,133,.28),
+    0 26px 64px rgba(6,14,28,.6),
+    inset 0 2px 10px rgba(255,255,255,.3),
+    inset 0 -14px 34px rgba(6,14,28,.5);
+  transition:transform .45s var(--ez), box-shadow .45s var(--ez); }
+/* الشعار أبيض، فتبقى الكرة كحلية في الوضع النهاري ليظهر عليها */
+#rp-layer.light .rp-orb{ border-color:rgba(181,146,63,.6);
+  background:radial-gradient(circle at 50% 30%, #2b4874, #1c3354 58%, #122440);
+  box-shadow:0 0 0 1px rgba(181,146,63,.3), 0 0 28px rgba(181,146,63,.34), 0 0 80px rgba(181,146,63,.22),
+             0 20px 48px rgba(40,60,90,.26), inset 0 2px 10px rgba(255,255,255,.18); }
+#rp-layer.light .rp-orb:hover{ box-shadow:0 0 0 1.5px rgba(181,146,63,.5), 0 0 44px rgba(181,146,63,.5),
+  0 0 120px rgba(181,146,63,.3), 0 26px 56px rgba(40,60,90,.3), inset 0 2px 10px rgba(255,255,255,.22); }
+#rp-layer.light .rp-orb::before,#rp-layer.light .rp-orb::after{ border-color:rgba(181,146,63,.4); }
+#rp-layer.light .rp-orbwrap .halo{ background:radial-gradient(circle, rgba(181,146,63,.14), transparent 62%); }
+.rp-orb:hover{ transform:scale(1.055);
+  box-shadow:0 0 0 1.5px rgba(243,220,166,.55), 0 0 40px rgba(243,220,166,.8), 0 0 110px rgba(227,196,133,.6),
+             0 0 190px rgba(227,196,133,.36), 0 30px 72px rgba(6,14,28,.66),
+             inset 0 2px 12px rgba(255,255,255,.4), inset 0 -14px 34px rgba(6,14,28,.45); }
+.rp-orb img{ width:64%; height:auto; object-fit:contain; display:block; position:relative; z-index:2;
+  filter:drop-shadow(0 6px 16px rgba(0,0,0,.45)); }
+
+.rp-orb::before,.rp-orb::after{ content:""; position:absolute; inset:-12px; border-radius:50%; pointer-events:none;
+  border:1.5px solid rgba(243,220,166,.5); animation:rp-pulse 3.6s ease-out infinite; }
+.rp-orb::after{ animation-delay:1.8s; }
+@keyframes rp-pulse{ 0%{ transform:scale(.96); opacity:.75 } 100%{ transform:scale(1.3); opacity:0 } }
+.rp-orbwrap .halo{ position:absolute; width:290%; aspect-ratio:1; border-radius:50%; pointer-events:none; z-index:0;
+  background:radial-gradient(circle, rgba(243,220,166,.2), rgba(227,196,133,.08) 34%, transparent 64%);
+  animation:rp-breathe 7s ease-in-out infinite alternate; }
+.rp-orbcta{ margin-top:14px; display:inline-flex; align-items:center; gap:8px; font:700 12.5px var(--font-body);
+  color:var(--gold-2); padding:8px 17px; border-radius:999px; border:1px solid var(--line);
+  background:rgba(227,196,133,.08); cursor:pointer; transition:.3s var(--ez); }
+.rp-orbcta:hover{ background:rgba(227,196,133,.17); transform:translateY(-2px); }
+.rp-orbcta svg{ width:14px; height:14px; }
+
+.rp-cue{ margin-top:24px; display:flex; flex-direction:column; align-items:center; gap:7px;
+  font:700 11.5px var(--font-body); color:var(--txt-3); }
+.rp-cue i{ display:block; width:1px; height:34px; background:linear-gradient(180deg,var(--gold),transparent);
+  animation:rp-cue 2.2s ease-in-out infinite; }
+@keyframes rp-cue{ 0%,100%{ opacity:.35; transform:scaleY(.7) } 50%{ opacity:1; transform:scaleY(1) } }
+
+/* ======================= الغايات الخمس ======================= */
+.rp-gcards{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.rp-gc{ position:relative; overflow:hidden; cursor:pointer; padding:26px 24px 24px; min-height:238px;
+  display:flex; flex-direction:column; isolation:isolate; }
+.rp-gc:nth-child(1),.rp-gc:nth-child(2){ grid-column:span 3; }
+.rp-gc:nth-child(1){ grid-column:span 3; }
+.rp-gcards.five .rp-gc:nth-child(1){ grid-column:span 2; }
+.rp-gcards.five .rp-gc:nth-child(2){ grid-column:span 1; }
+.rp-gc::before{ content:""; position:absolute; inset:0; z-index:-1; pointer-events:none; transition:opacity .45s var(--ez); opacity:.55;
+  background:radial-gradient(130% 100% at 88% -18%, color-mix(in srgb, var(--gc) 26%, transparent), transparent 62%); }
+.rp-gc:hover::before{ opacity:1; }
+.rp-gc:hover{ transform:translateY(-6px); border-color:var(--line); box-shadow:var(--sh-lift), inset 0 1px 0 var(--hi); }
+.rp-gc .num{ font:900 13px var(--font-display); color:#162942; width:34px; height:34px; border-radius:11px;
+  display:grid; place-items:center; direction:ltr; margin-bottom:14px;
+  background:linear-gradient(140deg, color-mix(in srgb, var(--gc) 92%, #fff), var(--gc));
+  box-shadow:0 8px 20px color-mix(in srgb, var(--gc) 32%, transparent); }
+.rp-gc h3{ font:900 clamp(17px,2.1vw,22px) var(--font-display); line-height:1.42; margin-bottom:10px; }
+.rp-gc p{ font-size:13px; color:var(--txt-2); line-height:1.78; flex:1;
+  display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.rp-gc .ft{ display:flex; align-items:center; gap:14px; margin-top:18px; padding-top:15px; border-top:1px solid var(--line-soft); }
+.rp-gc .ft .pr{ flex:1; }
+.rp-gc .ft .tk{ height:6px; border-radius:6px; background:var(--track); overflow:hidden; }
+.rp-gc .ft .tk i{ display:block; height:100%; border-radius:6px; width:0; transition:width 1.2s var(--ez);
+  background:linear-gradient(90deg, color-mix(in srgb, var(--gc) 55%, #000 10%), var(--gc));
+  box-shadow:0 0 14px color-mix(in srgb, var(--gc) 50%, transparent); }
+.rp-gc .ft .lb{ font:700 11px var(--font-body); color:var(--txt-3); margin-top:6px; display:block; }
+.rp-gc .ft .pct{ font:900 26px var(--font-display); color:var(--gc); direction:ltr; line-height:1; letter-spacing:-1px; }
+.rp-gc .go{ position:absolute; inset-inline-end:22px; top:26px; width:30px; height:30px; border-radius:50%;
+  display:grid; place-items:center; color:var(--gc); border:1px solid var(--line-soft);
+  transition:.3s var(--ez); opacity:.6; }
+.rp-gc:hover .go{ opacity:1; border-color:var(--line); background:rgba(227,196,133,.12); transform:translateX(-4px); }
+.rp-gc .go svg{ width:14px; height:14px; }
+
+/* ======================= الألواح المنزلقة ======================= */
+.rp-sheet{ position:fixed; inset:0; z-index:500; display:none; }
+.rp-sheet.on{ display:block; }
+.rp-sheet .scrim{ position:absolute; inset:0; background:rgba(6,14,28,.68); -webkit-backdrop-filter:blur(7px); backdrop-filter:blur(7px);
+  opacity:0; transition:opacity .4s var(--ez); }
+#rp-layer.light .rp-sheet .scrim{ background:rgba(40,60,90,.3); }
+.rp-sheet.in .scrim{ opacity:1; }
+.rp-sheet .pane{ position:absolute; inset-block:0; inset-inline-end:0; width:min(760px,100%);
+  background:linear-gradient(170deg,var(--bg1),var(--bg0) 60%); border-inline-start:1px solid var(--line);
+  box-shadow:-30px 0 80px rgba(6,14,28,.6); display:flex; flex-direction:column;
+  transform:translateX(-100%); transition:transform .5s var(--ez); }
+#rp-layer:not(.light) .rp-sheet .pane{ box-shadow:-30px 0 80px rgba(6,14,28,.6); }
+.rp-sheet.in .pane{ transform:none; }
+.rp-sheet .ph{ display:flex; align-items:center; gap:12px; padding:16px 22px; flex:none;
+  border-bottom:1px solid var(--line-soft); background:linear-gradient(180deg,rgba(227,196,133,.07),transparent); }
+.rp-sheet .ph .ttl{ flex:1; min-width:0; }
+.rp-sheet .ph .eb{ font:700 11px var(--font-body); color:var(--txt-3); display:block; }
+.rp-sheet .ph h3{ font:900 clamp(16px,2.2vw,21px) var(--font-display); color:var(--gold-2); line-height:1.4;
+  overflow:hidden; text-overflow:ellipsis; }
+.rp-sheet .pb{ flex:1; overflow-y:auto; padding:22px; -webkit-overflow-scrolling:touch; }
+.rp-sheet .pb::-webkit-scrollbar{ width:6px } .rp-sheet .pb::-webkit-scrollbar-thumb{ background:var(--line); border-radius:9px }
+
+.rp-blk{ margin-bottom:22px; }
+.rp-blk > h4{ font:800 13px var(--font-display); color:var(--txt-2); margin-bottom:11px;
+  display:flex; align-items:center; gap:9px; }
+.rp-blk > h4::before{ content:""; width:4px; height:14px; border-radius:3px; background:var(--gold); flex:none; }
+.rp-lead2{ font-size:14.5px; color:var(--txt-2); line-height:1.95; }
+.rp-kv{ display:grid; grid-template-columns:repeat(auto-fit,minmax(118px,1fr)); gap:10px; }
+.rp-kv div{ padding:13px 11px; border-radius:14px; text-align:center;
+  background:rgba(255,255,255,.045); border:1px solid var(--line-soft); }
+#rp-layer.light .rp-kv div{ background:rgba(20,40,70,.035); }
+.rp-kv b{ display:block; font:900 22px var(--font-display); color:var(--gold-2); direction:ltr; line-height:1.1; }
+.rp-kv span{ font-size:11px; color:var(--txt-3); font-weight:700; }
+.rp-bul{ display:grid; gap:8px; }
+.rp-bul div{ position:relative; padding:10px 32px 10px 14px; border-radius:12px; font-size:13px; color:var(--txt-2);
+  line-height:1.7; background:rgba(255,255,255,.035); border:1px solid var(--line-soft); }
+#rp-layer.light .rp-bul div{ background:rgba(20,40,70,.03); }
+.rp-bul div::before{ content:""; position:absolute; inset-inline-start:14px; top:19px; width:6px; height:6px; border-radius:50%;
+  background:var(--gold); opacity:.8; }
+.rp-pill{ display:flex; flex-wrap:wrap; gap:8px; }
+.rp-pill span,.rp-pill button{ font:700 12px var(--font-body); padding:8px 14px; border-radius:999px;
+  border:1px solid var(--line-soft); background:rgba(255,255,255,.04); color:var(--txt-2); }
+#rp-layer.light .rp-pill span,#rp-layer.light .rp-pill button{ background:rgba(20,40,70,.03); }
+.rp-pill button{ cursor:pointer; transition:.25s var(--ez); display:inline-flex; align-items:center; gap:9px; }
+.rp-pill button:hover{ border-color:var(--line); background:rgba(227,196,133,.1); color:var(--txt); transform:translateY(-2px); }
+.rp-pill button em{ font-style:normal; font-family:var(--font-display); font-weight:800; font-size:11px; direction:ltr;
+  color:#162942; background:linear-gradient(140deg,var(--gold-2),var(--gold-deep)); padding:3px 8px; border-radius:999px; }
+#rp-layer.light .rp-pill button em{ color:#fff; }
+
+.rp-rows{ display:grid; gap:7px; }
+.rp-row{ display:grid; grid-template-columns:1fr auto; gap:12px; align-items:center; padding:12px 14px;
+  border-radius:13px; cursor:pointer; border:1px solid var(--line-soft); background:rgba(255,255,255,.032);
+  transition:.22s var(--ez); text-align:start; }
+#rp-layer.light .rp-row{ background:rgba(20,40,70,.028); }
+.rp-row:hover{ border-color:var(--line); background:rgba(227,196,133,.08); transform:translateX(-3px); }
+.rp-row .nm{ font-size:13px; font-weight:700; color:var(--txt); line-height:1.45; }
+.rp-row .sub{ font-size:11.5px; color:var(--txt-3); font-weight:600; margin-top:4px; }
+.rp-row .st{ font:700 10.5px var(--font-body); padding:4px 10px; border-radius:999px; white-space:nowrap; flex:none; }
+.st-done{ color:#5fe0a0; background:rgba(95,224,160,.13); border:1px solid rgba(95,224,160,.3); }
+.st-run{ color:#ffd27a; background:rgba(255,210,122,.13); border:1px solid rgba(255,210,122,.3); }
+.st-no{ color:#8ba0bb; background:rgba(139,160,187,.12); border:1px solid rgba(139,160,187,.25); }
+#rp-layer.light .st-done{ color:#198d4c } #rp-layer.light .st-run{ color:#a9760a } #rp-layer.light .st-no{ color:#5f7286 }
+
+.rp-tbl{ display:grid; gap:1px; border-radius:14px; overflow:hidden; border:1px solid var(--line-soft); }
+.rp-tbl div{ display:grid; grid-template-columns:132px 1fr; gap:12px; padding:11px 15px;
+  background:rgba(255,255,255,.035); font-size:12.5px; }
+#rp-layer.light .rp-tbl div{ background:rgba(20,40,70,.028); }
+.rp-tbl i{ font-style:normal; color:var(--txt-3); font-weight:700; }
+.rp-tbl b{ color:var(--txt); font-weight:700; }
+.rp-units{ display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:10px; }
+.rp-unit{ padding:14px; border-radius:15px; cursor:pointer; text-align:start;
+  border:1px solid var(--line-soft); background:rgba(255,255,255,.035); transition:.25s var(--ez); }
+#rp-layer.light .rp-unit{ background:rgba(20,40,70,.03); }
+.rp-unit:hover{ border-color:var(--line); background:rgba(227,196,133,.09); transform:translateY(-3px); }
+.rp-unit b{ display:block; font:800 13px var(--font-display); color:var(--txt); line-height:1.4; }
+.rp-unit span{ display:block; margin-top:6px; font-size:11.5px; color:var(--txt-3); font-weight:700; direction:rtl; }
+.rp-unit span em{ font-style:normal; font-family:var(--font-display); color:var(--gold-2); font-weight:800; direction:ltr; }
+
+.rp-part{ display:grid; gap:12px; }
+.rp-pcard{ display:grid; grid-template-columns:86px 1fr; gap:16px; align-items:center; padding:16px;
+  border-radius:17px; border:1px solid var(--line-soft); background:rgba(255,255,255,.035); cursor:pointer;
+  transition:.25s var(--ez); text-align:start; }
+#rp-layer.light .rp-pcard{ background:rgba(20,40,70,.03); }
+.rp-pcard:hover{ border-color:var(--line); background:rgba(227,196,133,.08); transform:translateY(-3px); }
+.rp-pcard .lg{ width:86px; height:62px; display:grid; place-items:center; border-radius:13px;
+  background:rgba(255,255,255,.05); border:1px solid var(--line-soft); }
+#rp-layer.light .rp-pcard .lg{ background:linear-gradient(150deg,#1c3354,#0f1f37); border-color:rgba(227,196,133,.3); }
+.rp-pcard .lg img{ max-width:76%; max-height:76%; object-fit:contain; display:block; }
+.rp-pcard b{ display:block; font:900 15px var(--font-display); color:var(--gold-2); }
+.rp-pcard p{ margin-top:6px; font-size:12.5px; color:var(--txt-2); line-height:1.7;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+
+.rp-div{ text-align:center; padding:66px 0 6px; }
+.rp-div .eb{ display:inline-flex; align-items:center; gap:9px; font:700 12px var(--font-body); color:var(--gold-2);
+  padding:7px 17px; border-radius:999px; border:1px solid var(--line); background:rgba(227,196,133,.07); }
+.rp-div h2{ font-weight:900; font-size:clamp(32px,6.4vw,70px); line-height:1.28; letter-spacing:-1.4px; margin:16px 0 0;
+  background:linear-gradient(170deg,#fff,var(--gold-2) 46%,var(--gold));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  filter:drop-shadow(0 16px 40px rgba(227,196,133,.16)); }
+#rp-layer.light .rp-div h2{ background:linear-gradient(170deg,#15233c,var(--gold-2) 55%,var(--gold-deep));
+  -webkit-background-clip:text; background-clip:text; filter:none; }
+.rp-div .rp-lead{ margin:14px auto 0; }
+
+@media(max-width:900px){
+  .rp-gcards{ grid-template-columns:1fr }
+  .rp-gcards.five .rp-gc:nth-child(1),.rp-gcards.five .rp-gc:nth-child(2),.rp-gc{ grid-column:1/-1 }
+  .rp-gc{ min-height:0 }
+  .rp-gc p{ -webkit-line-clamp:4 }
+}
+@media(max-width:760px){
+  .rp-lock{ gap:8px; }
+  .rp-lk .plate{ width:27vw; height:16vw; min-height:52px; padding:8px 9px; border-radius:14px; }
+  .rp-lk.mid .plate{ width:30vw; height:18.5vw; min-height:60px; }
+  .rp-lk.mid{ transform:translateY(-10px) }
+  .rp-lk.mid:hover{ transform:translateY(-13px) }
+  .rp-sheet .pane{ width:100%; border-inline-start:0 }
+  .rp-sheet .pb{ padding:16px }
+  .rp-tbl div{ grid-template-columns:104px 1fr; gap:8px; font-size:12px }
+}
+
+#rp-layer.im-lock{ overflow:hidden !important; }
+
+/* ======================= المشهد الغامر: سينمائي · فاخر · حيوي ======================= */
+.rp-sheet{ z-index:640; }
+#rp-imm{ position:fixed; inset:0; z-index:560; display:none; overflow-y:auto; overflow-x:hidden; -webkit-overflow-scrolling:touch;
+  color:var(--txt); direction:rtl; background:#0d1b2e; isolation:isolate; }
+#rp-layer.light #rp-imm{ background:#eef2f8; }
+#rp-imm.on{ display:block; }
+#rp-imm.in .im-fade{ opacity:1; }
+/* طبقات الجو */
+#rp-imm .im-sky{ position:fixed; inset:0; z-index:0; pointer-events:none; opacity:0; transition:opacity 1s var(--ez);
+  background:
+    radial-gradient(1100px 700px at 78% -12%, color-mix(in srgb, var(--gc,#e3c485) 34%, transparent), transparent 60%),
+    radial-gradient(800px 600px at 8% 36%, color-mix(in srgb, var(--gc,#e3c485) 14%, transparent), transparent 62%),
+    radial-gradient(1000px 700px at 50% 112%, rgba(95,217,230,.10), transparent 60%),
+    linear-gradient(180deg,#132641,#0d1b2e 55%,#0a1626); }
+#rp-layer.light #rp-imm .im-sky{ background:
+    radial-gradient(1100px 700px at 78% -12%, color-mix(in srgb, var(--gc,#b5923f) 22%, transparent), transparent 60%),
+    radial-gradient(800px 600px at 8% 36%, color-mix(in srgb, var(--gc,#b5923f) 10%, transparent), transparent 62%),
+    linear-gradient(180deg,#f6f8fc,#eef2f8 55%,#e8edf5); }
+#rp-imm .im-beam{ position:fixed; z-index:0; pointer-events:none; left:18%; top:-30%; width:34vw; height:160%;
+  background:linear-gradient(180deg, transparent, color-mix(in srgb, var(--gc,#e3c485) 16%, transparent) 40%, color-mix(in srgb, var(--gc,#e3c485) 7%, transparent) 70%, transparent);
+  transform:rotate(14deg); filter:blur(42px); opacity:0; transition:opacity 1.4s var(--ez) .2s; animation:im-beam 11s ease-in-out infinite alternate; }
+#rp-imm.in .im-beam{ opacity:.9; }
+@keyframes im-beam{ from{ transform:rotate(12deg) translateX(-3%) } to{ transform:rotate(16deg) translateX(3%) } }
+#rp-imm .im-vig{ position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:radial-gradient(120% 90% at 50% 40%, transparent 50%, rgba(5,12,24,.62) 100%); }
+#rp-layer.light #rp-imm .im-vig{ background:radial-gradient(120% 90% at 50% 40%, transparent 58%, rgba(40,60,90,.12) 100%); }
+#rp-imm .im-grain{ position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.06; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E"); }
+/* غبار ذهبي حيّ */
+#rp-imm .im-dust{ position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+#rp-imm .im-dust i{ position:absolute; bottom:-6px; width:3px; height:3px; border-radius:50%; background:var(--gold-2);
+  box-shadow:0 0 8px 2px rgba(243,220,166,.55); opacity:0; animation:im-dust linear infinite; }
+@keyframes im-dust{ 0%{ transform:translateY(0) translateX(0); opacity:0 } 12%{ opacity:.85 } 80%{ opacity:.5 } 100%{ transform:translateY(-110vh) translateX(var(--dx,20px)); opacity:0 } }
+#rp-layer.light #rp-imm .im-dust i{ background:var(--gold-deep); box-shadow:0 0 6px 1px rgba(181,146,63,.4); }
+/* رقم الغاية كعلامة مائية */
+#rp-imm .im-wm{ position:absolute; inset-inline-end:-2vw; top:4vh; z-index:0; pointer-events:none; font:900 clamp(220px,34vw,460px)/1 var(--font-display);
+  letter-spacing:-.06em; color:transparent; direction:ltr;
+  -webkit-text-stroke:1px color-mix(in srgb, var(--gc,#e3c485) 26%, transparent);
+  background:linear-gradient(180deg, color-mix(in srgb, var(--gc,#e3c485) 9%, transparent), transparent 85%);
+  -webkit-background-clip:text; background-clip:text; }
+
+#rp-imm > .im-wrap{ position:relative; z-index:1; max-width:1320px; margin:0 auto; padding:0 28px 90px; }
+.im-fade{ opacity:0; transition:opacity .8s var(--ez); }
+
+/* شريط علوي */
+#rp-imm .im-top{ position:sticky; top:0; z-index:6; display:flex; align-items:center; gap:12px; padding:16px 0 12px;
+  background:linear-gradient(180deg, rgba(13,27,46,.92) 55%, transparent); }
+#rp-layer.light #rp-imm .im-top{ background:linear-gradient(180deg, rgba(238,242,248,.94) 55%, transparent); }
+#rp-imm .im-top .crumb{ flex:1; min-width:0; display:flex; align-items:center; gap:10px; font:700 12.5px var(--font-body); color:var(--txt-3); }
+#rp-imm .im-top .crumb b{ color:var(--gold-2); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+#rp-imm .im-top .crumb i{ font-style:normal; opacity:.45; }
+#rp-imm .im-top .ibtn{ width:44px; height:44px; }
+
+/* ---------- البطل ---------- */
+.im-hero{ position:relative; min-height:calc(100vh - 92px); display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center; padding:14px 0 30px; }
+.im-txt{ position:relative; z-index:1; }
+.im-eb{ display:inline-flex; align-items:center; gap:10px; font:800 12.5px var(--font-body); color:var(--gc); letter-spacing:.2px;
+  padding:8px 16px; border-radius:999px; border:1px solid color-mix(in srgb, var(--gc) 45%, transparent);
+  background:color-mix(in srgb, var(--gc) 10%, transparent); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); }
+.im-eb i{ width:7px; height:7px; border-radius:50%; background:var(--gc); box-shadow:0 0 14px var(--gc); animation:rp-live 2.4s infinite; }
+.im-hero h1{ margin:22px 0 18px; font:900 clamp(34px,4.9vw,64px)/1.22 var(--font-display); letter-spacing:-1.2px;
+  background:linear-gradient(168deg,#fff 10%, color-mix(in srgb, var(--gc) 70%, #fff) 55%, var(--gc));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  filter:drop-shadow(0 22px 50px color-mix(in srgb, var(--gc) 26%, transparent)); }
+#rp-layer.light .im-hero h1{ background:linear-gradient(168deg,#15233c, color-mix(in srgb, var(--gc) 65%, #15233c) 70%, var(--gc));
+  -webkit-background-clip:text; background-clip:text; filter:none; }
+.im-orn{ display:flex; align-items:center; gap:12px; margin:0 0 20px; }
+.im-orn i{ display:block; height:1px; width:92px; background:linear-gradient(90deg, transparent, var(--gc)); }
+.im-orn i + i{ background:linear-gradient(90deg, var(--gc), transparent); width:40px; }
+.im-orn b{ width:6px; height:6px; border-radius:50%; background:var(--gc); box-shadow:0 0 0 4px color-mix(in srgb, var(--gc) 18%, transparent), 0 0 16px var(--gc); }
+.im-hero p{ font-size:clamp(15px,1.55vw,18px); color:var(--txt-2); line-height:2; max-width:600px; }
+.im-quiet{ display:flex; flex-wrap:wrap; gap:0 26px; margin-top:30px; }
+.im-quiet div{ position:relative; padding:4px 0; }
+.im-quiet div + div::before{ content:""; position:absolute; inset-inline-start:-13px; top:12px; bottom:12px; width:1px; background:var(--line); }
+.im-quiet b{ display:block; font:900 clamp(24px,2.6vw,34px)/1 var(--font-display); letter-spacing:-1px; direction:ltr; color:var(--txt); }
+.im-quiet span{ display:block; margin-top:6px; font:700 11.5px var(--font-body); color:var(--txt-3); }
+
+/* الحلقة البطلة */
+.im-halo{ position:relative; display:grid; place-items:center; aspect-ratio:1; max-width:460px; width:100%; margin:0 auto; }
+.im-halo .glow{ position:absolute; inset:-12%; border-radius:50%; pointer-events:none;
+  background:radial-gradient(circle, color-mix(in srgb, var(--gc) 28%, transparent), color-mix(in srgb, var(--gc) 8%, transparent) 42%, transparent 66%);
+  animation:rp-breathe 6s ease-in-out infinite alternate; }
+.im-halo svg{ position:absolute; inset:0; width:100%; height:100%; transform:rotate(-90deg); overflow:visible; }
+.im-halo .tr{ fill:none; stroke:rgba(255,255,255,.07); stroke-width:1.2; }
+#rp-layer.light .im-halo .tr{ stroke:rgba(20,40,70,.1); }
+.im-halo .tk{ fill:none; stroke:rgba(255,255,255,.09); stroke-width:14; }
+#rp-layer.light .im-halo .tk{ stroke:rgba(20,40,70,.08); }
+.im-halo .pr{ fill:none; stroke:var(--gc); stroke-width:14; stroke-linecap:round; transition:stroke-dashoffset 2s cubic-bezier(.2,.8,.2,1) .4s;
+  filter:drop-shadow(0 0 14px color-mix(in srgb, var(--gc) 70%, transparent)) drop-shadow(0 0 40px color-mix(in srgb, var(--gc) 40%, transparent)); }
+.im-halo .tick{ stroke:rgba(255,255,255,.14); stroke-width:1; }
+#rp-layer.light .im-halo .tick{ stroke:rgba(20,40,70,.16); }
+.im-halo .orbit{ fill:var(--gold-2); filter:drop-shadow(0 0 8px rgba(243,220,166,.9)); transform-origin:50% 50%; animation:im-orbit 14s linear infinite; }
+@keyframes im-orbit{ to{ transform:rotate(360deg) } }
+.im-halo .in{ position:relative; z-index:1; text-align:center; width:62%; }
+.im-halo .in b{ display:block; font:900 clamp(64px,7.6vw,108px)/1 var(--font-display); letter-spacing:-4px; direction:ltr;
+  background:linear-gradient(180deg,#fff, color-mix(in srgb, var(--gc) 60%, #fff) 60%, var(--gc));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  filter:drop-shadow(0 18px 40px color-mix(in srgb, var(--gc) 30%, transparent)); }
+#rp-layer.light .im-halo .in b{ background:linear-gradient(180deg,#15233c, var(--gc) 130%); -webkit-background-clip:text; background-clip:text; filter:none; }
+.im-halo .in span{ display:block; margin-top:10px; font:800 13.5px var(--font-body); color:var(--txt-2); }
+.im-halo .in em{ display:inline-block; margin-top:12px; font:900 15px var(--font-display); color:var(--gc); font-style:normal;
+  padding:6px 14px; border-radius:999px; border:1px solid color-mix(in srgb, var(--gc) 40%, transparent); background:color-mix(in srgb, var(--gc) 10%, transparent); direction:ltr; }
+.im-cue{ position:absolute; bottom:8px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; font:700 11.5px var(--font-body); color:var(--txt-3); }
+.im-cue i{ display:block; width:1px; height:40px; background:linear-gradient(180deg,var(--gc),transparent); animation:rp-cue 2.2s ease-in-out infinite; }
+
+/* ---------- الأقسام ---------- */
+.im-sec{ padding:54px 0 8px; }
+.im-sh{ display:flex; align-items:center; gap:16px; margin-bottom:18px; }
+.im-sh .k{ font:900 12px var(--font-display); color:var(--gc); letter-spacing:2px; direction:ltr; padding:6px 10px; border-radius:9px;
+  border:1px solid color-mix(in srgb, var(--gc) 40%, transparent); background:color-mix(in srgb, var(--gc) 9%, transparent); }
+.im-sh h2{ font:900 clamp(22px,2.8vw,32px)/1.3 var(--font-display); letter-spacing:-.5px; }
+.im-sh .ln{ flex:1; height:1px; background:linear-gradient(to left, color-mix(in srgb, var(--gc) 45%, transparent), transparent); }
+.im-sub{ margin:-6px 0 20px; font-size:14.5px; color:var(--txt-2); line-height:1.85; max-width:820px; }
+.im-card{ position:relative; overflow:hidden; border-radius:26px; padding:26px;
+  background:linear-gradient(162deg, rgba(33,56,90,.82), rgba(27,48,80,.78)); border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 30px 80px rgba(4,10,22,.55), inset 0 1px 0 rgba(255,255,255,.08); -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px); }
+#rp-layer.light .im-card{ background:linear-gradient(162deg, rgba(255,255,255,.9), rgba(247,250,253,.86)); border-color:rgba(20,30,46,.08); box-shadow:0 24px 60px rgba(40,60,90,.14); }
+.im-card::after{ content:""; position:absolute; inset:0; pointer-events:none; border-radius:inherit;
+  background:radial-gradient(120% 80% at 90% -10%, color-mix(in srgb, var(--gc) 16%, transparent), transparent 56%); }
+.im-card > *{ position:relative; z-index:1; }
+
+/* ---------- الشمسية ---------- */
+.im-viz{ display:grid; grid-template-columns:1.35fr 1fr; gap:16px; align-items:stretch; }
+.im-sun{ display:grid; grid-template-columns:1fr 240px; gap:18px; align-items:center; }
+.im-sun svg{ width:100%; height:auto; display:block; overflow:visible; }
+.im-sun .arc{ cursor:pointer; transition:opacity .25s var(--ez), filter .25s var(--ez), transform .25s var(--ez); stroke:#0d1b2e; stroke-width:1.6; transform-origin:50% 50%; }
+#rp-layer.light .im-sun .arc{ stroke:#f3f6fb; }
+.im-sun .arc:hover{ filter:brightness(1.2) drop-shadow(0 0 12px color-mix(in srgb, var(--gc) 65%, transparent)); transform:scale(1.015); }
+.im-sun.dim .arc{ opacity:.22; }
+.im-sun.dim .arc.lit{ opacity:1; }
+.im-sun .lbl{ font:800 10.5px var(--font-body); fill:#0d1b2e; pointer-events:none; text-anchor:middle; }
+.im-sun .ctr .n{ font:900 40px var(--font-display); fill:var(--txt); letter-spacing:-2px; text-anchor:middle; }
+.im-sun .ctr .l{ font:700 11px var(--font-body); fill:var(--txt-3); text-anchor:middle; }
+.im-ringnote{ margin-top:10px; font:600 11.5px var(--font-body); color:var(--txt-3); line-height:1.7; }
+.im-leg{ display:grid; gap:6px; align-content:center; }
+.im-leg .hd{ font:800 12px var(--font-display); color:var(--txt-3); margin-bottom:4px; display:flex; justify-content:space-between; }
+.im-leg button{ display:grid; grid-template-columns:12px 1fr auto; gap:10px; align-items:center; text-align:start; cursor:pointer;
+  padding:8px 10px; border-radius:11px; border:1px solid transparent; background:none; color:var(--txt-2); font:700 12.5px var(--font-body); transition:.2s var(--ez); }
+.im-leg button:hover{ background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.1); color:var(--txt); }
+.im-leg button.on{ background:color-mix(in srgb, var(--gc) 14%, transparent); border-color:color-mix(in srgb, var(--gc) 45%, transparent); color:var(--txt); }
+.im-leg i{ width:12px; height:12px; border-radius:4px; }
+.im-leg em{ font-style:normal; font:900 13.5px var(--font-display); color:var(--gold-2); direction:ltr; }
+.im-tip{ position:fixed; z-index:660; pointer-events:none; transform:translate(-50%,-118%); min-width:160px;
+  background:#1b3050; border:1px solid rgba(227,196,133,.42); border-radius:13px; padding:9px 13px; box-shadow:0 10px 26px rgba(0,0,0,.5); }
+#rp-layer.light .im-tip{ background:#fff; border-color:rgba(169,134,63,.3); box-shadow:0 10px 26px rgba(40,60,90,.18); }
+.im-tip b{ display:block; font:900 13px var(--font-display); color:var(--gold-2); margin-bottom:4px; }
+.im-tip span{ display:flex; justify-content:space-between; gap:14px; font:600 11.5px var(--font-body); color:var(--txt-2); }
+.im-tip em{ font-style:normal; font-weight:800; font-family:var(--font-display); color:var(--txt); direction:ltr; }
+
+/* ---------- الحالة + الدول ---------- */
+.im-side{ display:grid; gap:16px; }
+.im-ring{ display:grid; grid-template-columns:130px 1fr; gap:18px; align-items:center; }
+.im-ring svg{ width:130px; height:130px; transform:rotate(-90deg); overflow:visible; }
+.im-ring .tr{ fill:none; stroke:rgba(255,255,255,.08); stroke-width:12; }
+#rp-layer.light .im-ring .tr{ stroke:rgba(20,40,70,.08); }
+.im-ring .sg{ fill:none; stroke-width:12; transition:stroke-dasharray 1.2s var(--ez); }
+.im-ring ul{ list-style:none; margin:0; padding:0; display:grid; gap:8px; }
+.im-ring li{ display:grid; grid-template-columns:10px 1fr auto; gap:10px; align-items:center; font:700 12.5px var(--font-body); color:var(--txt-2); cursor:pointer;
+  padding:7px 9px; border-radius:10px; border:1px solid transparent; transition:.2s; }
+.im-ring li:hover{ background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.1); }
+.im-ring li.on{ background:rgba(227,196,133,.1); border-color:var(--line); color:var(--txt); }
+.im-ring li i{ width:10px; height:10px; border-radius:50%; }
+.im-ring li em{ font-style:normal; font:900 15px var(--font-display); color:var(--txt); direction:ltr; }
+.im-cc{ display:flex; flex-wrap:wrap; gap:8px; }
+.im-cc button{ display:inline-flex; align-items:center; gap:8px; cursor:pointer; font:700 12px var(--font-body); color:var(--txt-2);
+  padding:7px 7px 7px 13px; border-radius:999px; border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.04); transition:.22s var(--ez); }
+#rp-layer.light .im-cc button{ background:rgba(20,40,70,.03); border-color:rgba(20,30,46,.1); }
+.im-cc button:hover{ border-color:var(--line); color:var(--txt); transform:translateY(-2px); }
+.im-cc button.on{ background:color-mix(in srgb, var(--gc) 16%, transparent); border-color:color-mix(in srgb, var(--gc) 50%, transparent); color:var(--txt); }
+.im-cc em{ font-style:normal; font:800 11px var(--font-display); color:#162942; direction:ltr; padding:3px 8px; border-radius:999px; background:linear-gradient(140deg,var(--gold-2),var(--gold-deep)); }
+#rp-layer.light .im-cc em{ color:#fff; }
+
+/* ---------- الخط الزمني ---------- */
+.im-time{ display:grid; grid-template-columns:repeat(12,1fr); gap:8px; align-items:end; height:200px; padding-top:10px; direction:ltr; }
+.im-time .m{ display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%; cursor:pointer; border-radius:12px; padding:6px 2px 0; transition:background .2s; }
+.im-time .m:hover{ background:rgba(255,255,255,.04); }
+.im-time .m.on{ background:color-mix(in srgb, var(--gc) 10%, transparent); }
+.im-time .bar{ width:min(36px,72%); display:flex; flex-direction:column-reverse; border-radius:8px 8px 3px 3px; overflow:hidden; background:rgba(255,255,255,.06); }
+#rp-layer.light .im-time .bar{ background:rgba(20,40,70,.07); }
+.im-time .bar i{ display:block; width:100%; height:0; transition:height 1.1s var(--ez); }
+.im-time .bar .d{ background:linear-gradient(180deg, color-mix(in srgb, var(--gc) 80%, #fff), var(--gc)); box-shadow:0 0 18px color-mix(in srgb, var(--gc) 40%, transparent); }
+.im-time .bar .r{ background:#ffd27a; }
+.im-time .bar .n{ background:rgba(139,160,187,.45); }
+.im-time .m b{ margin-top:9px; font:900 13px var(--font-display); color:var(--txt); direction:ltr; }
+.im-time .m span{ font:700 10px var(--font-body); color:var(--txt-3); white-space:nowrap; }
+.im-tlg{ display:flex; justify-content:center; gap:20px; margin-top:14px; font:700 11.5px var(--font-body); color:var(--txt-3); }
+.im-tlg i{ display:inline-block; width:10px; height:10px; border-radius:3px; margin-inline-end:6px; vertical-align:-1px; }
+
+/* ---------- لماذا ---------- */
+.im-why{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; counter-reset:why; }
+.im-why div{ position:relative; padding:20px 18px; border-radius:20px; font-size:13.5px; color:var(--txt-2); line-height:1.85; counter-increment:why;
+  background:linear-gradient(162deg, rgba(33,56,90,.7), rgba(27,48,80,.6)); border:1px solid rgba(255,255,255,.07); box-shadow:inset 0 1px 0 rgba(255,255,255,.07);
+  transition:transform .3s var(--ez), border-color .3s; }
+#rp-layer.light .im-why div{ background:rgba(255,255,255,.85); border-color:rgba(20,30,46,.08); }
+.im-why div:hover{ transform:translateY(-4px); border-color:color-mix(in srgb, var(--gc) 45%, transparent); }
+.im-why div::before{ content:counter(why,decimal-leading-zero); display:block; margin-bottom:10px; font:900 13px var(--font-display); color:var(--gc); letter-spacing:2px; direction:ltr; text-align:start; }
+.im-needs{ display:flex; flex-wrap:wrap; gap:9px; margin-top:16px; }
+.im-needs span{ font:700 12.5px var(--font-body); color:var(--txt); padding:9px 16px; border-radius:999px;
+  border:1px solid color-mix(in srgb, var(--gc) 45%, transparent); background:color-mix(in srgb, var(--gc) 10%, transparent); }
+
+/* ---------- المشاريع ---------- */
+.im-filt{ display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:16px; }
+.im-filt input{ flex:1; min-width:220px; padding:12px 16px; border-radius:14px; font:600 13px var(--font-body); color:var(--txt);
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); outline:none; }
+#rp-layer.light .im-filt input{ background:rgba(20,40,70,.04); border-color:rgba(20,30,46,.1); }
+.im-filt input:focus{ border-color:var(--line); }
+.im-filt .chip{ display:inline-flex; align-items:center; gap:8px; font:700 12px var(--font-body); color:var(--txt);
+  padding:7px 8px 7px 13px; border-radius:999px; border:1px solid color-mix(in srgb, var(--gc) 50%, transparent); background:color-mix(in srgb, var(--gc) 14%, transparent); }
+.im-filt .chip button{ width:20px; height:20px; border-radius:50%; border:0; cursor:pointer; background:rgba(255,255,255,.18); color:var(--txt); font:900 12px/1 sans-serif; }
+.im-filt .tot{ margin-inline-start:auto; font:800 12.5px var(--font-body); color:var(--txt-3); }
+.im-filt .tot em{ font-style:normal; font-family:var(--font-display); color:var(--gold-2); direction:ltr; }
+.im-pgrid{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.im-p{ position:relative; overflow:hidden; text-align:start; cursor:pointer; padding:17px 17px 15px; border-radius:20px; display:flex; flex-direction:column; gap:10px; color:var(--txt);
+  background:linear-gradient(162deg, rgba(33,56,90,.78), rgba(27,48,80,.7)); border:1px solid rgba(255,255,255,.08); box-shadow:inset 0 1px 0 rgba(255,255,255,.07);
+  transition:transform .3s var(--ez), border-color .3s, box-shadow .3s; }
+#rp-layer.light .im-p{ background:rgba(255,255,255,.88); border-color:rgba(20,30,46,.08); }
+.im-p:hover{ transform:translateY(-5px); border-color:color-mix(in srgb, var(--gc) 50%, transparent); box-shadow:0 26px 60px rgba(4,10,22,.5); }
+.im-p::before{ content:""; position:absolute; inset-inline-start:0; inset-block:0; width:3px; background:var(--sc,var(--gc)); }
+.im-p .hd{ display:flex; justify-content:space-between; gap:10px; align-items:flex-start; }
+.im-p h4{ font:800 13.5px/1.45 var(--font-display); }
+.im-p .st{ flex:none; font:700 10.5px var(--font-body); padding:4px 9px; border-radius:999px; white-space:nowrap; }
+.im-p .mt{ display:flex; flex-wrap:wrap; gap:6px 12px; font:600 11.5px var(--font-body); color:var(--txt-3); }
+.im-p .mt b{ color:var(--txt-2); font-weight:700; }
+.im-p .pg{ display:grid; grid-template-columns:1fr auto; gap:10px; align-items:center; margin-top:auto; }
+.im-p .pg .tk{ height:5px; border-radius:5px; background:rgba(255,255,255,.08); overflow:hidden; }
+.im-p .pg .tk i{ display:block; height:100%; border-radius:5px; background:linear-gradient(90deg,var(--gold-deep),var(--gold-2)); }
+.im-p .pg em{ font-style:normal; font:800 11.5px var(--font-display); color:var(--gold-2); direction:ltr; }
+.im-more{ display:block; margin:18px auto 0; padding:12px 24px; border-radius:999px; cursor:pointer; font:800 13px var(--font-body);
+  color:#162942; background:linear-gradient(135deg,var(--gold-2),var(--gold)); border:0; box-shadow:0 14px 30px rgba(227,196,133,.3); transition:.25s var(--ez); }
+.im-more:hover{ transform:translateY(-2px); }
+#rp-layer.light .im-more{ color:#fff; background:linear-gradient(135deg,var(--gold-deep),var(--gold)); }
+.im-empty{ text-align:center; padding:40px 10px; color:var(--txt-3); font-weight:600; }
+
+/* ظهور متدرج */
+#rp-imm .rv{ opacity:0; transform:translateY(22px); animation:im-in .9s var(--ez) forwards; }
+@keyframes im-in{ to{ opacity:1; transform:none } }
+
+/* ======================= مشهد الكيان: المحفظة المؤسسية ======================= */
+.ent-hero{ display:grid; grid-template-columns:auto 1fr; gap:38px; align-items:center; padding:36px 0 26px; }
+.ent-orb{ position:relative; width:clamp(150px,15vw,208px); aspect-ratio:1; border-radius:50%; display:grid; place-items:center; flex:none;
+  border:1.5px solid rgba(243,220,166,.75);
+  background:radial-gradient(circle at 50% 30%, rgba(243,220,166,.42), rgba(227,196,133,.12) 44%, rgba(29,52,86,.95) 70%, rgba(22,41,66,.98));
+  box-shadow:0 0 0 1px rgba(243,220,166,.3), 0 0 26px rgba(243,220,166,.5), 0 0 90px rgba(227,196,133,.38), inset 0 2px 10px rgba(255,255,255,.3), inset 0 -14px 34px rgba(6,14,28,.5); }
+#rp-layer.light .ent-orb{ background:radial-gradient(circle at 50% 30%, #2b4874, #1c3354 58%, #122440); border-color:rgba(181,146,63,.6);
+  box-shadow:0 0 0 1px rgba(181,146,63,.3), 0 0 28px rgba(181,146,63,.34), 0 0 80px rgba(181,146,63,.22), inset 0 2px 10px rgba(255,255,255,.18); }
+.ent-orb img{ width:62%; display:block; filter:drop-shadow(0 6px 16px rgba(0,0,0,.45)); }
+.ent-orb::after{ content:""; position:absolute; inset:-12px; border-radius:50%; border:1.5px solid rgba(243,220,166,.4); animation:rp-pulse 4s ease-out infinite; }
+.ent-hero h1{ margin:16px 0 14px; font:900 clamp(30px,4vw,50px)/1.25 var(--font-display); letter-spacing:-1px;
+  background:linear-gradient(168deg,#fff 10%,var(--gold-2) 55%,var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+#rp-layer.light .ent-hero h1{ background:linear-gradient(168deg,#15233c,var(--gold-2) 70%,var(--gold-deep)); -webkit-background-clip:text; background-clip:text; }
+.ent-hero p{ font-size:clamp(14.5px,1.4vw,16.5px); color:var(--txt-2); line-height:1.95; max-width:680px; }
+.ent-wrap{ display:grid; grid-template-columns:1fr 380px; gap:22px; align-items:start; }
+.ent-sec{ padding:26px 0 6px; }
+.ent-sh{ display:flex; align-items:baseline; gap:14px; margin-bottom:16px; }
+.ent-sh h2{ font:900 clamp(19px,2.2vw,24px)/1.3 var(--font-display); }
+.ent-sh span{ font:700 12.5px var(--font-body); color:var(--txt-3); }
+.ent-sh .ln{ flex:1; height:1px; align-self:center; background:linear-gradient(to left, rgba(227,196,133,.4), transparent); }
+/* الكيانات المؤسِّسة */
+.ent-found{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.ent-f{ position:relative; overflow:hidden; text-align:start; cursor:pointer; padding:20px 20px 18px; border-radius:24px; color:var(--txt); display:flex; flex-direction:column; gap:14px;
+  background:linear-gradient(162deg, rgba(33,56,90,.82), rgba(27,48,80,.74)); border:1px solid rgba(255,255,255,.09);
+  box-shadow:0 26px 60px rgba(4,10,22,.45), inset 0 1px 0 rgba(255,255,255,.08); transition:transform .35s var(--ez), border-color .35s, box-shadow .35s; }
+#rp-layer.light .ent-f{ background:rgba(255,255,255,.9); border-color:rgba(20,30,46,.08); box-shadow:0 20px 48px rgba(40,60,90,.12); }
+.ent-f::after{ content:""; position:absolute; inset:0; pointer-events:none; background:radial-gradient(90% 60% at 85% -10%, rgba(227,196,133,.16), transparent 60%); }
+.ent-f:hover,.ent-f.on{ transform:translateY(-5px); border-color:rgba(227,196,133,.55); box-shadow:0 34px 76px rgba(4,10,22,.55), 0 0 0 1px rgba(227,196,133,.25), inset 0 1px 0 rgba(255,255,255,.1); }
+.ent-f .plate{ display:grid; place-items:center; height:96px; padding:14px 18px; border-radius:16px; background:#fff; box-shadow:0 12px 28px rgba(6,14,28,.35), 0 0 0 1px rgba(227,196,133,.22); }
+.ent-f .plate img{ width:auto; height:auto; max-width:100%; max-height:68px; object-fit:contain; display:block; }
+.ent-f b{ font:900 16px/1.4 var(--font-display); color:var(--gold-2); }
+.ent-f p{ font-size:12.5px; color:var(--txt-2); line-height:1.8; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.ent-f .ft{ display:flex; align-items:center; justify-content:space-between; margin-top:auto; padding-top:12px; border-top:1px solid rgba(255,255,255,.08); font:700 11.5px var(--font-body); color:var(--txt-3); }
+#rp-layer.light .ent-f .ft{ border-top-color:rgba(20,30,46,.08); }
+.ent-f .ft em{ font-style:normal; color:var(--gold-2); display:inline-flex; align-items:center; gap:6px; }
+/* الوحدات */
+.ent-units{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.ent-u{ position:relative; text-align:start; cursor:pointer; padding:18px 18px 16px; border-radius:20px; color:var(--txt); display:flex; flex-direction:column; gap:8px; min-height:132px;
+  background:linear-gradient(162deg, rgba(33,56,90,.72), rgba(27,48,80,.62)); border:1px solid rgba(255,255,255,.08); box-shadow:inset 0 1px 0 rgba(255,255,255,.07);
+  transition:transform .3s var(--ez), border-color .3s, box-shadow .3s; }
+#rp-layer.light .ent-u{ background:rgba(255,255,255,.86); border-color:rgba(20,30,46,.08); }
+.ent-u:hover,.ent-u.on{ transform:translateY(-4px); border-color:rgba(227,196,133,.5); box-shadow:0 22px 54px rgba(4,10,22,.45), inset 0 1px 0 rgba(255,255,255,.09); }
+.ent-u .ix{ align-self:flex-start; font:900 11px var(--font-display); color:var(--gold-2); letter-spacing:1.5px; direction:ltr;
+  padding:4px 9px; border-radius:8px; border:1px solid rgba(227,196,133,.32); background:rgba(227,196,133,.08); }
+.ent-u b{ font:800 14px/1.45 var(--font-display); color:var(--txt); }
+.ent-u .v{ margin-top:auto; display:flex; align-items:baseline; gap:7px; }
+.ent-u .v em{ font-style:normal; font:900 26px/1 var(--font-display); letter-spacing:-1px; direction:ltr;
+  background:linear-gradient(180deg,var(--gold-2),var(--gold-deep)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.ent-u .v span{ font:700 11.5px var(--font-body); color:var(--txt-3); }
+.ent-u .go{ position:absolute; inset-inline-end:14px; bottom:14px; width:26px; height:26px; border-radius:50%; display:grid; place-items:center; color:var(--gold-2);
+  border:1px solid rgba(255,255,255,.1); opacity:.55; transition:.3s var(--ez); }
+.ent-u:hover .go,.ent-u.on .go{ opacity:1; border-color:var(--line); background:rgba(227,196,133,.12); }
+.ent-u .go svg{ width:12px; height:12px; }
+/* لوح التعريف */
+.orb-det{ position:sticky; top:76px; max-height:calc(100vh - 104px); overflow:auto; padding:24px; border-radius:26px;
+  background:linear-gradient(162deg, rgba(33,56,90,.86), rgba(27,48,80,.8)); border:1px solid rgba(227,196,133,.32);
+  box-shadow:0 30px 80px rgba(4,10,22,.5), inset 0 1px 0 rgba(255,255,255,.08); -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px); }
+#rp-layer.light .orb-det{ background:rgba(255,255,255,.92); }
+.orb-det::-webkit-scrollbar{ width:5px } .orb-det::-webkit-scrollbar-thumb{ background:var(--line); border-radius:9px }
+.orb-det .eb{ font:700 11px var(--font-body); color:var(--txt-3); }
+.orb-det h3{ font:900 20px/1.4 var(--font-display); color:var(--gold-2); margin:6px 0 16px; }
+.orb-det .ph2{ color:var(--txt-2); font-weight:600; line-height:1.9; font-size:13.5px; }
+.orb-det .dplate{ display:grid; place-items:center; height:92px; padding:12px 16px; border-radius:16px; background:#fff; margin-bottom:16px; box-shadow:0 12px 28px rgba(6,14,28,.3), 0 0 0 1px rgba(227,196,133,.25); }
+.orb-det .dplate img{ width:auto; height:auto; max-width:100%; max-height:68px; object-fit:contain; display:block; }
+.orb-list{ display:none; }
+
+
+/* ---------- شريط الأثر التراكمي (ختام الملف التعريفي) ---------- */
+.ex-cta{ margin-top:54px; text-align:center; padding:46px 24px 42px; border-radius:28px; position:relative; overflow:hidden;
+  background:linear-gradient(165deg, rgba(227,196,133,.16), rgba(22,41,66,.62) 60%); border:1px solid rgba(227,196,133,.3);
+  box-shadow:0 30px 80px rgba(4,10,22,.5), inset 0 1px 0 rgba(255,255,255,.08); }
+#rp-layer.light .ex-cta{ background:linear-gradient(165deg, rgba(181,146,63,.14), rgba(255,255,255,.9) 60%); }
+.ex-cta::before{ content:""; position:absolute; top:0; left:20%; right:20%; height:1px; background:linear-gradient(90deg,transparent,var(--gold-2),transparent); }
+.ex-cta .eb2{ display:inline-flex; align-items:center; gap:9px; font:800 12px var(--font-body); color:var(--gold-2); padding:7px 16px; border-radius:999px;
+  border:1px solid var(--line); background:rgba(227,196,133,.08); }
+.ex-cta h3{ margin:14px 0 6px; font:900 clamp(24px,3.2vw,38px)/1.3 var(--font-display);
+  background:linear-gradient(170deg,#fff,var(--gold-2) 55%,var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+#rp-layer.light .ex-cta h3{ background:linear-gradient(170deg,#15233c,var(--gold-deep)); -webkit-background-clip:text; background-clip:text; }
+.ex-cta p{ margin:0 auto; max-width:640px; font-size:14.5px; color:var(--txt-2); line-height:1.9; }
+.ex-figs{ display:grid; grid-template-columns:repeat(4,1fr); gap:0 clamp(16px,3vw,48px); margin:34px auto 30px; max-width:980px; }
+.ex-figs div{ position:relative; text-align:center; padding:6px 0; }
+.ex-figs div + div::before{ content:""; position:absolute; inset-inline-start:calc(-1 * clamp(8px,1.5vw,24px)); top:12px; bottom:12px; width:1px;
+  background:linear-gradient(180deg,transparent,var(--line),transparent); }
+.ex-figs b{ display:block; font:900 clamp(32px,4.2vw,58px)/1 var(--font-display); letter-spacing:-2px; direction:ltr;
+  background:linear-gradient(180deg,#fff,var(--gold-2) 60%,var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+#rp-layer.light .ex-figs b{ background:linear-gradient(180deg,#15233c,var(--gold-deep) 130%); -webkit-background-clip:text; background-clip:text; }
+.ex-figs span{ display:block; margin-top:10px; font:700 12.5px var(--font-body); color:var(--txt-3); }
+.ex-cta button{ display:inline-flex; align-items:center; gap:10px; cursor:pointer; font:800 14px var(--font-body); color:#162942;
+  padding:13px 26px; border-radius:999px; border:0; background:linear-gradient(135deg,var(--gold-2),var(--gold)); box-shadow:0 16px 34px rgba(227,196,133,.32); transition:.25s var(--ez); }
+.ex-cta button:hover{ transform:translateY(-2px); }
+#rp-layer.light .ex-cta button{ color:#fff; background:linear-gradient(135deg,var(--gold-deep),var(--gold)); }
+.ex-cta button svg{ width:16px; height:16px; }
+@media(max-width:760px){ .ex-figs{ grid-template-columns:1fr 1fr; gap:22px 0 } .ex-figs div + div::before{ display:none } }
+
+@media(max-width:1080px){
+  .im-hero{ grid-template-columns:1fr; min-height:0; padding-top:24px }
+  .im-halo{ max-width:360px }
+  .im-viz{ grid-template-columns:1fr }
+  .im-pgrid{ grid-template-columns:repeat(2,1fr) }
+  .ent-wrap{ grid-template-columns:1fr }
+  .orb-det{ position:static; max-height:none }
+  .ent-hero{ grid-template-columns:1fr; justify-items:center; text-align:center }
+  .ent-hero p{ margin:0 auto }
+  #rp-imm .im-wm{ font-size:clamp(160px,40vw,300px); top:2vh }
+}
+@media(max-width:760px){
+  #rp-imm > .im-wrap{ padding:0 16px 60px }
+  .im-sun{ grid-template-columns:1fr }
+  .im-pgrid{ grid-template-columns:1fr }
+  .im-time{ height:160px; gap:4px }
+  .im-time .m span{ display:none }
+  .im-ring{ grid-template-columns:1fr; justify-items:center }
+  .im-quiet{ gap:0 18px }
+  #rp-imm .im-top .crumb span, #rp-imm .im-top .crumb i{ display:none }
+  .ent-found{ grid-template-columns:1fr }
+  .ent-units{ grid-template-columns:1fr 1fr }
+  .im-cue{ display:none }
+}
+
 </style>
 
 <div id="rp-layer" role="dialog" aria-modal="true" aria-label="تقرير ما أنجزته بنيان" tabindex="-1">
@@ -3574,22 +4151,45 @@ html.rp-lock, body.rp-lock{ overflow:hidden !important; }
 <main>
 <div class="wrap">
   <div id="rp-hero">
-    <div class="rp-ents rp-rv" id="rp-ents"></div>
-    <span class="rp-badge rp-rv"><i></i>تقرير الأثر التراكمي · منذ التأسيس وحتى أكتوبر 2026</span>
-    <h1 class="rp-rv">ما أنجزته بنيان</h1>
+    <div class="rp-lock rp-rv" id="rp-lock"></div>
+    <div class="rp-orbwrap rp-rv">
+      <span class="halo"></span>
+      <div class="rp-orb" id="rp-orb" role="button" tabindex="0" aria-label="تعريف مجموعة بنيان العالمية"></div>
+    </div>
+    <button class="rp-orbcta rp-rv" id="rp-orbcta" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 16v-5M12 8h.01"/></svg>
+      تعرَّف على المنظومة كاملةً
+    </button>
+    <h1 class="rp-rv">مجموعة بنيان العالمية</h1>
     <div class="rp-orn rp-rv"><i></i><b></b><i></i></div>
-    <p class="rp-lead rp-rv">مسيرةٌ في تأهيل العلماء والدعاة وقيادات العمل الخيري، وتمكين التعليم الإسلامي المعاصر — حصادها كاملًا في صفحة واحدة.</p>
-    <div class="rp-hcard rp-rv">
-      <div class="rp-hin">
-        <div class="rp-bign"><span class="cnt" data-n="243328">243,328</span></div>
-        <div class="rp-bigl">مستفيدًا من برامج بنيان ومشاريعها</div>
-        <div class="rp-bigs">حول العالم · منذ تأسيس بنيان وحتى أكتوبر 2026</div>
-      </div>
-      <div class="rp-trio">
-        <div><span class="n cnt" data-n="596">596</span><p>مشروعًا منفّذًا</p></div>
-        <div><span class="n cnt" data-n="164">164</span><p>دولة مستفيدة</p></div>
-        <div><span class="n cnt" data-n="4388">4,388</span><p>مؤسسة مستفيدة</p></div>
-      </div>
+    <p class="rp-lead rp-rv">ثلاثة كيانات مؤسِّسة، ومنظومةُ وحداتٍ ومبادرات، تعمل على تأهيل العلماء والدعاة وقيادات العمل الخيري، وتمكين التعليم الإسلامي المعاصر.</p>
+    <div class="rp-cue rp-rv"><i></i>الغايات الخمس</div>
+  </div>
+</div>
+
+<div class="wrap">
+  <section id="rp-s0">
+    <div class="rp-sh rp-rv"><span class="sn">٠١</span><h2>الغايات الاستراتيجية الخمس</h2><span class="ln"></span></div>
+    <p class="rp-sub rp-rv">عليها تقوم خطة بنيان كاملة. اضغط أي غاية لتدخل إليها: تعريفها، ولماذا وُضعت، والمبادرات التي تقوم عليها، وبرامجها ومشاريعها — وكل بند فيها يفتح تفاصيله.</p>
+    <div class="rp-gcards" id="rp-gcards"></div>
+  </section>
+
+  <div class="rp-div rp-rv">
+    <span class="eb"><i style="width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block"></i>تقرير الأثر التراكمي · منذ التأسيس وحتى أكتوبر 2026</span>
+    <h2>ما أنجزته بنيان</h2>
+    <p class="rp-lead">حصاد المنظومة كاملًا: الأرقام، والمسيرة، والخريطة، وسلسلة الأثر.</p>
+  </div>
+
+  <div class="rp-hcard rp-rv">
+    <div class="rp-hin">
+      <div class="rp-bign"><span class="cnt" data-n="243328">243,328</span></div>
+      <div class="rp-bigl">مستفيدًا من برامج بنيان ومشاريعها</div>
+      <div class="rp-bigs">حول العالم · منذ تأسيس بنيان وحتى أكتوبر 2026</div>
+    </div>
+    <div class="rp-trio">
+      <div><span class="n cnt" data-n="596">596</span><p>مشروعًا منفّذًا</p></div>
+      <div><span class="n cnt" data-n="164">164</span><p>دولة مستفيدة</p></div>
+      <div><span class="n cnt" data-n="4388">4,388</span><p>مؤسسة مستفيدة</p></div>
     </div>
   </div>
 </div>
@@ -3598,7 +4198,7 @@ html.rp-lock, body.rp-lock{ overflow:hidden !important; }
 
 <div class="wrap">
   <section id="rp-s1">
-    <div class="rp-sh rp-rv"><span class="sn">٠١</span><h2>الأثر في أرقام</h2><span class="ln"></span></div>
+    <div class="rp-sh rp-rv"><span class="sn">٠٢</span><h2>الأثر في أرقام</h2><span class="ln"></span></div>
     <p class="rp-sub rp-rv">حصاد بنيان كاملًا في التدريب والتعليم والمعرفة والانتشار، منذ التأسيس وحتى أكتوبر 2026.</p>
     <div class="rp-grid" id="rp-bento"></div>
     <div class="rp-grid" style="margin-top:16px">
@@ -3622,7 +4222,7 @@ html.rp-lock, body.rp-lock{ overflow:hidden !important; }
   </section>
 
   <section id="rp-s2">
-    <div class="rp-sh rp-rv"><span class="sn">٠٢</span><h2>مسيرة ثلاث سنوات</h2><span class="ln"></span></div>
+    <div class="rp-sh rp-rv"><span class="sn">٠٣</span><h2>مسيرة ثلاث سنوات</h2><span class="ln"></span></div>
     <p class="rp-sub rp-rv">ما سجّلته بوابات بنيان لكل عام من برامج منفّذة ومستفيدين وساعات تدريب ودول، من 2024 حتى أكتوبر 2026.</p>
     <div class="rp-yrs">
       <div class="rp-card rp-rv">
@@ -3637,7 +4237,7 @@ html.rp-lock, body.rp-lock{ overflow:hidden !important; }
   </section>
 
   <section id="rp-s3">
-    <div class="rp-sh rp-rv"><span class="sn">٠٣</span><h2>أين عملنا</h2><span class="ln"></span></div>
+    <div class="rp-sh rp-rv"><span class="sn">٠٤</span><h2>أين عملنا</h2><span class="ln"></span></div>
     <p class="rp-sub rp-rv">الدول التي نُفِّذت فيها برامج بنيان ميدانيًا خلال السنوات الثلاث المرصودة، وتخرج إليها خطوط العمل من المقر الرئيسي في جدة. أدِر الكرة بالسحب، ومرّر المؤشّر على أي دولة أو اضغط عليها لتفاصيلها.</p>
     <div class="rp-geo">
       <div class="rp-card rp-gcard rp-rv">
@@ -3685,21 +4285,15 @@ html.rp-lock, body.rp-lock{ overflow:hidden !important; }
     </div>
   </section>
 
-  <section id="rp-s4">
-    <div class="rp-sh rp-rv"><span class="sn">٠٤</span><h2>الغايات الاستراتيجية الخمس</h2><span class="ln"></span></div>
-    <p class="rp-sub rp-rv">كيف توزّعت مشاريع خطة 2026 على غايات بنيان، وما نُفِّذ منها حتى الآن، مع أبرز مشاريع كل غاية.</p>
-    <div class="rp-goals" id="rp-goals"></div>
-  </section>
-
   <section id="rp-s5">
-    <div class="rp-sh rp-rv"><span class="sn">٠٥</span><h2>المبادرات المنفِّذة</h2><span class="ln"></span></div>
+    <div class="rp-sh rp-rv"><span class="sn">٠٦</span><h2>المبادرات المنفِّذة</h2><span class="ln"></span></div>
     <p class="rp-sub rp-rv">إحدى عشرة مبادرة من منظومة بنيان سجّلت مشاريعها في خطة 2026، مرتّبة بحجم ما نفّذته.</p>
     <div class="rp-itop" id="rp-itop"></div>
     <div class="rp-inits" id="rp-inits"></div>
   </section>
 
   <section id="rp-s7">
-    <div class="rp-sh rp-rv"><span class="sn">٠٦</span><h2>سلسلة الأثر</h2><span class="ln"></span></div>
+    <div class="rp-sh rp-rv"><span class="sn">٠٧</span><h2>سلسلة الأثر</h2><span class="ln"></span></div>
     <p class="rp-sub rp-rv">كيف يتسلسل العمل في بنيان: من الغاية الاستراتيجية، إلى القسم الإداري، فالمبادرة، فالحزمة، فالبرنامج، وصولًا إلى المشروع المنفَّذ — كما ترصدها ورقة «قياس الأثر» لخطة 2026. اضغط أي حلقة لعرض بنودها، وأي بند لتفاصيله.</p>
     <div class="rp-card rp-rv">
       <div class="rp-lvls" id="rp-lvls" role="tablist" aria-label="حلقات السلسلة"></div>
@@ -3712,7 +4306,7 @@ html.rp-lock, body.rp-lock{ overflow:hidden !important; }
   </section>
 
   <section id="rp-s6">
-    <div class="rp-sh rp-rv"><span class="sn">٠٧</span><h2>منهجية احتساب الأرقام</h2><span class="ln"></span></div>
+    <div class="rp-sh rp-rv"><span class="sn">٠٨</span><h2>منهجية احتساب الأرقام</h2><span class="ln"></span></div>
     <p class="rp-sub rp-rv">كيف جُمع كل رقم في هذا التقرير، وما الذي يدخل فيه وما لا يدخل.</p>
     <div class="rp-card rp-rv">
       <div class="rp-notes" id="rp-notes"></div>
@@ -3811,6 +4405,8 @@ var INITS=[['جامعة بنيان العالمية','01',166,112,3975,14],['ط�
  ['شركة بنيان للتدريب','02',7,5,67,2],['دار التمكين','03',4,4,120,1],['مركز بنيان للأبحاث والدراسات','04',4,4,0,1],
  ['كلية المعارف','07',2,2,35,1],['بنيان الإنسانية','06',2,2,0,2],['التميز المؤسسي','',2,2,0,1]];
 
+var PJ={"fields":["proj","code","goal","init","pack","prog","country","city","start","end","days","cat","target","done","mode","kind","partner","status","dept","cls","typ","cost"],"dicts":{"goal":["الإسهام في تأهيل الأئمة والخطباء (الدعاة)","تمكين التعليم الإسلامي المعاصر","الإسهام في سد حاجة الأمة من العلماء","تحقيق الإستدامة البشرية والمالية والقانونية","الإسهام في تأهيل قيادات العمل الخيري"],"init":["دار التمكين","جامعة بنيان العالمية","تمكين التعليم","شركة بنيان للتدريب","كلية المعارف","آفاق للتعريف بالإسلام","كفاءة تقنية","التميز المؤسسي","طاقات للاستشارات","مركز بنيان للأبحاث والدراسات","بنيان الإنسانية"],"pack":["تمكين التعليم","التأهيل والتدريب","تأهيل الأئمة والخطباء (الدعاة)","التعليم والتوعية","برنامج صناعة العلماء","البرامج المساندة","تأليف المناهج و الحقائب","تأهيل مؤسسات القطاع الثالث","ترجمة الحقائب التدريبية","الدراسات"],"prog":["تأهيل العلماء","تأهيل العاملين","نمذجة المدارس","إعداد الأئمة والخطباء","البرامج المستقلة","إعداد العلماء","إعداد المعلمين","المنتجات المساندة","آفاق","تأهيل المؤسسات","برامج التقنية (كفاءة)","إعداد المناهج","تعليم القرآن الكريم","اللغة العربية للناطقين بغيرها","نشر العلم الواجب","أطلس الدول","تأهيل القيادات"],"country":["السعودية","بنجلاديش","مصر","الفلبين","كوريا الجنوبية","اليمن","إندونيسيا","الهند","السنغال","غانا","ميانمار","نيجيريا","أوغندا","إثيوبيا","فلسطين","لبنان"],"city":["مكة المكرمة","برغونا","شيتاغونغ","باريسال","بھولا","جھالکاتي","كوكس بازار","القاهرة","مانيلا","بوسان","تعز","بانتين","جاكرتا","جدة","حيدر آباد","","سينغال","غانا","الجامعة - شيتاغونغ","مخيم بالو خالي","مخيم محسني","باگوخللي","پتاؤخالي","نجيريا","بيروجپور","شيتاگونغ","المدينة المنورة","كوماسي","ناکور","ٹانگوئ غون","مخيم زادي","كامبالا","دكا","فني","مكة","سيلهت","خولنا","راجشاهي","رنكبور","مخيم","رامبري","تنيغ خالي","بالو خالي","سيداما","مومباي","شریعنبور","بني شنغول","جما","شاشمني","شامشني","ندفاماری","كيرلا","الصومال","جنوب الغرب","جنوب إثيوبيا","رنگپور","ورابي","روبي بالي","القنفذة","القدس","الدمام","الأحساء"],"cat":["طلاب","معلمون","مدارس","قادة","معلمات","دعاة","منتجات مساندة","مرشدين","مدربون","الهيئة التعليمية والادارية","معرفا","مدربات"],"mode":["حضوري","عن بعد","منتجات مساندة"],"kind":["مكثف","مستمر","متصل","غير متصل","مطول","زيارة ميدانية"],"partner":["جامعة الملك عبدالعزيز","","كلية الطب الأسنان","الجامعة العربية الإسلامية","جامعة العلوم الاسلامية","أكاديمية دار الأمان","منظمة رواحل","مدرسة الحضارة","المعهد العلمي","جامعة النور العالمية","مدرسة عزيز العلوم","جامعة بنيان العالمية","منظمة بناء الانسان","الجامعة الإسلامية العالمية","الجامعة الإسلامية بتكناف","جامعة السنة","منظمة السنابل","مدرسة الهدى النموذجية","مدرسة أشرف العلوم","جمعية المعالم السياحية","شركة بنيان للتدريب - جدة","جامعة الرحمانية الإسلامية","المدرسة الإسلامية دار الحديث","جامعة العلوم الإسلامية","جامعة الفاروقية","جامعة الحضارة","وقف منارة القرآن الكريم","مدرسة دار التقوي للبنات","معهد خالد بن وليد","الجامعة الإسلامية العربية مظاهر العلوم","الجامعة معين الإسلام هاتهزاري","الجامعة العربية الإسلامية جيري","الجامعة دار العلوم","الجامعة الرحمانية العربية","الجامعة الإسلامية مدينة العلوم","جامعة الحضارة العالمية","شركة مشاعل النور","المجلس الإعلى","الجامعة المحمدية","جامعة النور","مدرسة الهدى","الجامعة العربية جيري","مدرسة دارالعلوم","الجامعة الندوية","جمعية سمو","حلقات المسجد الأقصى","جمعية اعتناء للخدمات الاجتماعية","جامعة طرابلس"],"status":["تم التنفيذ","لم يبدأ تنفيذه","جاري التنفيذ"],"dept":["المشاريع, التصميم, الدعم الفني, دار التمكين, التدريب المحلي","المشاريع, التصميم, دار التمكين, الدعم الفني, التدريب المحلي","المشاريع, جامعة بنيان, التصميم, التدريب الدولي","المشاريع, جامعة بنيان, تمكين التعليم, الدعم الفني","جامعة بنيان, تمكين التعليم, الدعم الفني, المشاريع","المشاريع, جامعة بنيان, تمكين التعليم, التدريب الدولي","المشاريع, التصميم, التدريب الدولي, الدعم الفني","المشاريع, التصميم, الدعم الفني","التصميم, جامعة بنيان, التدريب الدولي","جامعة بنيان, التصميم, المشاريع, التدريب الدولي","المشاريع, التصميم, جامعة بنيان, التدريب الدولي","المشاريع, الدعم الفني","التصميم, المشاريع","المشاريع","المشاريع, التصميم, جامعة بنيان","بنيان الإنسانية, الدعم الفني, التصميم, المشاريع","المشاريع, التصميم, بنيان الإنسانية","دار التمكين, المشاريع, التصميم, التدريب المحلي","المشاريع, التصميم, التدريب المحلي","المشاريع, تمكين التعليم, جامعة بنيان, التدريب المحلي","المشاريع, دار التمكين, التدريب المحلي","المشاريع, التدريب المحلي","المشاريع, التصميم, الدعم الفني, تمكين التعليم, جامعة بنيان, التدريب الدولي","المشاريع, تمكين التعليم, جامعة بنيان, التدريب الدولي","المشاريع, التصميم, جامعة بنيان, التدريب المحلي"],"cls":["تدريب محلي","تدريب دولي","نمذجة المدارس","كيان / مبنى","تعليم","المنصات الإلكترونية","التمكين المؤسسي","المناهج","التأليف","الترجمة","دراسات وأبحاث","دورات توعوية"],"typ":["تدريب","مشاريع مساندة","تعليم عام","تعليم جامعي","توعية"]},"rows":[["برنامج سفير (تدريب)","DAR-SA-26001-برنامج سفير",0,0,0,0,0,0,"2026/01/03","2026/01/07",5,0,30,26,0,0,0,0,0,0,0,""],["دورات المهارات الحياتية","DAR-SA-26002- دورات المهارات الحياتية",1,0,1,1,0,0,"2026/01/24","2026/01/26",3,0,40,36,0,0,1,0,1,0,0,""],["برنامج الأترجة (تدريب)","BU-IDN-26001- برنامج الأترجة",0,1,1,1,1,1,"2026/01/24","2026/01/28",6,1,40,31,0,0,2,0,2,1,0,"SAR2٬500"],["نمذجة المدارس  (بنجلاديش) (تمكين التعليم)","EE-BAN-26001-نمذجة المدارس (بنجلاديش) (تمكين التعليم)",1,2,0,2,1,2,"2025/12/15","2025/12/20",5,2,20,3,0,1,1,0,3,2,1,""],["برنامج الأترجة (تدريب)","BU-BAN-26001-برنامج الأترجة",0,1,1,1,1,3,"2026/01/25","2026/01/29",6,1,40,47,0,0,3,0,2,1,0,"SAR2٬500"],["برنامج الأترجة (تدريب)","BU-BAN-26002-برنامج الأترجة",0,1,1,1,1,4,"2026/01/25","2026/01/29",6,1,40,41,0,0,4,0,2,1,0,"SAR2٬500"],["برنامج الأترجة (تدريب)","BU-BAN-26003-برنامج الأترجة",0,1,1,1,1,5,"2026/01/25","2026/01/29",6,1,40,39,0,0,5,0,2,1,0,"SAR2٬500"],["نمذجة المدارس  (بنجلاديش) (تمكين التعليم)","EE-BAN-26002-نمذجة المدارس",1,2,0,2,1,6,"2025/12/21","2025/12/25",5,2,14,6,0,1,1,0,4,2,1,""],["نمذجة المدارس  (بنجلاديش) (تمكين التعليم)","EE-BAN-26003-نمذجة المدارس",1,2,0,2,1,6,"2025/12/21","2025/12/21",1,3,13,13,0,2,1,0,5,2,1,""],["برنامج الأترجة (تدريب)","B-EGY-26001-برنامج الأترجة",0,3,1,1,2,7,"2026/01/30","2026/10/16",12,4,40,48,1,3,6,0,6,1,0,""],["برنامج بصيرة (تدريب)","BU-BAN-26001-برنامج بصيرة",0,1,2,3,1,3,"2026/01/25","2026/01/29",6,5,40,37,0,0,7,0,2,1,0,"SAR2٬500"],["برنامج بصيرة (تدريب)","BU-BAN-26002-برنامج بصيرة",0,1,2,3,1,5,"2026/01/25","2026/01/29",6,5,40,33,0,0,8,0,2,1,0,"SAR2٬500"],["برنامج بصيرة (تدريب)","BU-BAN-26003-برنامج بصيرة",0,1,2,3,1,1,"2026/01/25","2026/01/29",6,5,40,40,0,0,9,0,2,1,0,"SAR2٬500"],["برنامج بصيرة (تدريب)","BU-BAN-26004-برنامج بصيرة",0,1,2,3,1,4,"2026/01/25","2026/01/29",6,5,40,40,0,0,10,0,2,1,0,"SAR2٬500"],["معهد العلم","",0,1,3,4,3,8,"","",0,6,0,0,2,2,1,0,7,3,2,""],["معهد بوسان","",0,1,3,4,4,9,"","",0,6,0,0,2,2,1,0,7,3,2,""],["معهد بوسان","",0,1,3,4,4,9,"","",0,6,0,0,2,2,1,0,7,4,2,""],["كلية المعارف","",2,4,4,5,5,10,"2026/01/02","2026/02/01",30,0,35,35,0,0,11,0,8,4,3,""],["برنامج سفير (تدريب)","BU-IDN-26001-برنامج سفير",0,1,1,1,6,11,"2026/01/01","2026/01/31",30,0,60,60,0,2,11,0,9,1,0,""],["كلية التربية (تمكين التعليم)","",1,1,0,6,6,12,"2026/01/05","2026/02/04",30,0,0,0,0,0,11,0,10,4,3,""],["كلية الدعوة","",0,1,2,3,6,12,"2026/01/04","2026/02/03",30,0,0,0,0,0,11,0,10,4,3,""],["كلية الشريعة","",1,1,4,5,6,12,"2026/01/06","2026/02/05",30,0,0,0,0,0,11,0,10,4,3,""],["كلية المعارف","",2,4,4,7,5,10,"","",0,6,0,0,2,2,1,0,7,3,3,""],["مقر آفاق الإداري","",0,5,5,8,6,12,"","",0,6,0,0,2,2,1,0,7,3,1,""],["برنامج التحصين العقدي (تدريب)","",0,1,1,1,0,13,"","",0,6,0,0,2,2,1,0,7,1,0,""],["برنامج الرواد (تدريب)","",0,1,1,1,0,13,"","",0,6,0,0,2,2,1,0,7,1,0,""],["برنامج الطفولة المبكرة (تدريب)","",0,1,1,1,0,13,"","",0,6,0,0,2,2,1,0,7,0,0,""],["برنامج رقيم (تدريب)","",0,3,2,3,0,13,"","",0,6,0,0,2,2,1,0,7,0,0,""],["برنامج شيخ القرية","",0,3,2,1,0,13,"","",0,6,0,0,2,2,1,0,7,0,0,""],["برنامج إتقان للتأهيل المؤسسي (تمكين التعليم)","",1,2,0,9,0,13,"","",0,6,0,0,2,2,1,0,7,2,0,""],["المنصة التعليمية","",3,6,5,10,0,13,"","",0,6,0,0,2,0,1,0,11,5,1,"SAR40٬000"],["مشروع بناء نموذج بنيان للتميز المؤسسي","",3,7,5,9,0,13,"","",0,6,0,0,2,2,1,0,12,6,1,""],["مناهج دبلوم تأهيل المعرفين بالإسلام (عربي)","",3,8,5,11,0,13,"","",0,6,0,0,2,2,1,0,12,7,1,"SAR90٬000"],["مناهج تعليم أولى متوسط","",3,8,6,11,0,13,"","",0,6,0,0,2,2,1,0,12,7,1,"SAR90٬000"],["مناهج تعليم ثاني متوسط","",3,8,6,11,0,13,"","",0,6,0,0,2,2,1,0,12,7,1,"SAR90٬000"],["مناهج تعليم ثالث متوسط","",3,8,6,11,0,13,"","",0,6,0,0,2,2,1,0,12,7,1,"SAR90٬000"],["مناهج تعليم أولى ثانوي","",3,8,6,11,0,13,"","",0,6,0,0,2,2,1,0,12,7,1,"SAR90٬000"],["جائزة بنيان للتميز المؤسسي","",3,7,7,9,0,13,"","",0,6,0,0,2,2,1,0,12,6,1,""],["مناهج تعليم ثاني ثانوي","",3,8,6,11,0,13,"","",0,6,0,0,2,2,1,0,12,7,1,"SAR90٬000"],["مناهج تعليم ثالث ثانوي","",3,8,6,11,0,13,"","",0,6,0,0,2,2,1,0,12,7,1,"SAR90٬000"],["مناهج دبلوم تأهيل المعرفين بالإسلام (عربي)","",3,8,6,11,0,13,"","",0,6,0,0,2,2,1,0,12,7,1,"SAR90٬000"],["مناهج التعليم الموازي","",3,8,6,11,0,13,"","",0,6,0,0,2,2,1,0,12,7,1,"SAR90٬000"],["إعداد مناهج التعليم المسجدي (تمكين التعليم)","",1,2,0,11,0,13,"","",0,6,0,0,2,2,1,0,12,7,1,"SAR90٬000"],["برنامج الأترجة (تمكين التعليم)","",1,2,0,1,0,13,"","",0,6,0,0,2,2,1,0,7,2,1,""],["إعداد المناهج (مناهج القيم)","",3,8,6,11,0,13,"","",0,6,0,0,2,2,1,0,12,7,1,"SAR90٬000"],["المقرأة الالكترونية","",3,6,5,12,0,13,"","",0,6,0,0,2,2,1,0,11,5,1,"SAR40٬000"],["المقرأة الالكترونية","",1,2,3,12,0,13,"","",0,6,0,0,2,2,1,0,11,5,2,"SAR40٬000"],["برنامج الهدى إسعاد (تأليف)","",3,8,5,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["دبلوم تأهيل القيادات","",3,8,5,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["برنامج النخبة لتأهيل القيادات","",3,8,6,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["برنامج الرواد (تأليف)","",3,8,6,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["برنامج سفير (تأليف)","",3,8,6,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["برنامج حكيم (تأليف)","",3,8,6,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["برنامج رعاية (تأليف)","",3,8,6,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["برنامج يا هلا (تأليف)","",3,8,6,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["برنامج وقاية (تأليف)","",3,8,6,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["برنامج بينات (تأليف)","",3,8,6,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["برنامج تمهير (تأليف)","",3,8,6,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["برنامج وقاية (إندونيسي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج الهدى إسعاد (تأليف)","",3,8,6,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["برنامج التحصين العقدي (تأليف)","",3,8,6,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["برنامج الطفولة المبكرة (تأليف)","",3,8,6,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["دبلوم تأهيل الأئمة والخطباء للناطقين بغير العربية","",3,8,5,7,0,13,"","",0,6,0,0,2,2,1,0,12,7,1,"SAR90٬000"],["دبلوم تأهيل المعرفين بالإسلام (تأليف)","",3,8,6,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["برنامج التبيان","",3,8,5,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["برنامج الأترجة (تأليف)","",3,8,6,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["برنامج تمهير (تأليف)","",3,8,6,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["برنامج المربي  (تأليف)","",3,8,5,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["دار التمكين","",3,3,5,7,0,0,"","",0,6,0,0,2,2,1,0,13,3,1,""],["برنامج بصيرة (إنجليزي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج بصيرة (أردو)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج بصيرة (فرنسي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج بصيرة (إندونيسي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج بصيرة (إنجليزي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج بصيرة (إندونيسي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج بصيرة (فرنسي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج سفير (تأليف)","",3,8,6,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["دبلوم تأهيل القيادات (تأليف)","",3,8,6,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["برنامج النخبة لتأهيل القيادات (تأليف)","",3,8,6,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["برنامج بصيرة (تأليف)","",3,8,6,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["برنامج الأترجة (إنجليزي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج الأترجة (أردو)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج الأترجة (فرنسي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج الأترجة (إندونيسي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج الرواد (إنجليزي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج الرواد (إندونيسي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج النخبة (إنجليزي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج النخبة (أردو)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج النخبة (فرنسي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج النخبة (إندونيسي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج يا هلا (إنجليزي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج يا هلا (أردو)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج يا هلا (فرنسي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج يا هلا (إندونيسي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج المربي (إنجليزي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج المربي (أردو)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج المربي (فرنسي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج المربي (إندونيسي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج وقاية (إنجليزي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج وقاية (أردو)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج وقاية (فرنسي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج إتقان للتأهيل المؤسسي (تأليف)","",3,8,6,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["برنامج الرواد (أردو)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج الرواد (فرنسي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج ميراث (إنجليزي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج ميراث (أردو)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج ميراث (فرنسي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["برنامج ميراث (إندونيسي)","",3,8,8,7,0,13,"","",0,6,0,0,2,2,1,0,12,9,1,"SAR90٬000"],["تواصل الإداري","",3,6,5,7,0,13,"","",0,6,0,0,2,0,1,0,11,5,1,"SAR40٬000"],["بيت الخبرة لطلاب المنح","",3,9,5,7,0,0,"","",0,6,0,0,2,2,1,0,10,3,1,""],["مركز دراسات وأبحاث التعريف بالإسلام","",3,9,5,7,0,0,"","",0,6,0,0,2,2,1,0,7,3,1,""],["مركز دراسات وأبحاث التعريف بالإسلام","",3,9,5,7,0,0,"","",0,6,0,0,2,2,1,0,7,10,1,""],["برنامج وقاية (تدريب)","",0,1,1,1,0,13,"","",0,6,0,0,2,2,1,0,7,0,0,""],["تعليم اللغة العربية للناطقين بغيرها (تمكين التعليم)","",3,1,5,13,0,13,"","",0,6,0,0,2,2,1,0,12,4,3,""],["دبلوم تأهيل الدعاة (تأليف)","",3,1,2,7,0,13,"","",0,6,0,0,2,2,1,0,12,8,1,"SAR180٬000"],["دورات تأهيل الأئمة والخطباء للناطقين بالعربية","",0,1,2,3,6,12,"","",0,6,0,0,2,2,1,0,7,4,3,""],["كلية التربية (تمكين التعليم)","",1,1,0,6,6,12,"","",0,6,0,0,2,2,1,0,14,3,1,""],["كلية الدعوة","",0,1,2,3,6,12,"","",0,6,0,0,2,2,1,0,14,3,1,""],["كلية الشريعة","",3,1,4,5,6,12,"","",0,6,0,0,2,2,1,0,14,3,1,""],["معهد بنيان العالمي","",0,1,3,4,6,12,"","",0,6,0,0,2,2,1,0,7,3,2,""],["معهد بنيان العالمي","",0,1,3,4,6,12,"","",0,6,0,0,2,2,1,0,7,4,2,""],["معهد تبيان","",0,1,3,4,7,14,"","",0,6,0,0,2,2,1,0,7,3,2,""],["معهد تبيان","",0,1,3,4,7,14,"","",0,6,0,0,2,2,1,0,7,4,2,""],["جامعة بنيان العالمية","",3,6,5,7,0,13,"","",0,6,0,0,2,0,1,0,11,5,1,""],["طاقات","",3,6,5,7,0,13,"","",0,6,0,0,2,0,1,0,11,5,1,""],["بنيان الإنسانية","",3,6,5,7,0,13,"","",0,6,0,0,2,0,1,0,11,5,1,""],["التعليم عن بعد","",3,6,5,7,0,13,"","",0,6,0,0,2,0,1,0,11,5,1,""],["دارس","",3,6,5,10,0,13,"","",0,6,0,0,2,0,1,0,11,5,1,"SAR40٬000"],["مناهج دبلوم تأهيل المعرفين بالإسلام (إنجليزي)","",3,8,6,11,0,13,"","",0,6,0,0,2,2,1,0,12,7,1,"SAR90٬000"],["دورات العلم الواجب (ميراث) (تدريب)","",2,10,3,14,6,12,"","",0,6,0,0,2,2,1,0,10,11,4,""],["ساو تومي (دراسة)","",2,9,9,15,0,13,"","",0,6,0,0,2,4,1,0,13,10,1,""],["معرض ال vr","",0,5,2,8,6,15,"","",0,5,0,0,2,2,1,0,15,11,1,""],["معرض التعريف بالإسلام","",0,10,2,4,0,13,"","",0,6,0,0,0,4,1,0,16,11,4,""],["معرض التعريف بالإسلام","",0,5,2,8,6,15,"","",0,5,0,0,2,2,1,0,15,11,1,""],["السلام لدعوة السياح والدعوة الميدانية","",0,5,2,5,6,15,"","",0,5,0,0,2,2,1,0,15,11,1,""],["مشروع الطرود البريدية","",0,5,2,8,6,15,"","",0,5,0,0,2,2,1,0,15,11,1,""],["الدعوة الالكترونية","",0,5,2,8,6,15,"","",0,5,0,0,2,2,1,0,15,11,1,""],["برنامج الأترجة (تدريب)","BU-SEN-26001-برنامج الأترجة",0,1,1,1,8,16,"2026/02/08","2026/02/19",12,1,40,55,1,2,12,0,2,1,0,"SAR1٬500"],["برنامج الأترجة (تدريب)","BU-GHA-26001-برنامج الأترجة",0,1,1,1,9,17,"2026/02/23","2026/03/06",12,1,40,44,1,2,1,0,10,1,0,"SAR1٬500"],["برنامج الأترجة (تدريب)","BU-BAN-26008-برنامج الأترجة",0,1,1,1,1,18,"2026/02/21","2026/02/26",6,1,40,44,1,2,13,0,10,1,0,""],["برنامج الأترجة (تدريب)","BU-MMR-26001-برنامج الأترجة",0,1,1,1,10,19,"2026/02/21","2026/02/26",6,1,40,54,0,0,1,0,10,1,0,""],["برنامج الأترجة (تدريب)","BU-MMR-26002-برنامج الأترجة",0,1,1,1,10,20,"2026/02/21","2026/02/26",6,1,40,45,0,0,1,0,10,1,0,""],["برنامج الأترجة (تدريب)","BU-BAN-26004-برنامج الأترجة",0,1,1,1,1,21,"2026/02/08","2026/02/13",6,1,40,37,0,0,14,0,2,1,0,"SAR2٬500"],["برنامج الأترجة (تدريب)","BU-BAN-26005-برنامج الأترجة",0,1,1,1,1,22,"2026/02/08","2026/02/13",6,1,40,38,0,0,15,0,2,1,0,"SAR2٬500"],["برنامج الأترجة (تدريب)","BU-NGA-26001-برنامج الأترجة",0,1,1,1,11,23,"2026/02/23","2026/02/28",6,1,40,35,0,0,16,0,10,1,0,"SAR1٬500"],["برنامج الأترجة (تدريب)","BU-BAN-26006-برنامج الأترجة",0,1,1,1,1,24,"2026/02/08","2026/02/13",6,1,40,42,0,0,17,0,2,1,0,"SAR2٬500"],["برنامج الأترجة (تدريب)","BU-BAN-26007-برنامج الأترجة",0,1,1,1,1,25,"2026/02/08","2026/02/13",6,1,40,39,0,0,18,0,2,1,0,"SAR2٬500"],["برنامج بصيرة (تدريب)","BU-SEN-26001-برنامج بصيرة",0,1,2,3,8,16,"2026/02/08","2026/02/19",12,5,40,64,1,2,12,0,2,1,0,"SAR1٬500"],["برنامج بصيرة (تدريب)","BU-BAN-26005-برنامج بصيرة",0,1,2,3,1,18,"2026/02/21","2026/02/26",6,5,40,31,0,0,13,0,10,1,0,""],["برنامج النخبة لتأهيل القيادات","DAR-SA-26003-برنامج النخبة لتأهيل القيادات",4,0,7,16,0,0,"2026/02/07","2026/02/19",14,3,20,14,0,0,6,0,17,1,0,""],["برنامج يا هلا (تدريب)","B-SA-26002-برنامج يا هلا",0,3,1,1,0,26,"2026/02/03","2026/02/07",5,7,20,19,0,0,19,0,18,0,0,""],["نمذجة المدارس غانا (تمكين التعليم)","EE-GHA-26001-نمذجة المدارس",1,2,0,2,9,27,"2026/02/22","2026/02/26",5,8,3,3,0,2,20,0,19,2,1,""],["برنامج الأترجة (تدريب)","BU-IDN-26001- برنامج الأترجة",0,1,1,1,1,28,"2026/03/07","2026/03/12",6,1,40,40,1,0,21,0,10,1,0,""],["برنامج الأترجة (تدريب)","BU-IDN-26001- برنامج الأترجة",0,1,1,1,1,29,"2026/03/07","2026/03/12",6,1,40,41,1,0,22,0,10,1,0,""],["برنامج الأترجة (تدريب)","BU-SEN-26002-برنامج الأترجة",0,1,1,1,8,16,"2026/02/25","2026/03/08",12,1,40,40,1,2,12,0,2,1,0,"SAR1٬500"],["برنامج الأترجة (تدريب)","BU-IDN-26001- برنامج الأترجة",0,1,1,1,11,23,"2026/03/07","2026/03/12",6,1,40,48,1,2,16,0,10,1,0,"SAR1٬500"],["برنامج الأترجة (تدريب)","BU-BAN-26009-برنامج الأترجة",0,1,1,1,1,18,"2026/02/21","2026/02/26",6,1,40,31,0,0,13,0,10,1,0,""],["برنامج بصيرة (تدريب)","BU-SEN-26002-برنامج بصيرة",0,1,2,3,8,16,"2026/02/25","2026/03/08",12,5,40,56,1,2,12,0,2,1,0,"SAR1٬500"],["برنامج بصيرة (تدريب)","BU-MMR-26001-برنامج بصيرة",0,1,2,3,10,30,"2026/03/21","2026/02/26",6,5,40,47,0,0,1,0,10,1,0,""],["نمذجة المدارس أوغندا (تمكين التعليم)","EE-UGA-26001-نمذجة المدارس",1,2,0,2,12,31,"2026/03/01","2026/03/05",5,8,3,3,0,2,20,0,19,2,1,""],["نمذجة المدارس  (بنجلاديش) (تمكين التعليم)","EE-BAN-26003-نمذجة المدارس",1,2,0,2,1,32,"2026/03/01","2026/03/05",5,3,40,32,0,2,20,0,19,2,1,""],["برنامج الأترجة (تدريب)","BU-BAN-26010-برنامج الأترجة",0,1,1,1,1,33,"2026/02/21","2026/02/26",6,1,40,33,0,0,23,0,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,1,32,"2026/04/12","2026/04/18",6,1,40,47,0,0,24,0,10,1,0,"SAR2٬500"],["برنامج الأترجة (تدريب)","",0,1,1,1,1,2,"2026/04/12","2026/04/18",6,1,40,44,0,0,25,0,10,1,0,"SAR2٬500"],["برنامج سفير (تدريب)","",0,0,1,1,0,34,"2026/04/08","2026/04/18",8,0,40,44,0,2,26,0,20,0,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,1,35,"2026/04/12","2026/04/18",6,1,40,39,0,0,27,0,10,1,0,"SAR2٬500"],["برنامج الأترجة (تدريب)","",0,1,1,1,1,36,"2026/04/12","2026/04/18",6,1,40,41,0,0,28,0,10,1,0,"SAR2٬500"],["برنامج الأترجة (تدريب)","",0,1,1,1,1,37,"2026/04/12","2026/04/18",6,1,40,42,0,0,29,0,10,1,0,"SAR2٬500"],["برنامج الأترجة (تدريب)","",0,1,1,1,1,38,"2026/04/12","2026/04/18",6,1,40,45,0,0,30,0,10,1,0,"SAR2٬500"],["برنامج بصيرة (تدريب)","",0,1,2,3,1,2,"2026/04/12","2026/04/18",6,5,40,37,0,0,31,0,10,1,0,"SAR2٬500"],["برنامج بصيرة (تدريب)","",0,1,2,3,1,35,"2026/04/12","2026/04/18",6,5,40,37,0,0,25,0,10,1,0,"SAR2٬500"],["برنامج بصيرة (تدريب)","",0,1,2,3,1,36,"2026/04/12","2026/04/18",6,5,40,43,0,0,32,0,10,1,0,"SAR2٬500"],["برنامج بصيرة (تدريب)","",0,1,2,3,1,37,"2026/04/12","2026/04/18",6,5,40,28,0,0,33,0,10,1,0,"SAR2٬500"],["برنامج بصيرة (تدريب)","",0,1,2,3,1,38,"2026/04/12","2026/04/18",6,5,40,42,0,0,34,0,10,1,0,"SAR2٬500"],["برنامج الأترجة (تدريب)","",0,1,1,1,1,39,"2026/05/02","2026/05/14",6,1,40,40,0,0,25,0,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,1,38,"2026/04/29","2026/05/04",6,5,40,41,0,0,35,0,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,1,40,"2026/04/29","2026/05/04",6,5,40,39,0,0,35,0,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,1,2,"2026/05/03","2026/05/08",6,5,40,35,0,0,35,0,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,1,2,"2026/05/03","2026/05/08",6,5,40,39,0,0,35,0,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,1,2,"2026/05/03","2026/05/08",6,5,40,36,0,0,35,0,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,1,2,"2026/05/03","2026/05/08",6,5,40,33,0,0,35,0,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,1,32,"2026/05/02","2026/05/14",6,5,40,40,0,0,35,0,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,1,39,"2026/05/02","2026/05/14",6,1,40,36,0,0,35,0,10,1,0,""],["برنامج يا هلا (تدريب)","",0,8,1,1,0,13,"2026/04/30","2026/05/08",6,7,90,45,0,2,36,0,21,0,0,""],["برنامج يا هلا (تدريب)","",0,8,1,1,0,13,"2026/05/03","2026/05/12",6,7,60,20,0,2,36,0,21,0,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,1,41,"2026/06/22","2026/06/27",6,1,40,42,0,0,25,0,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,1,42,"2026/06/23","2026/06/27",6,1,40,45,0,0,25,0,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,1,6,"2026/06/25","2026/06/30",6,1,40,40,0,0,25,0,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,13,43,"2026/06/13","2026/06/18",6,1,50,43,0,0,37,0,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,13,43,"2026/06/13","2026/06/18",6,5,55,69,0,0,37,0,10,1,0,""],["نمذجة المدارس الهند (تمكين التعليم)","EE-IND-26001-نمذجة المدارس",1,2,0,2,7,44,"2026/03/01","2026/03/05",5,8,3,3,0,2,38,0,19,2,1,""],["نمذجة المدارس الهند (تمكين التعليم)","",1,2,0,2,7,44,"2026/08/02","2026/09/02",8,9,50,50,1,2,1,0,22,2,1,""],["برنامج الأترجة (تدريب)","BU-BAN-26011-برنامج الأترجة",0,1,1,1,1,18,"2026/02/21","2026/02/26",6,1,40,33,0,0,13,0,10,1,0,""],["برنامج بصيرة (تدريب)","BU-BAN-26006-برنامج بصيرة",0,1,2,3,1,45,"2026/02/22","2026/02/26",6,5,40,44,0,0,39,0,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,13,46,"2026/07/04","2026/07/09",6,1,50,49,0,0,37,0,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,13,47,"2026/07/18","2026/07/23",6,1,50,60,0,0,37,0,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,13,48,"2026/07/28","2026/08/02",6,1,50,55,0,0,37,0,10,1,0,""],["برنامج الرواد (تدريب)","",0,1,2,3,13,47,"2026/07/11","2026/07/16",6,10,50,48,0,0,37,0,10,1,0,""],["برنامج الرواد (تدريب)","",0,1,2,3,13,48,"2026/07/21","2026/07/26",6,10,50,62,0,0,37,0,10,1,0,""],["برنامج النخبة لتأهيل القيادات","",4,1,7,16,13,47,"2026/07/11","2026/07/19",9,3,60,52,0,0,37,0,10,1,0,""],["برنامج النخبة لتأهيل القيادات","",4,1,7,16,13,48,"2026/07/21","2026/07/29",9,3,60,57,0,0,37,0,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,13,46,"2026/07/04","2026/07/09",6,5,55,65,0,0,37,0,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,13,47,"2026/07/18","2026/07/23",6,5,55,53,0,0,37,0,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,13,49,"2026/07/28","2026/08/02",6,5,55,54,0,0,37,0,10,1,0,""],["برنامج بصيرة (تدريب)","BU-BAN-26007-برنامج بصيرة",0,1,2,3,1,50,"2026/02/22","2026/02/26",6,5,40,41,0,0,40,0,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,1,2,"2026/07/22","2026/07/28",4,1,40,33,0,0,41,0,10,1,0,""],["برنامج النخبة لتأهيل القيادات","",4,1,1,16,1,2,"2026/07/22","2026/07/28",4,1,40,33,0,0,41,0,10,1,0,""],["برنامج النخبة لتأهيل القيادات","",4,1,1,16,1,2,"2026/07/22","2026/07/28",4,1,40,23,0,0,7,0,10,1,0,""],["برنامج النخبة لتأهيل القيادات","",4,1,7,16,1,2,"2026/07/22","2026/07/28",4,1,40,23,0,0,7,0,10,1,0,""],["برنامج النخبة لتأهيل القيادات","",4,1,7,16,1,6,"2026/07/22","2026/07/28",4,1,40,23,0,0,8,0,10,1,0,""],["برنامج النخبة لتأهيل القيادات","",4,1,7,16,1,6,"2026/07/22","2026/07/28",4,1,40,23,0,0,8,0,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,1,6,"2026/07/22","2026/07/28",4,1,40,27,0,0,42,0,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,1,6,"2026/07/22","2026/07/28",4,1,40,27,0,0,42,0,10,1,0,""],["دورات المهارات الحياتية","",0,1,3,1,6,12,"2026/07/25","2026/07/26",2,5,25,32,0,0,11,0,10,1,0,""],["دورات المهارات الحياتية","",0,1,3,1,6,12,"2026/07/25","2026/07/26",2,5,25,32,0,0,11,0,10,1,0,""],["نمذجة المدارس الهند (تمكين التعليم)","",1,2,0,2,7,51,"2026/04/16","2026/04/30",15,2,3,3,0,5,43,0,23,2,1,""],["دورات المهارات الحياتية","",0,1,3,1,6,12,"2026/08/01","2026/08/30",10,5,50,97,0,2,11,0,10,1,0,""],["دورات المهارات الحياتية","",0,1,3,1,6,12,"2026/08/01","2026/08/16",6,5,50,72,0,2,11,0,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,13,52,"2026/09/05","2026/09/10",6,1,50,49,0,0,37,0,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,13,53,"2026/09/14","2026/09/19",6,1,50,43,0,0,37,0,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,13,54,"2026/09/24","2026/09/29",6,1,50,38,0,0,37,0,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,13,52,"2026/09/05","2026/09/10",6,5,55,51,0,0,37,0,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,13,53,"2026/09/14","2026/09/19",6,5,55,51,0,0,37,0,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,13,54,"2026/09/24","2026/09/29",6,5,55,42,0,0,37,0,10,1,0,""],["دورات المهارات الحياتية","",0,1,3,1,6,12,"2026/09/20","2026/09/23",4,5,30,45,0,2,11,0,10,1,0,""],["دورات المهارات الحياتية","",0,1,3,1,6,15,"2026/09/01","2026/09/30",24,5,30,24,0,2,11,0,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,6,12,"","",6,1,40,0,0,2,1,1,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,6,12,"","",6,1,40,0,0,2,1,1,10,1,0,""],["برنامج النخبة لتأهيل القيادات","",4,1,1,16,6,12,"","",9,3,40,0,0,2,1,1,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,6,12,"","",6,5,40,0,0,2,1,1,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,6,12,"","",6,5,40,0,0,2,1,1,10,1,0,""],["برنامج تدريب المدربين","",4,1,1,1,6,12,"","",5,8,20,0,0,2,1,1,10,1,0,""],["برنامج النخبة لتأهيل القيادات","",4,1,7,16,1,55,"2026/07/05","2026/07/31",9,3,40,40,0,0,1,0,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,6,12,"","",6,1,40,0,0,0,1,1,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,13,56,"2026/10/12","2026/10/17",6,1,50,47,0,0,37,0,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,13,57,"2026/10/24","2026/10/29",6,1,50,57,0,0,37,0,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,13,15,"","",6,1,50,0,0,0,37,1,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,13,15,"","",6,1,50,0,0,0,37,1,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,13,15,"","",6,1,50,0,0,0,37,1,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,13,15,"","",6,1,50,0,0,0,37,1,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,13,15,"","",6,1,50,0,0,0,37,1,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,13,15,"","",6,1,50,0,0,0,37,1,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,13,15,"","",6,1,50,0,0,0,37,1,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,13,15,"","",6,1,50,0,0,0,37,1,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,13,15,"","",6,1,50,0,0,0,37,1,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,13,15,"","",6,1,50,0,0,0,37,1,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,13,15,"","",6,1,50,0,0,0,37,1,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,13,15,"","",6,1,50,0,0,0,37,1,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,6,12,"","",6,5,40,0,0,0,1,1,10,1,0,""],["برنامج الجوهرة (تدريب)","",0,1,2,4,13,15,"","",6,4,30,0,0,0,37,1,10,1,0,""],["برنامج الجوهرة (تدريب)","",0,1,2,4,13,15,"","",6,4,30,0,0,0,37,1,10,1,0,""],["برنامج الجوهرة (تدريب)","",0,1,2,4,13,15,"","",6,4,30,0,0,0,37,1,10,1,0,""],["برنامج الجوهرة (تدريب)","",0,1,2,4,13,15,"","",6,4,30,0,0,0,37,1,10,1,0,""],["برنامج الجوهرة (تدريب)","",0,1,2,4,13,15,"","",6,4,30,0,0,0,37,1,10,1,0,""],["برنامج الرواد (تدريب)","",0,1,2,3,13,15,"","",6,10,50,0,0,0,37,1,10,1,0,""],["برنامج النخبة لتأهيل القيادات","",4,1,7,16,13,15,"","",9,3,60,0,0,0,37,1,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,13,56,"2026/10/12","2026/10/17",6,5,55,55,0,0,37,0,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,13,57,"2026/10/24","2026/10/29",6,5,55,60,0,0,37,0,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,13,15,"","",6,5,50,0,0,0,37,1,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,13,15,"","",6,5,50,0,0,0,37,1,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,13,15,"","",6,5,50,0,0,0,37,1,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,13,15,"","",6,5,50,0,0,0,37,1,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,13,15,"","",6,5,50,0,0,0,37,1,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,13,15,"","",6,5,50,0,0,0,37,1,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,13,15,"","",6,5,50,0,0,0,37,1,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,13,15,"","",6,5,50,0,0,0,37,1,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,13,15,"","",6,5,50,0,0,0,37,1,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,13,15,"","",6,5,50,0,0,0,37,1,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,13,15,"","",6,5,50,0,0,0,37,1,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,13,15,"","",6,5,50,0,0,0,37,1,10,1,0,""],["برنامج تدريب المدربين","",4,1,7,16,13,15,"","",5,8,30,0,0,0,37,1,10,1,0,""],["برنامج تدريب المدربين","",4,1,7,16,13,15,"","",5,11,30,0,0,0,37,1,10,1,0,""],["برنامج تمهير (تدريب)","",0,1,2,3,13,15,"","",6,5,50,0,0,0,37,1,10,1,0,""],["برنامج قسطاس (تدريب)","",0,1,2,3,13,15,"","",5,5,40,0,0,0,37,1,10,1,0,""],["برنامج قسطاس (تدريب)","",0,1,2,3,13,15,"","",5,5,40,0,0,0,37,1,10,1,0,""],["برنامج قسطاس (تدريب)","",0,1,2,3,13,15,"","",5,5,40,0,0,0,37,1,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,6,12,"","",6,1,40,0,0,2,1,1,10,1,0,""],["برنامج بصيرة (تدريب)","",0,1,2,3,6,12,"","",6,5,40,0,0,2,1,1,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,0,58,"2026/10/03","2026/10/25",8,1,30,0,1,1,44,2,24,0,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,0,58,"2026/10/03","2026/10/25",8,1,30,0,0,1,44,2,24,0,0,""],["برنامج النخبة لتأهيل القيادات","",4,1,7,16,0,58,"2026/10/12","2026/11/17",10,3,20,0,0,1,44,2,24,0,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,14,59,"2026/10/17","2026/12/21",12,4,40,0,1,4,45,2,10,1,0,""],["برنامج سفير (تدريب)","",0,3,1,1,0,60,"2026/10/30","2026/12/05",12,0,30,0,0,1,46,2,24,0,0,""],["برنامج سفير (تدريب)","",0,3,1,1,0,61,"2026/10/30","2026/12/05",12,0,30,0,0,1,46,2,24,0,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,5,15,"","",12,4,40,0,1,2,1,1,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,5,15,"","",12,4,40,0,1,2,1,1,10,1,0,""],["برنامج الأترجة (تدريب)","",0,1,1,1,15,15,"","",12,4,40,0,1,2,47,1,10,1,0,""]]};
+
 var IMPACT={prog:287,run:6,done:231,countries:16,cities:62,partners:49,hours:5824,trainers:1456,ben:4378,benRep:52536};
 var CHAIN={goals:[["الإسهام في سد حاجة الأمة من العلماء",4,4],["الإسهام في تأهيل الأئمة والخطباء (الدعاة)",163,113],["الإسهام في تأهيل قيادات العمل الخيري",15,9],["تمكين التعليم الإسلامي المعاصر",17,17],["تحقيق الإستدامة البشرية والمالية والقانونية",88,88]],depts:[["المشاريع",286,230],["التصميم",265,209],["الدعم الفني",40,40],["بنيان الإنسانية",6,6],["دار التمكين",4,4],["تمكين التعليم",9,9],["جامعة بنيان",166,110],["التدريب الدولي",153,102],["التدريب المحلي",16,11]],inits:[["جامعة بنيان العالمية",166,112],["شركة بنيان للتدريب",7,5],["دار التمكين",4,4],["مركز بنيان للأبحاث والدراسات",4,4],["آفاق للتعريف بالإسلام",6,6],["بنيان الإنسانية",2,2],["كلية المعارف",2,2],["تمكين التعليم",13,13],["كفاءة تقنية",8,8],["طاقات للاستشارات",73,73],["التميز المؤسسي",2,2],["جمعية قياما",0,0],["جيل التقدم",0,0],["الاستثمار",0,0]],packs:[["برنامج صناعة العلماء",4,4],["التعليم والتوعية",15,15],["تأهيل الأئمة والخطباء (الدعاة)",72,46],["تأهيل مؤسسات القطاع الثالث",12,8],["تأليف المناهج و الحقائب",30,30],["تمكين التعليم",15,15],["ترجمة الحقائب التدريبية",35,35],["البرامج المساندة",21,21],["التأهيل والتدريب",82,56],["الدراسات",1,1]],progs:[["إعداد العلماء",4,4],["تأهيل العلماء",1,1],["نشر العلم الواجب",1,1],["البرامج المستقلة",13,8],["إعداد الأئمة والخطباء",59,38],["تأهيل القيادات",14,9],["التميز المؤسسي",0,0],["تأهيل المؤسسات",3,3],["تأهيل العاملين",87,62],["تعليم القرآن الكريم",1,1],["اللغة العربية للناطقين بغيرها",1,1],["نمذجة المدارس",9,9],["إعداد المناهج",12,12],["إعداد المعلمين",2,2],["المنتجات المساندة",66,66],["برامج التقنية (كفاءة)",2,2],["أطلس الدول",1,1]],projs:[["كلية الشريعة",2,2,"تمكين التعليم الإسلامي المعاصر، تحقيق الإستدامة البشرية والمالية والقانونية"],["دورات المهارات الحياتية",7,7,"تمكين التعليم الإسلامي المعاصر، الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["دورات العلم الواجب (ميراث) (تدريب)",1,1,"الإسهام في سد حاجة الأمة من العلماء"],["معهد بنيان العالمي",2,2,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["معهد بوسان",2,2,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["معهد تبيان",2,2,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["بيت الخبرة لطلاب المنح",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["مقر آفاق الإداري",1,1,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["دار التمكين",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["مركز دراسات وأبحاث التعريف بالإسلام",2,2,"تحقيق الإستدامة البشرية والمالية والقانونية"],["معهد العلم",1,1,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["كلية الدعوة",2,2,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["كلية المعارف",2,2,"الإسهام في سد حاجة الأمة من العلماء"],["دبلوم تأهيل الأئمة والخطباء للناطقين بغير العربية",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["مناهج تعليم أولى متوسط",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["مناهج تعليم ثاني متوسط",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["مناهج تعليم ثالث متوسط",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["مناهج تعليم أولى ثانوي",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["مناهج تعليم ثاني ثانوي",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["مناهج تعليم ثالث ثانوي",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["مناهج دبلوم تأهيل المعرفين بالإسلام (عربي)",2,2,"تحقيق الإستدامة البشرية والمالية والقانونية"],["مناهج دبلوم تأهيل المعرفين بالإسلام (إنجليزي)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["مناهج التعليم الموازي",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج شيخ القرية",1,1,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["برنامج بصيرة (تدريب)",48,32,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["دورات تأهيل الأئمة والخطباء للناطقين بالعربية",1,1,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["معرض ال vr",1,1,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["معرض التعريف بالإسلام",2,2,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["السلام لدعوة السياح والدعوة الميدانية",1,1,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["مشروع الطرود البريدية",1,1,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["الدعوة الالكترونية",1,1,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["دبلوم تأهيل القيادات",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج تدريب المدربين",3,0,"الإسهام في تأهيل قيادات العمل الخيري"],["برنامج النخبة لتأهيل القيادات",13,10,"تحقيق الإستدامة البشرية والمالية والقانونية، الإسهام في تأهيل قيادات العمل الخيري"],["مشروع بناء نموذج بنيان للتميز المؤسسي",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["جائزة بنيان للتميز المؤسسي",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج الرواد (تدريب)",4,3,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["برنامج سفير (تدريب)",5,3,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["برنامج حكيم (تدريب)",0,0,"#N/A"],["برنامج رعاية (تدريب)",0,0,"#N/A"],["برنامج يا هلا (تدريب)",3,3,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["برنامج بينات (تدريب)",0,0,"#N/A"],["برنامج تمهير (تدريب)",1,0,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["برنامج الأترجة (تدريب)",66,44,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["برنامج الهدى (تدريب)",0,0,"#N/A"],["برنامج الخبراء (تدريب)",0,0,"#N/A"],["برنامج التحصين العقدي (تدريب)",1,1,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["برنامج المربي  (تدريب)",0,0,"#N/A"],["برنامج وقاية (تدريب)",1,1,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["برنامج الجوهرة (تدريب)",5,0,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["برنامج قسطاس (تدريب)",3,0,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["برنامج الطفولة المبكرة (تدريب)",1,1,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["برنامج رقيم (تدريب)",1,1,"الإسهام في تأهيل الأئمة والخطباء (الدعاة)"],["دبلوم تأهيل القيادات (تأليف)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج النخبة لتأهيل القيادات (تأليف)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج إتقان للتأهيل المؤسسي (تأليف)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج بصيرة (تأليف)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج الأترجة (تأليف)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج الرواد (تأليف)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج سفير (تأليف)",2,2,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج حكيم (تأليف)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج رعاية (تأليف)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج يا هلا (تأليف)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج وقاية (تأليف)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج بينات (تأليف)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج تمهير (تأليف)",2,2,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج المربي  (تأليف)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج الهدى إسعاد (تأليف)",2,2,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج التحصين العقدي (تأليف)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج الطفولة المبكرة (تأليف)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["دبلوم تأهيل الدعاة (تأليف)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["دبلوم تأهيل المعرفين بالإسلام (تأليف)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["المقرأة الالكترونية",2,2,"تحقيق الإستدامة البشرية والمالية والقانونية، تمكين التعليم الإسلامي المعاصر"],["تعليم اللغة العربية للناطقين بغيرها (تمكين التعليم)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج إتقان للتأهيل المؤسسي (تمكين التعليم)",1,1,"تمكين التعليم الإسلامي المعاصر"],["إعداد مناهج التعليم المسجدي (تمكين التعليم)",1,1,"تمكين التعليم الإسلامي المعاصر"],["إعداد المناهج (مناهج القيم)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج التبيان",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج الأترجة (تمكين التعليم)",1,1,"تمكين التعليم الإسلامي المعاصر"],["كلية التربية (تمكين التعليم)",2,2,"تمكين التعليم الإسلامي المعاصر"],["نمذجة المدارس  (بنجلاديش) (تمكين التعليم)",4,4,"تمكين التعليم الإسلامي المعاصر"],["نمذجة المدارس غانا (تمكين التعليم)",1,1,"تمكين التعليم الإسلامي المعاصر"],["نمذجة المدارس إندونيسيا (تمكين التعليم)",0,0,"#N/A"],["نمذجة المدارس أوغندا (تمكين التعليم)",1,1,"تمكين التعليم الإسلامي المعاصر"],["نمذجة المدارس الهند (تمكين التعليم)",3,3,"تمكين التعليم الإسلامي المعاصر"],["برنامج بصيرة (إنجليزي)",2,2,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج بصيرة (أردو)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج بصيرة (فرنسي)",2,2,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج بصيرة (إندونيسي)",2,2,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج الأترجة (إنجليزي)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج الأترجة (أردو)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج الأترجة (فرنسي)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج الأترجة (إندونيسي)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج الرواد (إنجليزي)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج الرواد (أردو)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج الرواد (فرنسي)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج الرواد (إندونيسي)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج النخبة (إنجليزي)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج النخبة (أردو)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج النخبة (فرنسي)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج النخبة (إندونيسي)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج يا هلا (إنجليزي)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج يا هلا (أردو)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج يا هلا (فرنسي)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج يا هلا (إندونيسي)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج المربي (إنجليزي)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج المربي (أردو)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج المربي (فرنسي)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج المربي (إندونيسي)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج وقاية (إنجليزي)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج وقاية (أردو)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج وقاية (فرنسي)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج وقاية (إندونيسي)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج ميراث (إنجليزي)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج ميراث (أردو)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج ميراث (فرنسي)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["برنامج ميراث (إندونيسي)",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["ساو تومي (دراسة)",1,1,"الإسهام في سد حاجة الأمة من العلماء"],["المنصة التعليمية",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["دارس",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["تواصل الإداري",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["المقرأة الالكترونية",2,2,"تحقيق الإستدامة البشرية والمالية والقانونية، تمكين التعليم الإسلامي المعاصر"],["جامعة بنيان العالمية",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["طاقات",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["بنيان الإنسانية",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"],["التعليم عن بعد",1,1,"تحقيق الإستدامة البشرية والمالية والقانونية"]]};
 var CSTAT={"السعودية":[19,440,204],"أندونيسيا":[17,650,362],"تايلاند":[0,0,0],"الفلبين":[0,0,0],"الهند":[5,200,56],"بنجلاديش":[29,2207,2019],"نيبال":[0,0,0],"ميانمار":[3,120,146],"لبنان":[1,40,0],"العراق":[0,0,0],"إثيوبيا":[59,2360,1160],"بوركينا فاسو":[0,0,0],"غامبيا":[0,0,0],"غانا":[1,40,47],"غينيا كوناكري":[0,0,0],"غينيا بيساو":[0,0,0],"ساحل العاج":[0,0,0],"موريتانيا":[0,0,0],"نيجيريا":[2,80,83],"السنغال":[4,160,215],"سيراليون":[0,0,0],"توغو":[0,0,0],"بنين":[0,0,0],"تنزانيا":[0,0,0],"كينيا":[0,0,0],"اليمن":[2,115,35]};
@@ -3823,11 +4419,11 @@ var NOTES=[
  ['','فرق موثَّق','مجموع الكرة <b>379</b> برنامجًا والإجمالي الرسمي <b>380</b>. الفارق من 2024: تفصيله حسب الدول يبلغ <b>53</b> برنامجًا بينها برنامجان في «أمريكا الجنوبية» — إقليم لا دولة فلا يُرسم — بينما الإجمالي الرسمي للعام <b>52</b>.'],
  ['cy','2026','عامٌ لم يكتمل؛ أرقامه حتى <b>29</b> أكتوبر، ومنها <b>50</b> مشروعًا لم يبدأ تنفيذه بعد و<b>6</b> قيد التنفيذ.']
 ];
-var NAV=[['rp-s1','الأثر في أرقام'],['rp-s2','ثلاث سنوات'],['rp-s3','أين عملنا'],['rp-s4','الغايات'],['rp-s5','المبادرات'],['rp-s7','سلسلة الأثر'],['rp-s6','المنهجية']];
+var NAV=[['rp-s0','الغايات'],['rp-s1','الأثر في أرقام'],['rp-s2','ثلاث سنوات'],['rp-s3','أين عملنا'],['rp-s5','المبادرات'],['rp-s7','سلسلة الأثر'],['rp-s6','المنهجية']];
 
 (function(){
   var e=['وقف بنيان','جامعة بنيان العالمية','شركة بنيان للتدريب المحدودة'];
-  $('rp-ents').innerHTML=e.map(function(x){ return '<span>'+x+'</span>'; }).join('');
+  var en=$('rp-ents'); if(en) en.innerHTML=e.map(function(x){ return '<span>'+x+'</span>'; }).join('');
   $('rp-fents').innerHTML=e.map(function(x){ return '<span>'+x+'</span>'; }).join('');
 })();
 
@@ -3897,15 +4493,6 @@ $('rp-grow').innerHTML=[
  ['cy','×'+(y3.b/y1.b).toFixed(1),'المستفيدون','تضاعفوا من <b>'+f(y1.b)+'</b> إلى <b>'+f(y3.b)+'</b> مستفيدًا'],
  ['gr','×'+(y3.h/y1.h).toFixed(1),'ساعات التدريب','ارتفعت من <b>'+f(y1.h)+'</b> إلى <b>'+f(y3.h)+'</b> ساعة']
 ].map(function(x){ return '<div class="rp-ins '+x[0]+' rp-rv"><div class="h"><span class="x">'+x[1]+'</span><b>'+x[2]+'</b></div><p>'+x[3]+'</p></div>'; }).join('');
-
-$('rp-goals').innerHTML=GOALS.map(function(g){
-  var pct=Math.round(g.d/g.p*100),r=52,C=2*Math.PI*r;
-  return '<div class="rp-card rp-goal rp-rv" style="--gc:'+g.c+'"><div class="rp-ring"><svg viewBox="0 0 120 120"><circle class="tr" cx="60" cy="60" r="'+r+'"/>'+
-   '<circle class="pr" cx="60" cy="60" r="'+r+'" stroke="'+g.c+'" stroke-dasharray="'+C+'" stroke-dashoffset="'+C+'" data-off="'+(C*(1-pct/100))+'"/></svg>'+
-   '<span class="rc"><b style="color:'+g.c+'">'+pct+'%</b><span>تنفيذ</span></span></div>'+
-   '<div><h3>'+g.t+'</h3><div class="rp-gmeta"><span><b>'+g.d+'</b> منفّذ من <b>'+g.p+'</b> مشروعًا</span>'+
-   '<span><b>'+g.ini+'</b> مبادرات</span><span><b>'+g.pr+'</b> برامج</span></div>'+
-   '<div class="rp-chips">'+g.top.map(function(t){ return '<span class="rp-chip">'+t[0]+'<b>'+t[2]+'/'+t[1]+'</b></span>'; }).join('')+'</div></div></div>'; }).join('');
 
 function dl(n){ return n===1?'دولة واحدة':n===2?'دولتان':'<b>'+n+'</b> دول'; }
 function iniCard(x,i,lead){
@@ -4169,16 +4756,616 @@ function linkCards(){
     el.addEventListener('click',function(){ openChain('inits',nm); });
     el.addEventListener('keydown',function(ev){ if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); openChain('inits',nm); } });
   });
-  [].slice.call(L.querySelectorAll('.rp-goal')).forEach(function(el,i){
-    var g=GOALS[i]; if(!g) return;
-    el.setAttribute('role','button'); el.setAttribute('tabindex','0');
-    el.style.cursor='pointer'; el.title='اعرض الغاية ومشاريعها في سلسلة الأثر';
-    var go=function(){ openChain('goals',g.t); };
-    el.addEventListener('click',function(ev){ if(ev.target.closest('.rp-chip')) return; go(); });
-    el.addEventListener('keydown',function(ev){ if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); go(); } });
-  });
 }
 linkCards();
+
+
+/* ===================== غلاف الكيان والغايات ===================== */
+var SD = window.SECTIONS_DATA || {};
+var PARTNERS = SD.partners || [], ORGU = SD.orgUnits || [], MPTS = SD.missionPoints || [];
+var LG = window.LOGO_ASSETS || {};
+function groupLogo(){
+  var im = document.querySelector('#tbLogo img');
+  return im ? im.getAttribute('src') : '';
+}
+/* --- فك ضغط جدول المشاريع --- */
+var PRJ = (function(){
+  var F = PJ.fields, D = PJ.dicts, out = [];
+  for (var i=0;i<PJ.rows.length;i++){
+    var r = PJ.rows[i], o = {};
+    for (var j=0;j<F.length;j++){ var f=F[j]; o[f] = D[f] ? D[f][r[j]] : r[j]; }
+    out.push(o);
+  }
+  return out;
+})();
+var GCOL = ['#f3dca6','#5fd9e6','#5fe0a0','#a99bff','#ff8893'];
+function stCls(s){ return s==='تم التنفيذ'?'st-done' : s==='جاري التنفيذ'?'st-run' : 'st-no'; }
+function uniq(a){ var s={},o=[]; a.forEach(function(x){ if(x && !s[x]){ s[x]=1; o.push(x); } }); return o; }
+function byGoal(g){ return PRJ.filter(function(p){ return nrm(p.goal)===nrm(g); }); }
+/* ترتيب «نقاط الرسالة» يخالف ترتيب GOALS، فنربط كل غاية باسمها الرسمي في جدول المشاريع */
+var GNAMES = uniq(PRJ.map(function(p){ return p.goal; }));
+var GKEY = MPTS.map(function(m){
+  var t = nrm(m.title), hit = null;
+  GNAMES.forEach(function(n){
+    if (hit) return;
+    var x = nrm(n);
+    if (x === t || x.indexOf(t) === 0 || t.indexOf(x) === 0) hit = n;
+  });
+  return hit || m.title;
+});
+function gstat(i){
+  var ps = byGoal(GKEY[i]);
+  return { ps:ps, n:ps.length,
+           done: ps.filter(function(p){ return p.status==='تم التنفيذ'; }).length,
+           run:  ps.filter(function(p){ return p.status==='جاري التنفيذ'; }).length };
+}
+function esc(t){ return String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+/* --- الألواح المنزلقة (مكدّسة) --- */
+var SHEET = null, STACK = [];
+function sheetEl(){
+  if (SHEET) return SHEET;
+  SHEET = document.createElement('div');
+  SHEET.className = 'rp-sheet';
+  SHEET.innerHTML =
+    '<div class="scrim" data-x="close"></div><div class="pane" role="dialog" aria-modal="true">' +
+    '<div class="ph"><button class="ibtn" data-x="back" title="رجوع" aria-label="رجوع">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>' +
+    '<div class="ttl"><span class="eb"></span><h3></h3></div>' +
+    '<button class="ibtn" data-x="close" title="إغلاق" aria-label="إغلاق">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>' +
+    '</div><div class="pb"></div></div>';
+  L.appendChild(SHEET);
+  SHEET.addEventListener('click', function(e){
+    var t = e.target.closest('[data-x]'); if (!t) return;
+    if (t.getAttribute('data-x')==='close') closeSheet(true);
+    else popSheet();
+  });
+  return SHEET;
+}
+function renderSheet(){
+  var s = sheetEl(), top = STACK[STACK.length-1];
+  if (!top) return;
+  s.querySelector('.ph .eb').textContent = top.eb || '';
+  s.querySelector('.ph h3').textContent = top.title || '';
+  s.querySelector('.pb').innerHTML = top.html;
+  s.querySelector('.pb').scrollTop = 0;
+  s.querySelector('[data-x="back"]').style.visibility = STACK.length>1 ? 'visible' : 'hidden';
+}
+function pushSheet(v){
+  var s = sheetEl();
+  STACK.push(v); renderSheet();
+  if (!s.classList.contains('on')){
+    s.classList.add('on');
+    requestAnimationFrame(function(){ s.classList.add('in'); });
+  }
+}
+function popSheet(){ if (STACK.length>1){ STACK.pop(); renderSheet(); } else closeSheet(true); }
+function closeSheet(){
+  var s = sheetEl();
+  s.classList.remove('in');
+  setTimeout(function(){ s.classList.remove('on'); STACK = []; }, 420);
+}
+
+/* --- تعريف الكيان --- */
+function entityHTML(){
+  var h = [];
+  h.push('<div class="rp-blk"><p class="rp-lead2">مجموعة بنيان العالمية منظومةٌ تعمل على تأهيل العلماء والدعاة وقيادات العمل الخيري، وتمكين التعليم الإسلامي المعاصر. تقوم على ثلاثة كيانات مؤسِّسة، وتنفّذ عملها عبر ' + ORGU.length + ' وحدة ومبادرة.</p></div>');
+  h.push('<div class="rp-blk"><h4>الكيانات المؤسِّسة</h4><div class="rp-part">' +
+    PARTNERS.map(function(p,i){
+      return '<button class="rp-pcard" data-p="'+i+'"><span class="lg">'+(LG[p.logo]?'<img src="'+LG[p.logo]+'" alt="'+esc(p.name)+'">':'')+'</span>' +
+             '<span><b>'+esc(p.name)+'</b><p>'+esc(p.nubdha||'')+'</p></span></button>';
+    }).join('') + '</div></div>');
+  h.push('<div class="rp-blk"><h4>وحدات المنظومة ومبادراتها</h4><div class="rp-units">' +
+    ORGU.map(function(u,i){
+      return '<button class="rp-unit" data-u="'+i+'"><b>'+esc(u.name)+'</b><span><em>'+esc(u.value)+'</em> '+esc(u.unit||'')+'</span></button>';
+    }).join('') + '</div></div>');
+  return h.join('');
+}
+function partnerHTML(p){
+  var h = [];
+  if (LG[p.logo]) h.push('<div class="rp-blk" style="text-align:center"><span class="rp-pcard" style="display:inline-grid;grid-template-columns:1fr;cursor:default"><span class="lg" style="width:150px;height:96px"><img src="'+LG[p.logo]+'" alt="'+esc(p.name)+'"></span></span></div>');
+  if (p.nubdha) h.push('<div class="rp-blk"><h4>نبذة</h4><p class="rp-lead2">'+esc(p.nubdha)+'</p></div>');
+  if (p.vision) h.push('<div class="rp-blk"><h4>الرؤية</h4><p class="rp-lead2">'+esc(p.vision)+'</p></div>');
+  if (p.missionText) h.push('<div class="rp-blk"><h4>الرسالة</h4><p class="rp-lead2">'+esc(p.missionText)+'</p></div>');
+  if (p.values && p.values.length) h.push('<div class="rp-blk"><h4>القيم</h4><div class="rp-pill">'+p.values.map(function(v){ return '<span>'+esc(v)+'</span>'; }).join('')+'</div></div>');
+  if (p.goals && p.goals.length) h.push('<div class="rp-blk"><h4>الأهداف</h4><div class="rp-bul">'+p.goals.map(function(v){ return '<div>'+esc(v)+'</div>'; }).join('')+'</div></div>');
+  if (p.supportingProducts && p.supportingProducts.length) h.push('<div class="rp-blk"><h4>ما تضمّه</h4><div class="rp-pill">'+p.supportingProducts.map(function(v){ return '<span>'+esc(v)+'</span>'; }).join('')+'</div></div>');
+  return h.join('');
+}
+function unitHTML(u){
+  var h = [], mine = PRJ.filter(function(p){ return nrm(p.init)===nrm(u.name); });
+  h.push('<div class="rp-blk"><div class="rp-kv"><div><b>'+esc(u.value)+'</b><span>'+esc(u.unit||'')+'</span></div>' +
+    (mine.length ? '<div><b>'+mine.length+'</b><span>مشروعًا في خطة 2026</span></div><div><b>'+mine.filter(function(p){ return p.status==='تم التنفيذ'; }).length+'</b><span>منفّذًا</span></div>' : '') +
+    '</div></div>');
+  if (u.description) h.push('<div class="rp-blk"><h4>تعريف</h4><p class="rp-lead2">'+esc(u.description)+'</p></div>');
+  if (u.vision) h.push('<div class="rp-blk"><h4>الرؤية</h4><p class="rp-lead2">'+esc(u.vision)+'</p></div>');
+  if (u.missionText) h.push('<div class="rp-blk"><h4>الرسالة</h4><p class="rp-lead2">'+esc(u.missionText)+'</p></div>');
+  if (u.goals && u.goals.length) h.push('<div class="rp-blk"><h4>الأهداف</h4><div class="rp-bul">'+u.goals.map(function(v){ return '<div>'+esc(v)+'</div>'; }).join('')+'</div></div>');
+  if (u.supportingProducts && u.supportingProducts.length) h.push('<div class="rp-blk"><h4>ما تضمّه</h4><div class="rp-pill">'+u.supportingProducts.map(function(v){ return '<span>'+esc(v)+'</span>'; }).join('')+'</div></div>');
+  if (mine.length) h.push('<div class="rp-blk"><h4>مشاريعها في خطة 2026</h4><div class="rp-rows">'+mine.map(function(p){ return projRow(p); }).join('')+'</div></div>');
+  return h.join('');
+}
+
+/* --- الغاية --- */
+function projRow(p){
+  var i = PRJ.indexOf(p);
+  return '<button class="rp-row" data-prj="'+i+'"><span><span class="nm">'+esc(p.proj)+'</span>' +
+    '<span class="sub">'+esc(p.init)+(p.country?' · '+esc(p.country):'')+'</span></span>' +
+    '<span class="st '+stCls(p.status)+'">'+esc(p.status)+'</span></button>';
+}
+function goalHTML(gi){
+  var m = MPTS[gi], st = gstat(gi), ps = st.ps, done = st.done, run = st.run;
+  var inits = uniq(ps.map(function(p){ return p.init; }));
+  var packs = uniq(ps.map(function(p){ return p.pack; }));
+  var progs = uniq(ps.map(function(p){ return p.prog; }));
+  var cs    = uniq(ps.map(function(p){ return p.country; }));
+  var tgt = 0, ach = 0;
+  ps.forEach(function(p){ tgt += p.target; ach += p.done; });
+  var h = [];
+  h.push('<div class="rp-blk"><div class="rp-kv">' +
+    '<div><b>'+ps.length+'</b><span>مشروعًا</span></div>' +
+    '<div><b>'+done+'</b><span>منفّذًا</span></div>' +
+    (run?'<div><b>'+run+'</b><span>قيد التنفيذ</span></div>':'') +
+    '<div><b>'+inits.length+'</b><span>مبادرة</span></div>' +
+    '<div><b>'+progs.length+'</b><span>برنامجًا</span></div>' +
+    (cs.length?'<div><b>'+cs.length+'</b><span>دولة</span></div>':'') +
+    (tgt?'<div><b>'+f(tgt)+'</b><span>المستهدف</span></div><div><b>'+f(ach)+'</b><span>المتحقق</span></div>':'') +
+    '</div></div>');
+  if (m.description) h.push('<div class="rp-blk"><h4>تعريف الغاية</h4><p class="rp-lead2">'+esc(m.description)+'</p></div>');
+  if (m.rationale && m.rationale.length) h.push('<div class="rp-blk"><h4>لماذا هذه الغاية</h4><div class="rp-bul">'+m.rationale.map(function(v){ return '<div>'+esc(v)+'</div>'; }).join('')+'</div></div>');
+  if (m.needs && m.needs.length) h.push('<div class="rp-blk"><h4>ما تحتاجه</h4><div class="rp-pill">'+m.needs.map(function(v){ return '<span>'+esc(v)+'</span>'; }).join('')+'</div></div>');
+  h.push('<div class="rp-blk"><h4>المبادرات التي تقوم عليها</h4><div class="rp-pill">' +
+    inits.map(function(n){
+      var k = ps.filter(function(p){ return p.init===n; }).length;
+      return '<button data-ini="'+esc(n)+'"><em>'+k+'</em>'+esc(n)+'</button>';
+    }).join('') + '</div></div>');
+  h.push('<div class="rp-blk"><h4>الحزم</h4><div class="rp-pill">'+packs.map(function(n){
+      var k = ps.filter(function(p){ return p.pack===n; }).length;
+      return '<span><em style="font-style:normal;font-family:var(--font-display);font-weight:800;color:var(--gold-2);direction:ltr">'+k+'</em> '+esc(n)+'</span>'; }).join('')+'</div></div>');
+  h.push('<div class="rp-blk"><h4>البرامج</h4><div class="rp-pill">'+progs.map(function(n){
+      var k = ps.filter(function(p){ return p.prog===n; }).length;
+      return '<button data-prog="'+esc(n)+'" data-g="'+gi+'"><em>'+k+'</em>'+esc(n)+'</button>'; }).join('')+'</div></div>');
+  h.push('<div class="rp-blk"><h4>المشاريع ('+ps.length+')</h4><div class="rp-rows">'+ps.map(projRow).join('')+'</div></div>');
+  return h.join('');
+}
+function listHTML(ps){
+  return '<div class="rp-blk"><div class="rp-kv"><div><b>'+ps.length+'</b><span>مشروعًا</span></div>' +
+    '<div><b>'+ps.filter(function(p){ return p.status==='تم التنفيذ'; }).length+'</b><span>منفّذًا</span></div></div></div>' +
+    '<div class="rp-blk"><div class="rp-rows">'+ps.map(projRow).join('')+'</div></div>';
+}
+function projHTML(p){
+  var rows = [
+    ['الغاية', p.goal], ['المبادرة', p.init], ['الحزمة', p.pack], ['البرنامج', p.prog],
+    ['الترميز', p.code], ['النوع', p.typ], ['التصنيف', p.cls],
+    ['الدولة', p.country], ['المدينة', p.city],
+    ['البدء', p.start], ['الانتهاء', p.end], ['المدة', p.days ? p.days+' يومًا' : ''],
+    ['الفئة المستهدفة', p.cat], ['المستهدف', p.target ? f(p.target) : ''], ['المتحقق', p.done ? f(p.done) : ''],
+    ['أسلوب الحضور', p.mode], ['نوع التنفيذ', p.kind], ['الشريك', p.partner],
+    ['القسم المنفِّذ', p.dept], ['التكلفة', p.cost]
+  ].filter(function(r){ return r[1]!=='' && r[1]!=null; });
+  return '<div class="rp-blk"><div class="rp-pill"><span class="st '+stCls(p.status)+'">'+esc(p.status)+'</span></div></div>' +
+    '<div class="rp-blk"><div class="rp-tbl">' +
+    rows.map(function(r){ return '<div><i>'+esc(r[0])+'</i><b>'+esc(r[1])+'</b></div>'; }).join('') +
+    '</div></div>';
+}
+
+/* --- الربط --- */
+sheetEl().addEventListener('click', function(e){
+  var b;
+  if ((b = e.target.closest('[data-prj]'))) {
+    var p = PRJ[+b.getAttribute('data-prj')];
+    pushSheet({ eb:'مشروع · خطة 2026', title:p.proj, html:projHTML(p) });
+  } else if ((b = e.target.closest('[data-p]'))) {
+    var pr = PARTNERS[+b.getAttribute('data-p')];
+    pushSheet({ eb:'كيان مؤسِّس', title:pr.name, html:partnerHTML(pr) });
+  } else if ((b = e.target.closest('[data-u]'))) {
+    var u = ORGU[+b.getAttribute('data-u')];
+    pushSheet({ eb:'وحدة في المنظومة', title:u.name, html:unitHTML(u) });
+  } else if ((b = e.target.closest('[data-ini]'))) {
+    var n = b.getAttribute('data-ini');
+    pushSheet({ eb:'مبادرة', title:n, html:listHTML(PRJ.filter(function(x){ return x.init===n; })) });
+  } else if ((b = e.target.closest('[data-prog]'))) {
+    var pn = b.getAttribute('data-prog');
+    pushSheet({ eb:'برنامج', title:pn, html:listHTML(PRJ.filter(function(x){ return x.prog===pn; })) });
+  }
+});
+document.addEventListener('keydown', function(e){
+  if (e.key==='Escape' && SHEET && SHEET.classList.contains('on')){ e.stopPropagation(); closeSheet(true); }
+}, true);
+
+/* --- بناء الغلاف --- */
+(function(){
+  var order = [
+    { id:'training', side:'' }, { id:'waqf', side:'mid' }, { id:'biu', side:'' }
+  ];
+  var byId = {}; PARTNERS.forEach(function(p,i){ byId[p.id] = { p:p, i:i }; });
+  $('rp-lock').innerHTML = order.map(function(o){
+    var e = byId[o.id]; if (!e) return '';
+    return '<button class="rp-lk '+o.side+'" data-p="'+e.i+'" title="'+esc(e.p.name)+'" aria-label="'+esc(e.p.name)+'">' +
+      '<span class="plate">'+(LG[e.p.logo] ? '<img src="'+LG[e.p.logo]+'" alt="'+esc(e.p.name)+'">' : esc(e.p.name))+'</span></button>';
+  }).join('');
+  var gl = groupLogo();
+  if (gl) $('rp-orb').innerHTML = '<img src="'+gl+'" alt="مجموعة بنيان العالمية">';
+  function openEntity(){ if (window.__imEntity) return window.__imEntity(); STACK = []; pushSheet({ eb:'المنظومة', title:'مجموعة بنيان العالمية', html:entityHTML() }); }
+  $('rp-orb').addEventListener('click', openEntity);
+  $('rp-orbcta').addEventListener('click', openEntity);
+  $('rp-lock').addEventListener('click', function(e){
+    var b = e.target.closest('[data-p]'); if (!b) return;
+    var pr = PARTNERS[+b.getAttribute('data-p')];
+    STACK = []; pushSheet({ eb:'كيان مؤسِّس', title:pr.name, html:partnerHTML(pr) });
+  });
+})();
+
+/* --- بطاقات الغايات --- */
+(function(){
+  var box = $('rp-gcards');
+  box.className = 'rp-gcards' + (MPTS.length===5 ? ' five' : '');
+  box.innerHTML = MPTS.map(function(m,i){
+    var st = gstat(i), t = st.n, d = st.done, pc = t ? Math.round(d/t*100) : 0;
+    var nm = GKEY[i] || m.title;
+    return '<article class="rp-card rp-gc rp-rv" style="--gc:'+GCOL[i%GCOL.length]+'" data-goal="'+i+'" tabindex="0" role="button" aria-label="'+esc(nm)+'">' +
+      '<span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></span>' +
+      '<span class="num">'+(i+1<10?'0':'')+(i+1)+'</span>' +
+      '<h3>'+esc(nm)+'</h3><p>'+esc(m.description||'')+'</p>' +
+      '<div class="ft"><div class="pr"><div class="tk"><i data-w="'+pc+'"></i></div>' +
+      '<span class="lb">'+d+' منفّذ من '+t+' مشروعًا</span></div><span class="pct">'+pc+'<span style="font-size:14px">٪</span></span></div>' +
+      '</article>';
+  }).join('');
+  function open(i){ if (window.__imGoal) return window.__imGoal(i); STACK = []; pushSheet({ eb:'الغاية '+(i+1)+' من '+MPTS.length, title:(GKEY[i]||MPTS[i].title), html:goalHTML(i) }); }
+  box.addEventListener('click', function(e){
+    var c = e.target.closest('[data-goal]'); if (!c) return; open(+c.getAttribute('data-goal'));
+  });
+  box.addEventListener('keydown', function(e){
+    if (e.key!=='Enter' && e.key!==' ') return;
+    var c = e.target.closest('[data-goal]'); if (!c) return;
+    e.preventDefault(); open(+c.getAttribute('data-goal'));
+  });
+})();
+
+
+/* ===================== المشهد الغامر ===================== */
+var IMM = null, IM_STATE = null, IM_TIP = null;
+var AR_MONTHS = ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+var AR_IDX = ['الأولى','الثانية','الثالثة','الرابعة','الخامسة'];
+function immEl(){
+  if (IMM) return IMM;
+  IMM = document.createElement('div');
+  IMM.id = 'rp-imm';
+  IMM.setAttribute('role','dialog'); IMM.setAttribute('aria-modal','true');
+  L.appendChild(IMM);
+  IM_TIP = document.createElement('div'); IM_TIP.className = 'im-tip'; IM_TIP.hidden = true; L.appendChild(IM_TIP);
+  IMM.addEventListener('click', function(e){
+    var t = e.target.closest('[data-im]'); if (!t) return;
+    var a = t.getAttribute('data-im');
+    if (a === 'close' || a === 'home') imClose();
+    else if (a === 'ach'){ imClose(); setTimeout(function(){ var d = L.querySelector('.rp-div'); if (d) L.scrollTo({ top:d.offsetTop - 60, behavior:RED?'auto':'smooth' }); }, 460); }
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key !== 'Escape' || !IMM.classList.contains('on')) return;
+    if (SHEET && SHEET.classList.contains('on')) return; // اللوح يُغلق أولًا
+    e.stopPropagation(); e.preventDefault();
+    imClose();
+  }, true);
+  return IMM;
+}
+function dustHTML(){
+  var h = '<div class="im-dust">';
+  for (var i=0;i<26;i++){
+    var left = Math.round(Math.random()*100), dur = 9 + Math.random()*12, delay = -Math.random()*20, dx = Math.round(-40 + Math.random()*80), sz = 2 + Math.round(Math.random()*2);
+    h += '<i style="left:'+left+'%;animation-duration:'+dur.toFixed(1)+'s;animation-delay:'+delay.toFixed(1)+'s;--dx:'+dx+'px;width:'+sz+'px;height:'+sz+'px"></i>';
+  }
+  return h + '</div>';
+}
+function imShell(gc, crumb, body){
+  return '<div class="im-sky im-fade"></div><div class="im-beam"></div>'+dustHTML()+'<div class="im-vig"></div><div class="im-grain"></div>' +
+    '<div class="im-wrap">' +
+    '<div class="im-top">' +
+      '<button class="ibtn" data-im="close" title="رجوع إلى التقرير" aria-label="رجوع"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>' +
+      '<div class="crumb">'+crumb+'</div>' +
+      '<button class="ibtn" data-im="close" title="إغلاق" aria-label="إغلاق"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>' +
+    '</div>' + body + '</div>';
+}
+function imShow(gc){
+  var el = immEl();
+  el.style.setProperty('--gc', gc || 'var(--gold)');
+  el.scrollTop = 0;
+  L.classList.add('im-lock');
+  el.classList.add('on');
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ el.classList.add('in'); }); });
+}
+function imClose(){
+  if (!IMM) return;
+  IMM.classList.remove('in');
+  if (IM_TIP) IM_TIP.hidden = true;
+  setTimeout(function(){ IMM.classList.remove('on'); IMM.innerHTML=''; L.classList.remove('im-lock'); IM_STATE = null; }, 420);
+}
+
+/* ---------- أدوات هندسية ---------- */
+function polar(cx,cy,r,a){ return [cx + r*Math.sin(a), cy - r*Math.cos(a)]; }
+function arcPath(cx,cy,r0,r1,a0,a1){
+  if (a1 - a0 >= Math.PI*2 - 1e-4) a1 = a0 + Math.PI*2 - 1e-4;
+  var large = (a1-a0) > Math.PI ? 1 : 0;
+  var p0 = polar(cx,cy,r1,a0), p1 = polar(cx,cy,r1,a1), p2 = polar(cx,cy,r0,a1), p3 = polar(cx,cy,r0,a0);
+  var f = function(v){ return v.toFixed(2); };
+  return 'M'+f(p0[0])+','+f(p0[1])+' A'+r1+','+r1+' 0 '+large+' 1 '+f(p1[0])+','+f(p1[1])+
+         ' L'+f(p2[0])+','+f(p2[1])+' A'+r0+','+r0+' 0 '+large+' 0 '+f(p3[0])+','+f(p3[1])+' Z';
+}
+function shade(gc, i, n){ // درجات من لون الغاية
+  var t = n > 1 ? i/(n-1) : 0;
+  return 'color-mix(in srgb, '+gc+' '+Math.round(100 - t*55)+'%, '+(t<0.5?'#fff':'#0d1b2e')+')';
+}
+function monthOf(p){ var m = /^\d{4}\/(\d{2})/.exec(p.start||''); return m ? (+m[1]-1) : -1; }
+
+/* ---------- مشهد الغاية ---------- */
+function imOpenGoal(gi){
+  var m = MPTS[gi], gc = GCOL[gi % GCOL.length], name = GKEY[gi] || m.title;
+  var all = byGoal(GKEY[gi]);
+  IM_STATE = { gi:gi, gc:gc, name:name, all:all, f:{ init:null, prog:null, month:null, country:null, status:null, q:'' }, show:12 };
+  var done = all.filter(function(p){ return p.status==='تم التنفيذ'; }).length;
+  var run  = all.filter(function(p){ return p.status==='جاري التنفيذ'; }).length;
+  var inits = uniq(all.map(function(p){ return p.init; })), progs = uniq(all.map(function(p){ return p.prog; })), cs = uniq(all.map(function(p){ return p.country; }));
+  var pc = all.length ? Math.round(done/all.length*100) : 0;
+  var tgt=0, ach=0; all.forEach(function(p){ tgt+=p.target; ach+=p.done; });
+  var R = 200, C = 2*Math.PI*R;
+  var ticks = ''; for (var k=0;k<60;k++){ var a=k/60*Math.PI*2, q=polar(230,230,218,a), w=polar(230,230,k%5?224:228,a); ticks += '<line class="tick" x1="'+q[0].toFixed(1)+'" y1="'+q[1].toFixed(1)+'" x2="'+w[0].toFixed(1)+'" y2="'+w[1].toFixed(1)+'"/>'; }
+  var hero =
+    '<div class="im-wm">'+(gi+1<10?'0':'')+(gi+1)+'</div>' +
+    '<section class="im-hero">' +
+      '<div class="im-txt">' +
+        '<span class="im-eb rv" style="animation-delay:.1s"><i></i>الغاية '+(AR_IDX[gi]||(gi+1))+' من خمس</span>' +
+        '<h1 class="rv" style="animation-delay:.2s">'+esc(name)+'</h1>' +
+        '<div class="im-orn rv" style="animation-delay:.3s"><i></i><b></b><i></i></div>' +
+        '<p class="rv" style="animation-delay:.36s">'+esc(m.description||'')+'</p>' +
+        '<div class="im-quiet rv" style="animation-delay:.5s">' +
+          '<div><b class="cnt" data-n="'+inits.length+'">0</b><span>مبادرة تقوم عليها</span></div>' +
+          '<div><b class="cnt" data-n="'+progs.length+'">0</b><span>برنامجًا</span></div>' +
+          (cs.length?'<div><b class="cnt" data-n="'+cs.length+'">0</b><span>دولة</span></div>':'') +
+          (tgt?'<div><b class="cnt" data-n="'+ach+'">0</b><span>متحقّق من '+f(tgt)+' مستهدفًا</span></div>':'') +
+        '</div>' +
+      '</div>' +
+      '<div class="im-halo rv" style="animation-delay:.25s"><span class="glow"></span>' +
+        '<svg viewBox="0 0 460 460"><circle class="tr" cx="230" cy="230" r="226"/>'+ticks+
+        '<circle class="tk" cx="230" cy="230" r="'+R+'"/>' +
+        '<circle class="pr" cx="230" cy="230" r="'+R+'" stroke-dasharray="'+C.toFixed(1)+'" stroke-dashoffset="'+C.toFixed(1)+'" data-off="'+(C*(1-pc/100)).toFixed(1)+'"/>' +
+        '<circle class="orbit" cx="230" cy="4" r="4"/></svg>' +
+        '<div class="in"><b class="cnt" data-n="'+done+'">0</b><span>مشروعًا منفَّذًا من '+all.length+'</span><em>'+pc+'٪ تنفيذ</em></div>' +
+      '</div>' +
+      '<div class="im-cue"><i></i>خريطة الغاية</div>' +
+    '</section>';
+  var body = hero +
+    '<section class="im-sec" id="im-map"><div class="im-sh rv"><span class="k">01</span><h2>خريطة الغاية</h2><span class="ln"></span></div>' +
+    '<p class="im-sub rv">من الغاية إلى المبادرات التي تقوم عليها، ثم البرامج داخل كل مبادرة. مرّر للتفاصيل، واضغط أي شريحة لتصفية المشاريع بها.</p>' +
+    '<div class="im-viz"><div class="im-card rv"><div class="im-sun" id="im-sun"></div></div>' +
+    '<div class="im-side"><div class="im-card rv" style="animation-delay:.1s" id="im-status"></div><div class="im-card rv" style="animation-delay:.2s" id="im-countries"></div></div></div></section>' +
+    '<section class="im-sec"><div class="im-sh rv"><span class="k">02</span><h2>إيقاع العام</h2><span class="ln"></span></div>' +
+    '<p class="im-sub rv">مشاريع الغاية موزّعة على أشهر 2026 بتاريخ بدئها، ملوّنة بحالة تنفيذها. اضغط شهرًا لتصفية المشاريع.</p>' +
+    '<div class="im-card rv" id="im-time"></div></section>' +
+    (m.rationale && m.rationale.length ?
+    '<section class="im-sec"><div class="im-sh rv"><span class="k">03</span><h2>لماذا هذه الغاية</h2><span class="ln"></span></div>' +
+    '<div class="im-why">'+m.rationale.map(function(r,i){ return '<div class="rv" style="animation-delay:'+(i*0.06)+'s">'+esc(r)+'</div>'; }).join('')+'</div>' +
+    (m.needs && m.needs.length ? '<div class="im-needs rv">'+m.needs.map(function(n){ return '<span>'+esc(n)+'</span>'; }).join('')+'</div>' : '') +
+    '</section>' : '') +
+    '<section class="im-sec" id="im-projects"><div class="im-sh rv"><span class="k">0'+(m.rationale&&m.rationale.length?4:3)+'</span><h2>المشاريع</h2><span class="ln"></span></div>' +
+    '<div class="im-card rv"><div class="im-filt" id="im-filt"></div><div class="im-pgrid" id="im-pgrid"></div><div id="im-more"></div></div></section>';
+  var crumb = '<span>مجموعة بنيان العالمية</span><i>/</i><span>الغايات الاستراتيجية</span><i>/</i><b>'+esc(name)+'</b>';
+  immEl().innerHTML = imShell(gc, crumb, body);
+  imShow(gc);
+  imRenderAll();
+  // عدّادات وحلقة
+  setTimeout(function(){
+    [].slice.call(IMM.querySelectorAll('.cnt')).forEach(countUp);
+    var pr = IMM.querySelector('.pr'); if (pr) pr.style.strokeDashoffset = pr.getAttribute('data-off');
+    [].slice.call(IMM.querySelectorAll('.im-time .bar i')).forEach(function(b){ b.style.height = b.getAttribute('data-h')+'%'; });
+  }, 120);
+  var cue = IMM.querySelector('.im-cue'); if (cue) cue.addEventListener('click', function(){ var s = IMM.querySelector('#im-map'); if (s) IMM.scrollTo({ top:s.offsetTop-70, behavior:RED?'auto':'smooth' }); });
+}
+function imFiltered(){
+  var S = IM_STATE, F = S.f, q = F.q.trim();
+  return S.all.filter(function(p){
+    if (F.init && p.init !== F.init) return false;
+    if (F.prog && p.prog !== F.prog) return false;
+    if (F.country && p.country !== F.country) return false;
+    if (F.status && p.status !== F.status) return false;
+    if (F.month !== null && monthOf(p) !== F.month) return false;
+    if (q && (p.proj+' '+p.city+' '+p.partner+' '+p.code).indexOf(q) < 0) return false;
+    return true;
+  });
+}
+function imRenderAll(){ imSun(); imStatus(); imCountries(); imTime(); imGrid(); }
+
+function imSun(){
+  var S = IM_STATE, gc = S.gc, all = S.all, box = IMM.querySelector('#im-sun'); if (!box) return;
+  var inits = uniq(all.map(function(p){ return p.init; }));
+  var N = all.length, cx=230, cy=230, r0=78, r1=146, r2=152, r3=206, a=-0, svg=[], leg=[];
+  var hasF = !!(S.f.init || S.f.prog);
+  inits.forEach(function(nm, i){
+    var ps = all.filter(function(p){ return p.init===nm; }), n = ps.length, a1 = a + n/N*Math.PI*2;
+    var col = shade(gc, i, inits.length), lit = (!hasF) || S.f.init===nm;
+    svg.push('<path class="arc'+(lit?' lit':'')+'" d="'+arcPath(cx,cy,r0,r1,a,a1)+'" fill="'+col+'" data-init="'+esc(nm)+'" data-n="'+n+'"></path>');
+    if (n/N > 0.07){ var mid = polar(cx,cy,(r0+r1)/2,(a+a1)/2); svg.push('<text class="lbl" x="'+mid[0].toFixed(1)+'" y="'+(mid[1]+4).toFixed(1)+'">'+n+'</text>'); }
+    var progs = uniq(ps.map(function(p){ return p.prog; })), b = a;
+    progs.forEach(function(pg, j){
+      var k = ps.filter(function(p){ return p.prog===pg; }).length, b1 = b + k/N*Math.PI*2;
+      var litp = (!hasF) || (S.f.prog ? S.f.prog===pg : S.f.init===nm);
+      svg.push('<path class="arc'+(litp?' lit':'')+'" d="'+arcPath(cx,cy,r2,r3,b,b1)+'" fill="'+col+'" fill-opacity="'+(0.42 + 0.5*((j%3)/2)).toFixed(2)+'" data-init="'+esc(nm)+'" data-prog="'+esc(pg)+'" data-n="'+k+'"></path>');
+      b = b1;
+    });
+    leg.push('<button data-init="'+esc(nm)+'" class="'+(S.f.init===nm&&!S.f.prog?'on':'')+'"><i style="background:'+col+'"></i><span>'+esc(nm)+'</span><em>'+n+'</em></button>');
+    a = a1;
+  });
+  var rl1 = polar(cx,cy,(r0+r1)/2,0), rl2 = polar(cx,cy,(r2+r3)/2,0);
+  box.className = 'im-sun' + (hasF ? ' dim' : '');
+  box.innerHTML = '<svg viewBox="0 0 460 460" role="img" aria-label="توزيع مشاريع الغاية على المبادرات والبرامج">' + svg.join('') +
+    '<text class="ctr"><tspan class="n" x="230" y="238">'+N+'</tspan><tspan class="l" x="230" y="258">مشروعًا</tspan></text>' +
+    '</svg>' +
+    '<div class="im-leg"><div class="hd"><span>المبادرات</span><span>مشاريع</span></div>'+leg.join('')+
+    '<p class="im-ringnote">الحلقة الداخلية المبادرات، والخارجية البرامج داخل كل مبادرة.</p></div>';
+  box.onclick = function(e){
+    var t = e.target.closest('[data-init]'); if (!t) return;
+    var ini = t.getAttribute('data-init'), pg = t.getAttribute('data-prog');
+    if (pg){ if (S.f.prog===pg){ S.f.prog=null; S.f.init=null; } else { S.f.init=ini; S.f.prog=pg; } }
+    else { if (S.f.init===ini && !S.f.prog){ S.f.init=null; } else { S.f.init=ini; S.f.prog=null; } }
+    S.show = 12; imRenderAll(); imScrollToProjects();
+  };
+  box.onmousemove = function(e){
+    var t = e.target.closest('path[data-init]'); if (!t){ IM_TIP.hidden = true; return; }
+    var ini = t.getAttribute('data-init'), pg = t.getAttribute('data-prog'), n = t.getAttribute('data-n');
+    IM_TIP.innerHTML = '<b>'+esc(pg||ini)+'</b>'+(pg?'<span><i style="font-style:normal">المبادرة</i><em>'+esc(ini)+'</em></span>':'')+'<span><i style="font-style:normal">المشاريع</i><em>'+n+'</em></span><span><i style="font-style:normal">من الغاية</i><em>'+Math.round(n/N*100)+'%</em></span>';
+    IM_TIP.style.left = e.clientX+'px'; IM_TIP.style.top = (e.clientY-8)+'px'; IM_TIP.hidden = false;
+  };
+  box.onmouseleave = function(){ IM_TIP.hidden = true; };
+}
+function imStatus(){
+  var S = IM_STATE, box = IMM.querySelector('#im-status'); if (!box) return;
+  var all = S.all, N = all.length, R=52, C=2*Math.PI*R;
+  var segs = [['تم التنفيذ','#5fe0a0'],['جاري التنفيذ','#ffd27a'],['لم يبدأ تنفيذه','#8ba0bb']];
+  var off = 0, svg = '<circle class="tr" cx="65" cy="65" r="'+R+'"/>', li = '';
+  segs.forEach(function(s){
+    var k = all.filter(function(p){ return p.status===s[0]; }).length; if (!k) return;
+    var len = k/N*C;
+    svg += '<circle class="sg" cx="65" cy="65" r="'+R+'" stroke="'+s[1]+'" stroke-dasharray="'+len.toFixed(2)+' '+(C-len).toFixed(2)+'" stroke-dashoffset="'+(-off).toFixed(2)+'"/>';
+    off += len;
+    li += '<li data-st="'+s[0]+'" class="'+(S.f.status===s[0]?'on':'')+'"><i style="background:'+s[1]+'"></i><span>'+s[0]+'</span><em>'+k+'</em></li>';
+  });
+  box.innerHTML = '<div class="im-sh" style="margin-bottom:12px"><h2 style="font-size:16px">حالة التنفيذ</h2></div><div class="im-ring"><svg viewBox="0 0 130 130">'+svg+'</svg><ul>'+li+'</ul></div>';
+  box.onclick = function(e){ var t = e.target.closest('[data-st]'); if (!t) return; var v = t.getAttribute('data-st'); S.f.status = S.f.status===v ? null : v; S.show=12; imRenderAll(); imScrollToProjects(); };
+}
+function imCountries(){
+  var S = IM_STATE, box = IMM.querySelector('#im-countries'); if (!box) return;
+  var cnt = {}; S.all.forEach(function(p){ if (p.country) cnt[p.country] = (cnt[p.country]||0)+1; });
+  var keys = Object.keys(cnt).sort(function(a,b){ return cnt[b]-cnt[a]; });
+  box.innerHTML = '<div class="im-sh" style="margin-bottom:12px"><h2 style="font-size:16px">أين تُنفَّذ</h2><span>'+keys.length+' دولة</span></div>' +
+    '<div class="im-cc">'+keys.map(function(k){ return '<button data-c="'+esc(k)+'" class="'+(S.f.country===k?'on':'')+'"><em>'+cnt[k]+'</em>'+esc(k)+'</button>'; }).join('')+'</div>';
+  box.onclick = function(e){ var t = e.target.closest('[data-c]'); if (!t) return; var v = t.getAttribute('data-c'); S.f.country = S.f.country===v ? null : v; S.show=12; imRenderAll(); imScrollToProjects(); };
+}
+function imTime(){
+  var S = IM_STATE, box = IMM.querySelector('#im-time'); if (!box) return;
+  var M = []; for (var i=0;i<12;i++) M.push({d:0,r:0,n:0,t:0});
+  var undated = 0;
+  S.all.forEach(function(p){ var mi = monthOf(p); if (mi<0){ undated++; return; } var o = M[mi]; o.t++; if (p.status==='تم التنفيذ') o.d++; else if (p.status==='جاري التنفيذ') o.r++; else o.n++; });
+  var max = Math.max.apply(null, M.map(function(o){ return o.t; })) || 1;
+  box.innerHTML = '<div class="im-time">' + M.map(function(o,i){
+    var H = function(v){ return (v/max*100).toFixed(1); };
+    return '<div class="m'+(S.f.month===i?' on':'')+'" data-m="'+i+'"><div class="bar" style="height:'+(o.t? (o.t/max*130+6) : 6)+'px">' +
+      '<i class="d" data-h="'+(o.t?o.d/o.t*100:0).toFixed(1)+'"></i><i class="r" data-h="'+(o.t?o.r/o.t*100:0).toFixed(1)+'"></i><i class="n" data-h="'+(o.t?o.n/o.t*100:0).toFixed(1)+'"></i></div>' +
+      '<b>'+o.t+'</b><span>'+AR_MONTHS[i]+'</span></div>';
+  }).join('') + '</div><div class="im-tlg"><span><i style="background:var(--gc)"></i>منفَّذ</span><span><i style="background:#ffd27a"></i>قيد التنفيذ</span><span><i style="background:rgba(139,160,187,.6)"></i>لم يبدأ</span></div>' +
+    (undated ? '<p class="im-ringnote" style="text-align:center;margin-top:10px">'+undated+' مشروعًا لم يُحدَّد تاريخ بدئها بعد في البوابة، فلا تظهر على الخط الزمني.</p>' : '');
+  box.onclick = function(e){ var t = e.target.closest('[data-m]'); if (!t) return; var v = +t.getAttribute('data-m'); S.f.month = S.f.month===v ? null : v; S.show=12; imRenderAll(); imScrollToProjects(); };
+  setTimeout(function(){ [].slice.call(box.querySelectorAll('.bar i')).forEach(function(b){ b.style.height = b.getAttribute('data-h')+'%'; }); }, 60);
+}
+function stColor(s){ return s==='تم التنفيذ' ? '#5fe0a0' : s==='جاري التنفيذ' ? '#ffd27a' : '#8ba0bb'; }
+function imGrid(){
+  var S = IM_STATE, fl = IMM.querySelector('#im-filt'), gd = IMM.querySelector('#im-pgrid'), mo = IMM.querySelector('#im-more'); if (!gd) return;
+  var ps = imFiltered(), chips = [];
+  var F = S.f;
+  if (F.init) chips.push(['init', F.init]); if (F.prog) chips.push(['prog', F.prog]); if (F.country) chips.push(['country', F.country]);
+  if (F.status) chips.push(['status', F.status]); if (F.month!==null) chips.push(['month', AR_MONTHS[F.month]]);
+  fl.innerHTML = '<input type="search" id="im-q" placeholder="ابحث باسم المشروع أو المدينة أو الشريك…" value="'+esc(F.q)+'">' +
+    chips.map(function(c){ return '<span class="chip">'+esc(c[1])+'<button data-rm="'+c[0]+'" aria-label="إزالة">×</button></span>'; }).join('') +
+    '<span class="tot"><em>'+ps.length+'</em> من '+S.all.length+'</span>';
+  var q = fl.querySelector('#im-q');
+  q.oninput = function(){ F.q = this.value; S.show = 12; imGrid(); var e = IMM.querySelector('#im-q'); if (e){ e.focus(); e.setSelectionRange(e.value.length, e.value.length); } };
+  fl.onclick = function(e){ var b = e.target.closest('[data-rm]'); if (!b) return; var k = b.getAttribute('data-rm'); if (k==='month') F.month=null; else F[k]=null; if (k==='init') F.prog=null; S.show=12; imRenderAll(); };
+  var shown = ps.slice(0, S.show);
+  gd.innerHTML = shown.length ? shown.map(function(p, i){
+    var gi = PRJ.indexOf(p), pc = p.target ? Math.min(100, Math.round(p.done/p.target*100)) : 0;
+    return '<button class="im-p rv" style="--sc:'+stColor(p.status)+';animation-delay:'+(Math.min(i,11)*0.04)+'s" data-prj="'+gi+'">' +
+      '<div class="hd"><h4>'+esc(p.proj)+'</h4><span class="st '+stCls(p.status)+'">'+esc(p.status)+'</span></div>' +
+      '<div class="mt"><span><b>'+esc(p.init)+'</b></span>'+(p.country?'<span>'+esc(p.country)+(p.city?' · '+esc(p.city):'')+'</span>':'')+(p.start?'<span>'+esc(p.start)+'</span>':'')+'</div>' +
+      (p.target ? '<div class="pg"><div class="tk"><i style="width:'+pc+'%"></i></div><em>'+f(p.done)+'/'+f(p.target)+'</em></div>' : '<div class="pg"><span class="mt">'+esc(p.cat||p.typ||'')+'</span></div>') +
+      '</button>';
+  }).join('') : '<div class="im-empty">لا مشاريع مطابقة لهذه التصفية.</div>';
+  mo.innerHTML = ps.length > S.show ? '<button class="im-more" id="im-morebtn">عرض المزيد · '+(ps.length - S.show)+' مشروعًا</button>' : '';
+  var mb = mo.querySelector('#im-morebtn'); if (mb) mb.onclick = function(){ S.show += 24; imGrid(); };
+  gd.onclick = function(e){ var b = e.target.closest('[data-prj]'); if (!b) return; var p = PRJ[+b.getAttribute('data-prj')]; STACK = []; pushSheet({ eb:'مشروع · خطة 2026', title:p.proj, html:projHTML(p) }); };
+}
+function imScrollToProjects(){ var s = IMM.querySelector('#im-projects'); if (s) IMM.scrollTo({ top:s.offsetTop - 70, behavior:RED?'auto':'smooth' }); }
+
+/* ---------- مشهد الكيان: المحفظة المؤسسية ---------- */
+/* الأرقام التراكمية كما في غلاف «ما أنجزته بنيان» — تُقرأ من الصفحة نفسها لتبقى متطابقة */
+function impactBand(){
+  var vals = [].slice.call(L.querySelectorAll('.rp-hcard .cnt[data-n]')).map(function(e){ return +e.getAttribute('data-n'); });
+  if (vals.length < 4) return '';
+  var labels = ['مستفيدًا من برامج بنيان ومشاريعها','مشروعًا منفَّذًا','دولة مستفيدة','مؤسسة مستفيدة'];
+  return '<section class="ex-cta rv"><span class="eb2"><i style="width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block"></i>الأثر التراكمي منذ التأسيس</span>' +
+    '<h3>ما أنجزته بنيان</h3><p>حصاد المنظومة كاملًا حتى أكتوبر 2026 — الأرقام، والمسيرة عبر ثلاث سنوات، وخريطة الدول، وسلسلة الأثر من الغاية إلى المشروع.</p>' +
+    '<div class="ex-figs">'+vals.slice(0,4).map(function(v,i){ return '<div><b class="cnt" data-n="'+v+'">0</b><span>'+labels[i]+'</span></div>'; }).join('')+'</div>' +
+    '<button type="button" data-im="ach">استعرض الحصاد كاملًا <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button></section>';
+}
+function imOpenEntity(){
+  var gl = groupLogo();
+  var countries = uniq(PRJ.map(function(p){ return p.country; })).length;
+  var body =
+    '<section class="ent-hero">' +
+      '<div class="ent-orb rv">'+(gl?'<img src="'+gl+'" alt="مجموعة بنيان العالمية">':'')+'</div>' +
+      '<div class="rv" style="animation-delay:.12s">' +
+        '<span class="im-eb" style="--gc:var(--gold)"><i></i>المنظومة</span>' +
+        '<h1>مجموعة بنيان العالمية</h1>' +
+        '<p>منظومةٌ تقوم على ثلاثة كيانات مؤسِّسة، وتعمل عبر '+ORGU.length+' وحدةً ومبادرة، على تأهيل العلماء والدعاة وقيادات العمل الخيري، وتمكين التعليم الإسلامي المعاصر.</p>' +
+        '<div class="im-quiet" style="margin-top:22px">' +
+          '<div><b class="cnt" data-n="3">0</b><span>كيانات مؤسِّسة</span></div>' +
+          '<div><b class="cnt" data-n="'+ORGU.length+'">0</b><span>وحدة ومبادرة</span></div>' +
+          '<div><b class="cnt" data-n="'+PRJ.length+'">0</b><span>مشروعًا في خطة 2026</span></div>' +
+          '<div><b class="cnt" data-n="'+countries+'">0</b><span>دولة تُنفَّذ فيها</span></div>' +
+        '</div>' +
+      '</div>' +
+    '</section>' +
+    '<div class="ent-wrap"><div class="ent-main">' +
+      '<section class="ent-sec"><div class="ent-sh rv"><h2>الكيانات المؤسِّسة</h2><span>ثلاثة كيانات</span><span class="ln"></span></div>' +
+      '<div class="ent-found" id="ent-found"></div></section>' +
+      '<section class="ent-sec"><div class="ent-sh rv"><h2>الوحدات والمبادرات</h2><span>'+ORGU.length+' وحدة</span><span class="ln"></span></div>' +
+      '<div class="ent-units" id="ent-units"></div></section>' +
+    '</div><aside class="orb-det rv" id="orb-det" style="animation-delay:.2s"></aside></div>' +
+    impactBand();
+  var crumb = '<span>مجموعة بنيان العالمية</span><i>/</i><b>المنظومة</b>';
+  immEl().innerHTML = imShell('var(--gold)', crumb, body);
+  imShow('var(--gold)');
+  var det = IMM.querySelector('#orb-det');
+  var order = ['waqf','biu','training'];
+  IMM.querySelector('#ent-found').innerHTML = order.map(function(id, k){
+    var p=null, pi=-1; PARTNERS.forEach(function(x,i){ if (x.id===id){ p=x; pi=i; } }); if (!p) return '';
+    var mine = PRJ.filter(function(x){ return nrm(x.init)===nrm(p.name) || (id==='training' && nrm(x.init)===nrm('شركة بنيان للتدريب')); }).length;
+    return '<button class="ent-f rv" data-p="'+pi+'" style="animation-delay:'+(k*0.08)+'s">' +
+      '<span class="plate">'+(LG[p.logo]?'<img src="'+LG[p.logo]+'" alt="'+esc(p.name)+'">':esc(p.name))+'</span>' +
+      '<b>'+esc(p.name)+'</b><p>'+esc(p.nubdha||'')+'</p>' +
+      '<span class="ft"><span>'+(p.supportingProducts&&p.supportingProducts.length? p.supportingProducts.length+' مكوّنات' : '')+'</span><em>'+(mine? mine+' مشروعًا في 2026':'الملف الكامل')+' <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></em></span></button>';
+  }).join('');
+  IMM.querySelector('#ent-units').innerHTML = ORGU.map(function(u, i){
+    return '<button class="ent-u rv" data-u="'+i+'" style="animation-delay:'+(0.15 + Math.min(i,11)*0.04)+'s">' +
+      '<span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></span>' +
+      '<span class="ix">'+(i+1<10?'0':'')+(i+1)+'</span><b>'+esc(u.name)+'</b>' +
+      '<span class="v"><em>'+esc(u.value)+'</em><span>'+esc(u.unit||'')+'</span></span></button>';
+  }).join('');
+  function clearOn(){ [].slice.call(IMM.querySelectorAll('.ent-f.on,.ent-u.on')).forEach(function(n){ n.classList.remove('on'); }); }
+  function home(){
+    clearOn();
+    det.innerHTML = '<div class="eb">المنظومة</div><h3>مجموعة بنيان العالمية</h3>' +
+      '<div class="rp-blk"><div class="rp-kv"><div><b>3</b><span>كيانات مؤسِّسة</span></div><div><b>'+ORGU.length+'</b><span>وحدة ومبادرة</span></div><div><b>'+PRJ.length+'</b><span>مشروعًا في 2026</span></div></div></div>' +
+      '<p class="ph2">اضغط أي كيان أو وحدة لتقرأ تعريفها ورؤيتها ورسالتها وما تضمّه، ومشاريعها في خطة 2026.</p>';
+  }
+  function pick(kind, i, btn){
+    var o = kind==='p' ? PARTNERS[i] : ORGU[i];
+    clearOn(); if (btn) btn.classList.add('on');
+    det.innerHTML = '<div class="eb">'+(kind==='p'?'كيان مؤسِّس':'وحدة في المنظومة')+'</div><h3>'+esc(o.name)+'</h3>' +
+      (kind==='p' && LG[o.logo] ? '<div class="dplate"><img src="'+LG[o.logo]+'" alt=""></div>' : '') +
+      (kind==='p' ? partnerHTML(o).replace(/<div class="rp-blk" style="text-align:center">[\s\S]*?<\/div><\/div>/, '') : unitHTML(o));
+    det.scrollTop = 0;
+    if (innerWidth < 1080) det.scrollIntoView({ behavior:RED?'auto':'smooth', block:'start' });
+  }
+  home();
+  setTimeout(function(){ [].slice.call(IMM.querySelectorAll('.cnt')).forEach(countUp); }, 120);
+  IMM.querySelector('.ent-wrap').addEventListener('click', function(e){
+    var b;
+    if ((b = e.target.closest('[data-prj]'))){ var p = PRJ[+b.getAttribute('data-prj')]; STACK = []; pushSheet({ eb:'مشروع · خطة 2026', title:p.proj, html:projHTML(p) }); return; }
+    if ((b = e.target.closest('.ent-f[data-p]'))) return pick('p', +b.getAttribute('data-p'), b);
+    if ((b = e.target.closest('.ent-u[data-u]'))) return pick('u', +b.getAttribute('data-u'), b);
+  });
+  IMM.querySelector('.ent-orb').addEventListener('click', home);
+}
+window.__imGoal = imOpenGoal;
+window.__imEntity = imOpenEntity;
 
 /* ================= الحركة ================= */
 function countUp(el){
