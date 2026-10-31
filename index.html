@@ -4274,13 +4274,6 @@ html.rp-lock, body.rp-lock{ overflow:hidden !important; }
     </div>
   </section>
 
-  <section id="rp-s6">
-    <div class="rp-sh rp-rv"><span class="sn">٠٨</span><h2>منهجية احتساب الأرقام</h2><span class="ln"></span></div>
-    <p class="rp-sub rp-rv">كيف جُمع كل رقم في هذا التقرير، وما الذي يدخل فيه وما لا يدخل.</p>
-    <div class="rp-card rp-rv">
-      <div class="rp-notes" id="rp-notes"></div>
-    </div>
-  </section>
 </div>
 
 <footer id="rp-foot">
@@ -4388,7 +4381,7 @@ var NOTES=[
  ['','فرق موثَّق','مجموع الكرة <b>379</b> برنامجًا والإجمالي الرسمي <b>380</b>. الفارق من 2024: تفصيله حسب الدول يبلغ <b>53</b> برنامجًا بينها برنامجان في «أمريكا الجنوبية» — إقليم لا دولة فلا يُرسم — بينما الإجمالي الرسمي للعام <b>52</b>.'],
  ['cy','2026','عامٌ لم يكتمل؛ أرقامه حتى <b>29</b> أكتوبر، ومنها <b>50</b> مشروعًا لم يبدأ تنفيذه بعد و<b>6</b> قيد التنفيذ.']
 ];
-var NAV=[['rp-s0','الغايات'],['rp-s1','الأثر في أرقام'],['rp-s2','ثلاث سنوات'],['rp-s3','أين عملنا'],['rp-s5','المبادرات'],['rp-s7','سلسلة الأثر'],['rp-s6','المنهجية']];
+var NAV=[['rp-s0','الغايات'],['rp-s1','الأثر في أرقام'],['rp-s2','ثلاث سنوات'],['rp-s3','أين عملنا'],['rp-s5','المبادرات'],['rp-s7','سلسلة الأثر']];
 
 (function(){
   var e=['وقف بنيان','جامعة بنيان العالمية','شركة بنيان للتدريب المحدودة'];
@@ -4474,7 +4467,7 @@ function iniCard(x,i,lead){
 $('rp-itop').innerHTML=INITS.slice(0,3).map(function(x,i){ return iniCard(x,i,true); }).join('');
 $('rp-inits').innerHTML=INITS.slice(3).map(function(x,i){ return iniCard(x,i+3,false); }).join('');
 
-$('rp-notes').innerHTML=NOTES.map(function(n){ return '<div class="rp-ins '+n[0]+'"><div class="h"><b>'+n[1]+'</b></div><p>'+n[2]+'</p></div>'; }).join('');
+if($('rp-notes')) $('rp-notes').innerHTML=NOTES.map(function(n){ return '<div class="rp-ins '+n[0]+'"><div class="h"><b>'+n[1]+'</b></div><p>'+n[2]+'</p></div>'; }).join('');
 
 /* ================= الكرة الأرضية ================= */
 var YEAR=-1, SEL=null, globe=null;
