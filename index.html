@@ -6183,10 +6183,11 @@ var WH_PRG={"SA":[5,11,106],"ET":[33,32,22],"BD":[1,16,57],"ID":[4,3,23],"SN":[0
       hq: { cc: 'SA', lat: 21.54, lon: 39.17, name: { ar: 'المقر الرئيسي · جدة' }, short: { ar: 'جدة' }, label: { ar: 'المقر الرئيسي · جدة' } },
       bubbleR: function (n, compact) {
         if (MODE === 'p') return compact ? Math.max(9, Math.min(20, 8 + 3 * Math.log2(1 + n))) : Math.max(14, Math.min(34, 12 + 4.6 * Math.log2(1 + n)));
-        return compact ? Math.max(4, Math.min(18, 2.4 + 2 * Math.log2(1 + n))) : Math.max(4.5, Math.min(28, 2.2 + 2.5 * Math.log2(1 + n)));
+        /* المتدرّبون: مساحة الدائرة تتناسب مع العدد (جذر تربيعي) فتبقى الدوائر الصغيرة صغيرة ولا تتزاحم، والرقم يُكتب داخل الكبيرة فقط والبقية عند المرور */
+        return compact ? Math.max(3, Math.min(18, 2 + 0.38 * Math.sqrt(n))) : Math.max(3.6, Math.min(30, 3 + 0.62 * Math.sqrt(n)));
       },
-      minTextR: COMPACT ? 12 : 15,
-      arcIf: function (pt) { return MODE === 'p' || pt.n >= 60; },
+      get minTextR() { return MODE === 'p' ? (COMPACT ? 12 : 15) : (COMPACT ? 11 : 13); },
+      arcIf: function (pt) { return MODE === 'p' || pt.n >= 150; },
       onPick: function (cc) { select(SEL === cc ? null : cc); },
       label: function (o) { return o.name || nm(o.cc); },
       hqText: function (c) { return c ? 'جدة' : 'المقر الرئيسي · جدة'; },
