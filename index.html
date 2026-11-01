@@ -5710,5 +5710,100 @@ window.openBonyanReport=open;
 })();
 </script>
 <!-- =================== نهاية تقرير «ما أنجزته بنيان» =================== -->
+<!-- ===================== تقرير «ما أنجزته بنيان» بهوية تقرير إثيوبيا (عدا الملخص التنفيذي والرقم الكبير) ===================== -->
+<style id="rp-eth">
+/* الشريط العلوي كما في تقرير إثيوبيا: أزرار يمين · اسم القسم الحالي في الوسط · الشعار يسار */
+#rp-layer #rp-top{top:0;background:linear-gradient(180deg,#0c1422,#13243a);border-bottom:1px solid rgba(216,183,106,.18);box-shadow:0 8px 30px rgba(0,0,0,.30)}
+#rp-layer.light #rp-top{background:linear-gradient(180deg,#0c1422,#13243a);border-bottom-color:rgba(216,183,106,.28)}
+#rp-layer #rp-top .bar{padding:12px 0 10px;gap:12px}
+#rp-layer #rp-top .brand{display:none}
+#rp-layer #rp-top .acts{order:1;margin:0;gap:10px;flex:0 0 auto}
+#rp-layer #rp-top .eth-ttl{order:2;flex:1;text-align:center;font:900 16px var(--font-display);letter-spacing:-.3px;color:#f1d99a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .3s,transform .3s}
+#rp-layer #rp-top .eth-ttl:empty{opacity:0;transform:translateY(4px)}
+#rp-layer #rp-top .eth-logo{order:3;flex:0 0 auto;height:40px;display:flex;align-items:center}
+#rp-layer #rp-top .eth-logo img{height:100%;width:auto;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,.35))}
+#rp-layer #rp-top .ibtn{width:44px;height:44px;display:grid;place-items:center;border-radius:13px;color:#f1d99a;background:rgba(216,183,106,.12);border:1px solid rgba(216,183,106,.30);transition:.25s;cursor:pointer}
+#rp-layer #rp-top .ibtn:hover{color:#0b0f17;background:linear-gradient(135deg,#f3dca6,#e3c485);border-color:transparent;transform:translateY(-2px);box-shadow:0 12px 26px rgba(216,183,106,.3)}
+#rp-layer #rp-top .ibtn svg{width:20px;height:20px}
+/* أزرار الأقسام: في المنتصف وبأيقوناتها */
+#rp-layer #rp-nav{justify-content:center;flex-wrap:wrap;gap:8px;padding:10px 0 12px;border-top:1px solid rgba(216,183,106,.10)}
+#rp-layer #rp-nav button{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:14px;font-size:13.5px;font-weight:700;color:#8ba0bb}
+#rp-layer #rp-nav button::before{font-size:15px;opacity:.85}
+#rp-layer #rp-nav button:nth-child(1)::before{content:"▦"} #rp-layer #rp-nav button:nth-child(2)::before{content:"◎"}
+#rp-layer #rp-nav button:nth-child(3)::before{content:"◆"} #rp-layer #rp-nav button:nth-child(4)::before{content:"⇢"}
+#rp-layer #rp-nav button:nth-child(5)::before{content:"✦"} #rp-layer #rp-nav button:nth-child(6)::before{content:"❖"}
+#rp-layer #rp-nav button:nth-child(7)::before{content:"≣"} #rp-layer #rp-nav button:nth-child(8)::before{content:"◈"}
+#rp-layer #rp-nav button:nth-child(9)::before{content:"◇"}
+#rp-layer #rp-nav button:hover{color:#f4f8fd;border-color:var(--line);transform:translateY(-2px)}
+#rp-layer #rp-nav button.on{color:#0b0f17;background:linear-gradient(135deg,var(--gold-2),var(--gold));box-shadow:0 12px 26px rgba(216,183,106,.3)}
+@media (max-width:760px){ #rp-layer #rp-nav{flex-wrap:nowrap;justify-content:flex-start} #rp-layer #rp-top .ibtn{width:38px;height:38px} #rp-layer #rp-top .eth-logo{height:32px} }
+
+/* عناوين الأقسام كما في إثيوبيا: رقم في مربع صغير · العنوان · خط يتلاشى */
+#rp-layer section:not(#rp-s8) > .rp-sh{gap:14px;margin-bottom:10px}
+#rp-layer section:not(#rp-s8) > .rp-sh .sn{width:auto;height:auto;padding:5px 11px;border-radius:10px;font:800 13px var(--font-body);letter-spacing:.5px;color:var(--gold-2);background:rgba(216,183,106,.06);border:1px solid var(--line);box-shadow:none}
+#rp-layer.light section:not(#rp-s8) > .rp-sh .sn{color:var(--gold-deep);background:rgba(181,146,63,.08)}
+#rp-layer section:not(#rp-s8) > .rp-sh h2{font-size:24px;letter-spacing:-.4px;background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--txt)}
+#rp-layer section:not(#rp-s8) > .rp-sh .ln{background:linear-gradient(90deg,var(--line),transparent)}
+#rp-layer section:not(#rp-s8) > .rp-sh .ln::after{display:none}
+#rp-layer section:not(#rp-s8) > .rp-sub{font-size:13.5px;color:var(--txt-3);padding-inline-start:0;margin:0 0 24px;max-width:none}
+#rp-layer section:not(#rp-s8){padding-top:40px;scroll-margin-top:120px}
+
+/* البطاقات كما في إثيوبيا: إطار ذهبي خفيف ووهج في الزاوية */
+#rp-layer section:not(#rp-s8) .rp-card{border-color:var(--line);border-radius:22px;background:linear-gradient(160deg,var(--panel),var(--panel-2))}
+#rp-layer section:not(#rp-s8) .rp-card::after{background:radial-gradient(circle at 20% -10%,rgba(216,183,106,.10),transparent 55%)}
+#rp-layer section:not(#rp-s8) .rp-ch{margin-bottom:18px}
+#rp-layer section:not(#rp-s8) .rp-ch h3{font:800 16px var(--font-display);gap:10px}
+#rp-layer section:not(#rp-s8) .rp-ch h3 i.eth{width:auto;height:auto;background:none!important;box-shadow:none;border:0;font-style:normal;font-size:18px;line-height:1}
+#rp-layer section:not(#rp-s8) .rp-tag{font-size:11px;font-weight:700;color:var(--txt-2);border:1px solid var(--line-soft);border-radius:20px;padding:4px 10px}
+
+/* بطاقات المؤشرات كما في إثيوبيا: أيقونة · رقم ملوّن · وصف · شريط */
+#rp-layer section:not(#rp-s8) .rp-kpi{text-align:center;padding:20px 18px}
+#rp-layer section:not(#rp-s8) .rp-kpi .eth-ic{display:block;font-size:22px;line-height:1;margin-bottom:8px;font-style:normal}
+#rp-layer section:not(#rp-s8) .rp-kpi .v{font-size:30px;font-weight:900;letter-spacing:-1px;color:var(--gold-2)}
+#rp-layer section:not(#rp-s8) .rp-kpi.big .v{font-size:clamp(34px,4.6vw,54px)}
+#rp-layer section:not(#rp-s8) .rp-kpi.cy .v{color:var(--cyan)} #rp-layer section:not(#rp-s8) .rp-kpi.vi .v{color:var(--violet)} #rp-layer section:not(#rp-s8) .rp-kpi.gr .v{color:var(--green)}
+#rp-layer section:not(#rp-s8) .rp-kpi .l{font-size:12px;color:var(--txt-2);font-weight:600;margin-top:3px}
+#rp-layer section:not(#rp-s8) .rp-kpi .spark{height:4px;border-radius:4px;margin-top:12px}
+</style>
+<script>
+/* تطبيق هوية تقرير إثيوبيا على أقسام «ما أنجزته بنيان» (عدا الملخص التنفيذي والرقم الكبير) */
+(function () {
+  var L = document.getElementById('rp-layer'); if (!L) return;
+  var EMO = {
+    'المشاريع والتدريب': '🎯', 'التعليم': '🎓', 'المعرفة والنشر': '📚', 'الانتشار والشراكة': '🌍', 'حقائبنا بلغات العالم': '🗣️', 'لمن نعمل': '🤝',
+    'المستفيدون والبرامج': '📈', 'البرامج المنفّذة حسب الدولة': '🗺️', 'مواطن القوة': '💪', 'الفجوات والمخاطر': '⚠️',
+    'مشروع منفّذ': '📁', 'دورة تدريبية': '🖥️', 'ساعة تدريبية': '⏱️', 'مدرّب مختص': '👨‍🏫', 'حقيبة تدريبية': '💼', 'طالب': '🎓', 'معلّم': '👩‍🏫',
+    'حلقة تعليمية': '📖', 'منهج دراسي': '📘', 'مادة إثرائية': '💡', 'مطبوعة': '📰', 'استشارة': '💬', 'كتاب علمي': '📕', 'موقع إلكتروني': '🌐',
+    'مستفيد': '👥', 'دولة مستفيدة': '🌍', 'مؤسسة مستفيدة': '🏛️', 'مسجد': '🕌', 'عامل في الشركة': '👔'
+  };
+  var AR = '٠١٢٣٤٥٦٧٨٩';
+  function apply() {
+    [].forEach.call(L.querySelectorAll('section:not(#rp-s8) > .rp-sh .sn'), function (s) { var t = s.textContent.replace(/[٠-٩]/g, function (d) { return AR.indexOf(d); }); if (t !== s.textContent) s.textContent = t; });
+    [].forEach.call(L.querySelectorAll('section:not(#rp-s8) .rp-ch h3'), function (h) {
+      var i = h.querySelector(':scope > i'); if (!i || i.classList.contains('eth')) return;
+      var e = EMO[h.textContent.trim()]; if (!e) return; i.className = 'eth'; i.textContent = e;
+    });
+    [].forEach.call(L.querySelectorAll('section:not(#rp-s8) .rp-kpi'), function (k) {
+      if (k.querySelector('.eth-ic')) return; var l = k.querySelector('.l'), e = l && EMO[l.textContent.trim()]; if (!e) return;
+      var old = k.querySelector(':scope > svg, :scope > .ic'); var span = document.createElement('i'); span.className = 'eth-ic'; span.textContent = e;
+      if (old) old.replaceWith(span); else k.insertBefore(span, k.firstChild);
+    });
+    var bar = L.querySelector('#rp-top .bar');
+    if (bar && !bar.querySelector('.eth-ttl')) {
+      var t = document.createElement('b'); t.className = 'eth-ttl'; t.setAttribute('aria-live', 'polite'); bar.appendChild(t);
+      var g = document.createElement('span'); g.className = 'eth-logo'; bar.appendChild(g);
+    }
+    var lg = L.querySelector('#rp-top .eth-logo'), orb = document.querySelector('#rp-orb img');
+    if (lg && orb && !lg.firstChild) { var im = document.createElement('img'); im.src = orb.src; im.alt = 'بنيان'; lg.appendChild(im); }
+    title();
+  }
+  function title() { var t = L.querySelector('#rp-top .eth-ttl'), on = L.querySelector('#rp-nav button.on'); if (t) { var v = on ? on.textContent.trim() : ''; if (t.textContent !== v) t.textContent = v; } }
+  var tm = 0; function soon() { clearTimeout(tm); tm = setTimeout(apply, 60); }
+  new MutationObserver(soon).observe(L, { childList: true, subtree: true });
+  new MutationObserver(function () { if (L.classList.contains('open')) soon(); }).observe(L, { attributes: true, attributeFilter: ['class'] });
+  L.addEventListener('scroll', title, { passive: true });
+  soon();
+})();
+</script>
 </body>
 </html>
