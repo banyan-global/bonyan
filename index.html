@@ -6328,5 +6328,29 @@ var WH_PRG={"SA":[5,11,106],"ET":[33,32,22],"BD":[1,16,57],"ID":[4,3,23],"SN":[0
 })();
 </script>
 
+
+<style id="rp-fix-20261101">
+/* الكرة الأرضية بعرض كامل، وحذف قائمة الدول الجانبية */
+#rp-layer .wh-geo{ grid-template-columns:1fr !important; }
+#rp-layer .wh-geo .rp-side{ display:none !important; }
+#rp-layer .wh-gl{ max-width:100% !important; width:100% !important; aspect-ratio:auto !important; height:min(78vh,780px) !important; margin-inline:0 !important; }
+@media (max-width:760px){ #rp-layer .wh-gl{ height:min(92vw,520px) !important; } }
+/* بطاقتا الغايتين الأوليين متناصفتان */
+#rp-layer .rp-gcards.five .rp-gc:nth-child(1),#rp-layer .rp-gcards.five .rp-gc:nth-child(2),#rp-layer .rp-gcards .rp-gc:nth-child(1),#rp-layer .rp-gcards .rp-gc:nth-child(2){ grid-column:span 3; }
+@media (min-width:761px){ #rp-layer .rp-gcards{ grid-template-columns:repeat(6,1fr); }
+  #rp-layer .rp-gcards .rp-gc{ grid-column:span 2; }
+  #rp-layer .rp-gcards .rp-gc:nth-child(1),#rp-layer .rp-gcards .rp-gc:nth-child(2){ grid-column:span 3; } }
+/* العناوين العربية بلون صريح بلا تدرّج وبلا تضييق الحروف: أوضح، وتظهر الهمزات كاملة */
+#rp-layer h1, #rp-layer.light h1, #rp-layer .rp-div h2, #rp-layer.light .rp-div h2, #rp-layer .rp-sh h2,
+#rp-imm .im-hero h1, #rp-imm .ent-hero h1, #rp-imm .ex-cta h3, .rp-sheet .im-hero h1, .rp-sheet .ent-hero h1{
+  background:none !important; -webkit-background-clip:border-box !important; background-clip:border-box !important;
+  color:var(--gold-2) !important; -webkit-text-fill-color:var(--gold-2) !important; filter:none !important;
+  letter-spacing:0 !important; line-height:1.5 !important; padding-top:.08em !important; overflow:visible !important; }
+#rp-layer.light h1, #rp-layer.light .rp-div h2{ color:#15233c !important; -webkit-text-fill-color:#15233c !important; }
+#rp-layer .rp-sh h2{ color:var(--txt) !important; -webkit-text-fill-color:var(--txt) !important; }
+#rp-layer h2, #rp-layer h3, #rp-layer h4, #rp-imm h2, #rp-imm h3, #rp-imm h4, .rp-sheet h2, .rp-sheet h3, .rp-sheet h4{ letter-spacing:0 !important; }
+#rp-layer .rp-gc h3{ line-height:1.55; }
+#rp-layer .xs-txt h4{ letter-spacing:0 !important; line-height:1.5 !important; }
+</style>
 </body>
 </html>
