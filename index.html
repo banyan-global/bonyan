@@ -2724,7 +2724,8 @@ window.COUNTRY_CENTROIDS={"SA": [24.1, 44.7], "ET": [8.6, 39.6], "BD": [23.9, 90
         ctx.fillStyle = '#0b1a2e'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         var fs = Math.round(Math.max(compact ? 10 : 13, Math.min(22, r * (String(pt.nLabel).length > 2 ? 0.62 : 0.8))));
         ctx.font = '900 ' + fs + 'px ' + FONT;
-        if ((!compact || r >= 9) && (!opts.minTextR || r >= opts.minTextR)) ctx.fillText(pt.nLabel, q[0], q[1] + 1);
+        pt.txtIn = (!compact || r >= 9) && (!opts.minTextR || r >= opts.minTextR);
+        if (pt.txtIn) ctx.fillText(pt.nLabel, q[0], q[1] + 1);
         if (pt.nat) {
           var bR = compact ? 7.5 : Math.max(11, Math.min(15, r * 0.42)), ang = rtl ? -2.35 : -0.8;
           var bx = q[0] + Math.cos(ang) * r * 0.98, by = q[1] + Math.sin(ang) * r * 0.98;
@@ -2740,8 +2741,9 @@ window.COUNTRY_CENTROIDS={"SA": [24.1, 44.7], "ET": [8.6, 39.6], "BD": [23.9, 90
         if (hqGeo) { labels.push([hqS[0] - PIN.r - 2, hqS[1] - PIN.r * 3.2, PIN.r * 2 + 4, PIN.r * 3.3]); if (hqGeo.txt) labels.push([hqGeo.lx - 4, hqGeo.ly - 4, hqGeo.lw + 8, hqGeo.lh + 8]); }
         vis.slice().sort(function (a, b) { return b.n - a.n; }).forEach(function (pt) {
           var q = [pt.px, pt.py, pt.screen[2]]; if (q[2] < 0.35) return;
-          ctx.font = '800 12px ' + FONT;
-          var w = ctx.measureText(pt.name).width + 20, h = 22;
+          var lbl = pt.txtIn ? pt.name : pt.name + ' · ' + pt.nLabel;
+          ctx.font = '800 12.5px ' + FONT;
+          var w = ctx.measureText(lbl).width + 20, h = 23;
           var ym = q[1] - h / 2, xa = q[0] - pt.r - 6 - w, xb = q[0] + pt.r + 6, xc = q[0] - w / 2;
           var cands = (rtl ? [[xa, ym], [xb, ym]] : [[xb, ym], [xa, ym]]).concat([[xc, q[1] - pt.r - 5 - h], [xc, q[1] + pt.r + 5]]), x = null, y = ym;
           for (var ci = 0; ci < cands.length && x === null; ci++) {
@@ -2751,7 +2753,7 @@ window.COUNTRY_CENTROIDS={"SA": [24.1, 44.7], "ET": [8.6, 39.6], "BD": [23.9, 90
           if (x === null) return;
           labels.push([x, y, w, h]);
           ctx.globalAlpha = ease((q[2] - 0.35) / 0.2);
-          pill(pt.name, x, y + h / 2, { fs: 12, px: 10, bg: 'rgba(10,22,40,.82)', color: '#f4f8fd', border: 'rgba(227,196,133,.35)', align: 'start' });
+          pill(lbl, x, y + h / 2, { fs: 12.5, px: 10, bg: 'rgba(10,22,40,.86)', color: pt.txtIn ? '#f4f8fd' : '#fbe9c2', border: 'rgba(227,196,133,.45)', align: 'start' });
           ctx.globalAlpha = 1;
         });
       }
@@ -6360,6 +6362,20 @@ var WH_PRG={"SA":[5,11,106],"ET":[33,32,22],"BD":[1,16,57],"ID":[4,3,23],"SN":[0
 #rp-layer.light .rp-card .rp-ch, #rp-layer.light .rp-card.xs-sw > h3, #rp-layer.light .rp-side > h3{
   background:linear-gradient(to left, rgba(181,146,63,.18), #fff 72%); border-color:rgba(181,146,63,.22); border-inline-start-color:var(--gold-deep); box-shadow:0 6px 18px rgba(20,40,70,.06); }
 #rp-layer .rp-card .rp-ch h3, #rp-layer .rp-card.xs-sw > h3{ margin:0; }
+
+/* أزرار التحكّم فوق الكرة: أكبر وأوضح */
+#rp-layer .wh-bar{ gap:12px; margin-bottom:14px; padding:12px 14px; border-radius:16px; border:1px solid var(--line-soft); background:linear-gradient(to left, rgba(227,196,133,.12), rgba(227,196,133,.03)); }
+#rp-layer.light .wh-bar{ background:linear-gradient(to left, rgba(181,146,63,.12), #fff 75%); border-color:rgba(181,146,63,.2); }
+#rp-layer .wh-bar .rp-sw{ padding:5px; gap:5px; background:rgba(255,255,255,.06); border-color:var(--line); }
+#rp-layer.light .wh-bar .rp-sw{ background:rgba(20,40,70,.05); }
+#rp-layer .wh-bar .rp-sw button{ font:800 14.5px var(--font-body); padding:10px 20px; color:var(--txt-2); }
+#rp-layer .wh-bar .rp-sw button.on{ box-shadow:0 8px 20px rgba(227,196,133,.3); }
+#rp-layer .wh-tabs2{ gap:9px; margin-bottom:14px; }
+#rp-layer .wh-tabs2 button{ font:800 14px var(--font-body); padding:10px 18px; border-color:var(--line); display:inline-flex; align-items:center; gap:8px; }
+#rp-layer .wh-tabs2 button em{ font-size:13px; margin:0; opacity:1; padding:2px 9px; border-radius:999px; background:rgba(227,196,133,.16); color:var(--gold-2); }
+#rp-layer.light .wh-tabs2 button em{ background:rgba(181,146,63,.12); color:var(--gold-deep); }
+#rp-layer .wh-tabs2 button.on em{ background:rgba(22,41,66,.18); color:inherit; }
+@media (max-width:760px){ #rp-layer .wh-bar .rp-sw button{ font-size:13px; padding:8px 14px } #rp-layer .wh-tabs2 button{ font-size:12.5px; padding:8px 12px } }
 </style>
 </body>
 </html>
