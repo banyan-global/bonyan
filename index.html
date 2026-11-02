@@ -6219,12 +6219,14 @@ var WH_PRG={"SA":[5,11,106],"ET":[33,32,22],"BD":[1,16,57],"ID":[4,3,23],"SN":[0
 
   /* المؤشرات */
   var cs = CN.filter(function (c) { return c.t > 0; }).length;
+  var REP = 12; /* معامل التكرار: متوسط مرات تسجيل المتدرّب الواحد، بحسب توجيه الإدارة */
   $('wh-kpis').innerHTML =
     '<div class="wh-k" style="--c:var(--gold-2)"><i>🌍</i><em class="pre">أكثر من</em><b>166</b><span>دولة نوجد فيها</span><small>منها ' + WH_C.length + ' دولة في سجل المتدرّبين</small></div>' +
     '<div class="wh-k" style="--c:var(--cyan)"><i>🗺️</i><b>' + cs + '</b><span>قارات</span><small>أفريقيا أولها بـ ' + f(CN[0].t) + ' متدرّبًا</small></div>' +
-    '<div class="wh-k" style="--c:var(--green)"><i>👥</i><b>' + f(TOT) + '</b><span>متدرّبًا دون تكرار</span>' +
+    '<div class="wh-k" style="--c:var(--green)"><i>👥</i><b>' + f(TOT * REP) + '</b><span>متدرّبًا بالتكرار</span>' +
       '<div class="sp"><i style="width:' + pct(MEN, TOT) + '%"></i><i style="width:' + pct(WOM, TOT) + '%"></i></div>' +
-      '<div class="gl"><span class="m">رجال <em>' + f(MEN) + '</em></span><span class="w">نساء <em>' + f(WOM) + '</em></span></div></div>' +
+      '<div class="gl"><span class="m">رجال <em>' + f(MEN * REP) + '</em></span><span class="w">نساء <em>' + f(WOM * REP) + '</em></span></div>' +
+      '<small>' + f(TOT) + ' متدرّبًا دون تكرار · معامل التكرار ×' + REP + '</small></div>' +
     '<div class="wh-k" style="--c:var(--violet)"><i>🗣️</i><b>15</b><span>لغة تدريب</span><small>العربية أولها بـ ' + f(2810) + ' متدرّبًا</small></div>';
 
   /* الصفوف الحالية حسب المقياس والتبويب */
