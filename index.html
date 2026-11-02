@@ -4255,7 +4255,7 @@ html.rp-lock, body.rp-lock{ overflow:hidden !important; }
 <main>
 <div class="wrap">
   <section id="rp-where">
-    <div class="rp-sh rp-rv"><span class="sn">01</span><h2>أين نوجد</h2><span class="ln"></span></div>
+    <div class="rp-sh rp-rv"><span class="sn">01</span><h2>أين نتواجد</h2><span class="ln"></span></div>
     <p class="rp-sub rp-rv">انتشار بنيان حول العالم: من أين جاء المتدرّبون، وأين نُفّذت البرامج من 2024 حتى 2026. أدِر الكرة بالسحب، ومرّر المؤشّر على أي دولة أو اضغط عليها لتفاصيلها.</p>
     <div class="wh-kpis rp-rv" id="wh-kpis"></div>
     <div class="rp-geo wh-geo">
@@ -4577,7 +4577,7 @@ var NOTES=[
  ['','فرق موثَّق','مجموع الكرة <b>379</b> برنامجًا والإجمالي الرسمي <b>380</b>. الفارق من 2024: تفصيله حسب الدول يبلغ <b>53</b> برنامجًا بينها برنامجان في «أمريكا الجنوبية» — إقليم لا دولة فلا يُرسم — بينما الإجمالي الرسمي للعام <b>52</b>.'],
  ['cy','2026','عامٌ لم يكتمل؛ أرقامه حتى <b>29</b> أكتوبر، ومنها <b>50</b> مشروعًا لم يبدأ تنفيذه بعد و<b>6</b> قيد التنفيذ.']
 ];
-var NAV=[['rp-where','أين نوجد'],['rp-hero','الكيانات'],['rp-s0','الغايات'],['rp-s1','الأثر في أرقام'],['rp-s2','ثلاث سنوات'],['rp-s5','المبادرات'],['rp-s7','سلسلة الأثر'],['rp-s8','الملخص'],['rp-s9','التوصيات']];
+var NAV=[['rp-where','أين نتواجد'],['rp-hero','الكيانات'],['rp-s0','الغايات'],['rp-s1','الأثر في أرقام'],['rp-s2','ثلاث سنوات'],['rp-s5','المبادرات'],['rp-s7','سلسلة الأثر'],['rp-s8','الملخص'],['rp-s9','التوصيات']];
 
 (function(){
   var e=['وقف بنيان','جامعة بنيان العالمية','شركة بنيان للتدريب المحدودة'];
@@ -5877,7 +5877,7 @@ window.openBonyanReport=open;
   soon();
 })();
 </script>
-<!-- ===================== «ما أنجزته بنيان»: أين نوجد + تحسينات العرض ===================== -->
+<!-- ===================== «ما أنجزته بنيان»: أين نتواجد + تحسينات العرض ===================== -->
 <style id="rp-v2">
 /* أزرار الأقسام: عشرة أقسام بأيقوناتها */
 #rp-layer #rp-nav button:nth-child(1)::before{content:"⌖"} #rp-layer #rp-nav button:nth-child(2)::before{content:"⬢"}
@@ -5956,7 +5956,7 @@ window.openBonyanReport=open;
 #rp-layer #rp-mq .rp-key span{display:block;margin:0;font:800 14.5px var(--font-body);color:var(--txt);white-space:normal}
 @media (max-width:760px){ #rp-layer #rp-mq .t{grid-template-columns:repeat(2,1fr)} }
 
-/* ============ أين نوجد ============ */
+/* ============ أين نتواجد ============ */
 #rp-where{padding-top:30px}
 .wh-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:16px}
 .wh-k{position:relative;overflow:hidden;padding:22px 18px 20px;border-radius:22px;text-align:center;background:linear-gradient(160deg,var(--panel),var(--panel-2));border:1px solid var(--line);box-shadow:var(--sh);container-type:inline-size}
@@ -6051,7 +6051,7 @@ window.openBonyanReport=open;
 .oj2:hover .oj2-role,.oj2:focus-visible .oj2-role{max-height:2em;opacity:.8;margin-top:5px;padding-top:5px;border-top:1px solid color-mix(in srgb,var(--gold) 25%,transparent)}
 .oj2-copy{font-size:11.5px;color:var(--txt-3)}
 @media (prefers-reduced-motion:reduce){.oj2-dot{animation:none}}
-/* ===== أين نوجد (بإمكانات «أين عملنا») ===== */
+/* ===== أين نتواجد (بإمكانات «أين عملنا») ===== */
 #rp-layer #rp-s3{display:none!important}
 #rp-layer #rp-nav button:nth-child(3)::before{content:"◎"} #rp-layer #rp-nav button:nth-child(4)::before{content:"◆"}
 #rp-layer #rp-nav button:nth-child(5)::before{content:"⇢"} #rp-layer #rp-nav button:nth-child(6)::before{content:"❖"}
@@ -6180,9 +6180,20 @@ html.sem-lock{ overflow:hidden; }
   .sem-row{ flex-wrap:nowrap; overflow-x:auto; scroll-snap-type:x mandatory; padding:8px 4px 18px; -webkit-overflow-scrolling:touch; }
   .sem-card{ flex:0 0 78vw; min-width:0; scroll-snap-align:center; min-height:300px; } .sem-head p{ font-size:13px } }
 @media (prefers-reduced-motion:reduce){ .sem-bg i{ animation:none } .sem-card, .sem-head{ transition:none !important; } #sem-layer .sem-card{ opacity:1; transform:none } }
+
+/* المشاهد الغامرة والألواح مظلمة دائمًا: لا تتأثر عناوينها بالوضع الفاتح */
+#rp-layer.light #rp-imm h1, #rp-layer.light #rp-imm .im-hero h1, #rp-layer.light #rp-imm .ent-hero h1, #rp-layer.light #rp-imm .ex-cta h3,
+#rp-layer.light .rp-sheet h1, #rp-layer.light .rp-sheet .im-hero h1, #rp-layer.light .rp-sheet .ent-hero h1, .rp-sheet.light h1{
+  color:var(--gold-2) !important; -webkit-text-fill-color:var(--gold-2) !important; }
+#rp-layer.light #rp-imm .rp-sh h2, #rp-layer.light .rp-sheet .rp-sh h2{ color:var(--txt) !important; -webkit-text-fill-color:var(--txt) !important; }
+#rp-layer.light #rp-imm .rp-card .rp-ch, #rp-layer.light .rp-sheet .rp-card .rp-ch{ background:linear-gradient(to left, rgba(227,196,133,.20), rgba(227,196,133,.05) 70%); border-color:var(--line-soft); border-inline-start-color:var(--gold); box-shadow:inset 0 1px 0 var(--hi); }
+
+/* شرائط العناوين داخل المشاهد الغامرة تبقى مظلمة في الوضع الفاتح */
+#rp-layer.light #rp-imm section > .rp-sh, #rp-layer.light .rp-sheet section > .rp-sh, #rp-layer.light #rp-imm .rp-sh{ background:linear-gradient(to left, rgba(227,196,133,.18), rgba(255,255,255,.04) 72%); box-shadow:inset 0 1px 0 rgba(255,255,255,.08); }
+#rp-layer.light #rp-imm .rp-sh .sn, #rp-layer.light .rp-sheet .rp-sh .sn{ color:var(--gold-2); background:rgba(216,183,106,.08); }
 </style>
 <script>
-/* «أين نوجد»: كرة أرضية وخريطة بإمكانات «أين عملنا» — المتدرّبون (سجل 17 سبتمبر 2025) والبرامج المنفّذة (2024–2026) */
+/* «أين نتواجد»: كرة أرضية وخريطة بإمكانات «أين عملنا» — المتدرّبون (سجل 17 سبتمبر 2025) والبرامج المنفّذة (2024–2026) */
 (function () {
   var L = document.getElementById('rp-layer'); if (!L || !document.getElementById('rp-where')) return;
 var WH_C=[["ET","إثيوبيا",2241,4,0],["SA","السعودية",856,337,1],["EG","مصر",215,224,0],["BD","بنغلاديش",415,9,1],["ID","إندونيسيا",370,47,1],["NG","نيجيريا",276,25,0],["IN","الهند",256,22,1],["SN","السنغال",262,4,0],["MM","ميانمار",228,6,1],["GH","غانا",219,3,0],["IQ","العراق",179,11,1],["YE","اليمن",128,39,1],["GN","غينيا",151,13,0],["PH","الفلبين",123,33,1],["MA","المغرب",110,32,0],["SY","سوريا",80,52,1],["SD","السودان",105,10,0],["DZ","الجزائر",58,37,0],["GM","غامبيا",76,8,0],["SO","الصومال",78,4,0],["TN","تونس",16,65,0],["BF","بوركينا فاسو",65,8,0],["CI","ساحل العاج",52,20,0],["TG","توغو",62,8,0],["BJ","بنين",68,2,0],["TH","تايلاند",62,6,1],["ML","مالي",61,6,0],["BI","بوروندي",67,0,0],["TZ","تانزانيا",29,33,0],["PK","باكستان",33,11,1],["TD","تشاد",38,4,0],["PS","فلسطين",21,17,1],["NP","نيبال",29,1,1],["NE","النيجر",28,1,0],["JO","الأردن",11,17,1],["KM","جزر القمر",22,3,0],["ZW","زيمبابوي",24,0,0],["MR","موريتانيا",22,0,0],["LY","ليبيا",10,9,0],["RW","رواندا",19,0,0],["AF","أفغانستان",19,0,1],["CG","الكونغو",17,1,0],["KE","كينيا",12,4,0],["KG","قيرغيزستان",10,6,1],["TJ","طاجيكستان",9,6,1],["LB","لبنان",13,2,1],["LK","سريلانكا",14,1,1],["SL","سيراليون",12,2,0],["KW","الكويت",6,8,1],["AL","ألبانيا",12,2,2],["CM","الكاميرون",11,1,0],["RU","روسيا",11,1,1],["CN","الصين",7,5,1],["US","الولايات المتحدة",7,5,3],["UG","أوغندا",10,0,0],["GW","غينيا بيساو",9,1,0],["MV","جزر المالديف",5,4,1],["XK","كوسوفو",7,2,2],["DE","ألمانيا",8,0,2],["DJ","جيبوتي",7,0,0],["ER","إريتريا",5,2,0],["MY","ماليزيا",5,2,1],["JP","اليابان",7,0,1],["DK","الدنمارك",7,0,2],["IT","إيطاليا",7,0,2],["AU","أستراليا",6,1,5],["ZM","زامبيا",6,0,0],["KH","كمبوديا",6,0,1],["TR","تركيا",6,0,2],["GB","المملكة المتحدة",5,1,2],["MG","مدغشقر",5,0,0],["IR","إيران",5,0,1],["BH","البحرين",3,2,1],["PE","بيرو",5,0,4],["ES","إسبانيا",5,0,2],["BA","البوسنة والهرسك",1,4,2],["BE","بلجيكا",5,0,2],["LA","لاوس",4,0,1],["MX","المكسيك",4,0,3],["EC","الإكوادور",4,0,4],["FI","فنلندا",4,0,2],["FR","فرنسا",4,0,2],["MU","موريشيوس",3,0,0],["KR","كوريا الجنوبية",3,0,1],["UZ","أوزبكستان",1,2,1],["CA","كندا",3,0,3],["SV","السلفادور",3,0,3],["CO","كولومبيا",3,0,4],["NO","النرويج",1,2,2],["ZA","جنوب أفريقيا",2,0,0],["GQ","غينيا الاستوائية",2,0,0],["MZ","موزمبيق",2,0,0],["DO","جمهورية الدومينيكان",2,0,3],["BR","البرازيل",2,0,4],["IE","أيرلندا",2,0,2],["NL","هولندا",2,0,2],["MK","مقدونيا الشمالية",2,0,2],["CH","سويسرا",2,0,2],["LR","ليبيريا",0,1,0],["MW","مالاوي",1,0,0],["AO","أنغولا",1,0,0],["BW","بوتسوانا",1,0,0],["CF","أفريقيا الوسطى",1,0,0],["NA","ناميبيا",1,0,0],["LS","ليسوتو",1,0,0],["SZ","سوازيلاند",1,0,0],["TM","تركمانستان",1,0,1],["KZ","كازاخستان",1,0,1],["GY","غيانا",1,0,4],["IS","آيسلندا",1,0,2],["RO","رومانيا",1,0,2],["RS","صربيا",0,1,2],["SE","السويد",1,0,2],["NZ","نيوزيلندا",1,0,5]];
