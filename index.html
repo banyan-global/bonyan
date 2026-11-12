@@ -6749,7 +6749,7 @@ var WH_PRG={"SA":[5,11,106],"ET":[33,32,22],"BD":[1,16,57],"ID":[4,3,23],"SN":[0
   <div class="wl-stage">
    <ul class="wl-list"><li class="wl-rb" style="--i:0"><span class="no">٠١</span><b>د. عبدالله الغامدي</b><i>رئيس اللجنة</i></li><li class="wl-rb" style="--i:1"><span class="no">٠٢</span><b>د. مبارك آل زنان</b><i>نائب الرئيس</i></li><li class="wl-rb" style="--i:2"><span class="no">٠٣</span><b>د. حسين القرشي</b><i>عضو اللجنة</i></li><li class="wl-rb" style="--i:3"><span class="no">٠٤</span><b>د. عبدالله الحمودي</b><i>عضو اللجنة</i></li><li class="wl-rb" style="--i:4"><span class="no">٠٥</span><b>د. عبدالرحمن الشتوي</b><i>عضو اللجنة</i></li><li class="wl-rb" style="--i:5"><span class="no">٠٦</span><b>الشيخ عطية مجيدي</b><i>عضو اللجنة</i></li><li class="wl-rb" style="--i:6"><span class="no">٠٧</span><b>الشيخ رباح السلامة</b><i>عضو اللجنة</i></li><li class="wl-rb" style="--i:7"><span class="no">٠٨</span><b>الشيخ إبراهيم الزهراني</b><i>عضو اللجنة</i></li><li class="wl-rb" style="--i:8"><span class="no">٠٩</span><b>الشيخ مبارك الزهراني</b><i>عضو اللجنة</i></li></ul>
   </div>
-  <div class="wl-foot rv"><div class="wl-meta"><span class="wl-pill" id="wlDay"></span><span class="wl-pill" id="wlHij"></span><span class="wl-pill" id="wlGreg"></span><span class="wl-pill wl-venue">المقر: شركة بنيان - جدة</span></div><button type="button" class="wl-cta" id="wlEnter"><i></i>الدخول إلى لوحة بنيان</button><span class="wl-hint">اضغط في أي مكان للدخول</span></div>
+  <div class="wl-foot rv"><div class="wl-meta"><span class="wl-pill" id="wlDay"></span><span class="wl-pill" id="wlHij"></span><span class="wl-pill" id="wlGreg"></span><span class="wl-pill wl-venue">المقر: شركة بنيان - جدة</span></div><button type="button" class="wl-cta" id="wlEnter"><i></i>الدخول إلى لوحة بنيان</button></div>
  </div>
 </div>
 
@@ -6780,8 +6780,8 @@ var WH_PRG={"SA":[5,11,106],"ET":[33,32,22],"BD":[1,16,57],"ID":[4,3,23],"SN":[0
 .wl-frame::before{ top:-3px; inset-inline-start:-3px; border-inline-end:0; border-bottom:0; border-start-start-radius:18px; }
 .wl-frame::after{ bottom:-3px; inset-inline-end:-3px; border-inline-start:0; border-top:0; border-end-end-radius:18px; }
 .wl-ul{ display:block; width:130px; height:3px; margin:10px auto 0; border-radius:3px; background:linear-gradient(90deg,transparent,var(--gd),var(--gd3),var(--gd),transparent); box-shadow:0 0 12px rgba(181,146,63,.45); }
-.wl-wrap{ position:relative; z-index:1; height:100%; max-width:1280px; margin:0 auto; padding:clamp(28px,4.5vh,48px) clamp(36px,4vw,64px); display:flex; flex-direction:column; align-items:center; justify-content:space-between; gap:clamp(14px,2.4vh,26px); }
-#wl-layer{ cursor:pointer; }
+.wl-wrap{ position:relative; z-index:1; height:100%; max-width:1280px; margin:0 auto; padding:clamp(28px,4.5vh,48px) clamp(36px,4vw,64px); display:flex; flex-direction:column; align-items:center; justify-content:space-between; gap:clamp(14px,2.4vh,26px); overflow-y:auto; }
+#wl-layer{ cursor:default; }
 .wl-top{ text-align:center; }
 .wl-logo{ height:clamp(44px,7.2vh,66px); width:auto; display:block; margin:0 auto; filter:drop-shadow(0 10px 24px rgba(22,41,66,.18)); }
 .wl-eb{ display:inline-flex; align-items:center; gap:12px; margin-top:clamp(16px,2.6vh,26px); font:800 12.5px var(--font-body); color:var(--gd); }
@@ -6790,7 +6790,7 @@ var WH_PRG={"SA":[5,11,106],"ET":[33,32,22],"BD":[1,16,57],"ID":[4,3,23],"SN":[0
 .wl-top h1 span, .wl-top h1 b{ display:block; }
 .wl-top h1 span{ font-size:.62em; letter-spacing:.5px; }
 .wl-top h1 b{ line-height:1.15; background:linear-gradient(90deg,#a9842f,#d9bd7d 50%,#a9842f); -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent; padding:0 .1em; filter:drop-shadow(0 6px 18px rgba(181,146,63,.3)); }
-.wl-stage{ position:relative; width:100%; flex:1; min-height:0; display:grid; place-items:center; padding:clamp(6px,1.5vh,16px) 0; }
+.wl-stage{ position:relative; width:100%; flex:1 0 auto; display:grid; place-items:center; padding:clamp(6px,1.5vh,16px) 0; }
 .wl-list{ list-style:none; margin:0; padding:0; position:relative; z-index:1; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:clamp(10px,1.8vh,18px) clamp(12px,1.6vw,22px); width:100%; max-width:1180px; }
 .wl-rb{ position:relative; display:flex; align-items:center; gap:12px; padding:clamp(10px,1.7vh,16px) 16px; border-radius:16px; background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(255,251,242,.9)); border:1.5px solid rgba(181,146,63,.55); box-shadow:0 16px 34px rgba(22,41,66,.14), 0 0 0 5px rgba(227,196,133,.16), inset 0 1px 0 #fff; -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); cursor:default;
   opacity:0; transform:translateY(22px) scale(.97); transition:transform .35s var(--ez), box-shadow .35s, border-color .35s, background .35s; }
@@ -6806,7 +6806,6 @@ var WH_PRG={"SA":[5,11,106],"ET":[33,32,22],"BD":[1,16,57],"ID":[4,3,23],"SN":[0
 .wl-pill{ display:inline-flex; align-items:center; gap:8px; border:1.5px solid rgba(181,146,63,.6); background:rgba(255,255,255,.75); font:700 12.5px var(--font-body); color:var(--gd); padding:9px 18px; border-radius:999px; box-shadow:0 6px 16px rgba(22,41,66,.06); }
 .wl-pill::before{ content:""; width:6px; height:6px; border-radius:50%; background:var(--gd3); box-shadow:0 0 8px rgba(227,196,133,.9); }
 .wl-pill.wl-venue{ color:var(--nv); border-color:rgba(22,41,66,.35); }
-.wl-hint{ font:700 12.5px var(--font-body); color:var(--gd); letter-spacing:.2px; }
 .wl-cta{ display:inline-flex; align-items:center; gap:10px; cursor:pointer; border:0; font:800 15.5px var(--font-body); color:#fff; background:linear-gradient(135deg,var(--nv2),var(--nv)); padding:15px 38px; border-radius:999px; box-shadow:0 16px 34px rgba(22,41,66,.3); transition:.3s var(--ez); animation:wl-pulse 3s ease-in-out infinite; }
 .wl-cta:hover{ transform:translateY(-2px); }
 .wl-cta i{ width:8px; height:8px; border-radius:50%; background:var(--gd3); box-shadow:0 0 10px var(--gd3); }
@@ -6831,7 +6830,6 @@ var WH_PRG={"SA":[5,11,106],"ET":[33,32,22],"BD":[1,16,57],"ID":[4,3,23],"SN":[0
   function open(){ fillDate(); lay.hidden=false; lay.classList.remove('on'); document.documentElement.classList.add('sem-lock'); requestAnimationFrame(function(){ requestAnimationFrame(function(){ lay.classList.add('on'); }); }); }
   function close(){ try{ sessionStorage.setItem('wl-seen','1'); }catch(e){} lay.classList.remove('on'); document.documentElement.classList.remove('sem-lock'); setTimeout(function(){ lay.hidden=true; }, 650); }
   document.getElementById('wlEnter').addEventListener('click',close);
-  lay.addEventListener('click',function(){ close(); });
   document.addEventListener('keydown',function(e){ if(!lay.hidden&&(e.key==='Escape'||e.key==='Enter')){ e.stopPropagation(); close(); } }, true);
   var rb=document.getElementById('rpWlBtn'); if(rb) rb.addEventListener('click',function(e){ e.stopPropagation(); var m=document.getElementById('rpMenu'); if(m) m.classList.remove('open'); open(); });
   var tb=document.getElementById('wlTbBtn'); if(tb) tb.addEventListener('click',function(e){ e.stopPropagation(); open(); });
