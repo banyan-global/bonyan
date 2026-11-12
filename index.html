@@ -872,6 +872,9 @@ body.light .rp-ic{ background:rgba(22,41,66,.04); }
         
       </div>
     </div>
+    <button class="icon-btn" id="wlTbBtn" title="لوحة الترحيب بأعضاء اللجنة التنفيذية" aria-haspopup="dialog" aria-controls="wl-layer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </button>
     <button class="icon-btn" id="themeBtn" title="تغيير لون الصفحة (ليلي / نهاري)">
       <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 0 0 17Z" fill="currentColor" stroke="none"/>
@@ -6736,7 +6739,7 @@ var WH_PRG={"SA":[5,11,106],"ET":[33,32,22],"BD":[1,16,57],"ID":[4,3,23],"SN":[0
    <ul class="wl-list"><li class="wl-rb" style="--i:0"><span class="no">٠١</span><b>د. عبدالله الغامدي</b><i>رئيس اللجنة</i></li><li class="wl-rb" style="--i:1"><span class="no">٠٢</span><b>د. مبارك آل زنان</b><i>نائب الرئيس</i></li><li class="wl-rb" style="--i:2"><span class="no">٠٣</span><b>د. حسين القرشي</b><i>عضو اللجنة</i></li><li class="wl-rb" style="--i:3"><span class="no">٠٤</span><b>د. عبدالله الحمودي</b><i>عضو اللجنة</i></li><li class="wl-rb" style="--i:4"><span class="no">٠٥</span><b>د. عبدالرحمن الشتوي</b><i>عضو اللجنة</i></li><li class="wl-rb" style="--i:5"><span class="no">٠٦</span><b>الشيخ عطية مجيدي</b><i>عضو اللجنة</i></li><li class="wl-rb" style="--i:6"><span class="no">٠٧</span><b>الشيخ رباح السلامة</b><i>عضو اللجنة</i></li><li class="wl-rb" style="--i:7"><span class="no">٠٨</span><b>الشيخ إبراهيم الزهراني</b><i>عضو اللجنة</i></li><li class="wl-rb" style="--i:8"><span class="no">٠٩</span><b>الشيخ مبارك الزهراني</b><i>عضو اللجنة</i></li></ul>
   </div>
   <p class="wl-para rv">ترحّب مجموعة بنيان العالمية بأعضاء لجنتها التنفيذية، متمنيةً لهم التوفيق والسداد في مهامهم. تسهم خبراتهم ورؤاهم في تعزيز مسيرة بنيان نحو العالم الأول، وترسيخ أثرها في تأهيل العلماء والأئمة وقيادات العمل الخيري، وتمكين التعليم حيثما حلّت.</p>
-  <div class="wl-foot rv"><button type="button" class="wl-cta" id="wlEnter"><i></i>ادخل إلى اللوحة</button><button type="button" class="wl-skip" id="wlSkip">تخطّ الترحيب</button></div>
+  <div class="wl-foot rv"><button type="button" class="wl-cta" id="wlEnter"><i></i>الدخول إلى لوحة بنيان</button><span class="wl-hint">اضغط في أي مكان للدخول</span></div>
  </div>
 </div>
 
@@ -6767,7 +6770,8 @@ var WH_PRG={"SA":[5,11,106],"ET":[33,32,22],"BD":[1,16,57],"ID":[4,3,23],"SN":[0
 .wl-frame::before{ top:-3px; inset-inline-start:-3px; border-inline-end:0; border-bottom:0; border-start-start-radius:18px; }
 .wl-frame::after{ bottom:-3px; inset-inline-end:-3px; border-inline-start:0; border-top:0; border-end-end-radius:18px; }
 .wl-ul{ display:block; width:130px; height:3px; margin:10px auto 0; border-radius:3px; background:linear-gradient(90deg,transparent,var(--gd),var(--gd3),var(--gd),transparent); box-shadow:0 0 12px rgba(181,146,63,.45); }
-.wl-wrap{ position:relative; z-index:1; height:100%; max-width:1320px; margin:0 auto; padding:clamp(14px,2.6vh,28px) 28px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; gap:10px; }
+.wl-wrap{ position:relative; z-index:1; height:100%; max-width:1280px; margin:0 auto; padding:clamp(28px,4.5vh,48px) clamp(36px,4vw,64px); display:flex; flex-direction:column; align-items:center; justify-content:space-between; gap:clamp(14px,2.4vh,26px); }
+#wl-layer{ cursor:pointer; }
 .wl-top{ text-align:center; }
 .wl-logo{ height:clamp(44px,7.2vh,66px); width:auto; display:block; margin:0 auto; filter:drop-shadow(0 10px 24px rgba(22,41,66,.18)); }
 .wl-eb{ display:inline-flex; align-items:center; gap:12px; margin-top:clamp(16px,2.6vh,26px); font:800 12.5px var(--font-body); color:var(--gd); }
@@ -6776,7 +6780,7 @@ var WH_PRG={"SA":[5,11,106],"ET":[33,32,22],"BD":[1,16,57],"ID":[4,3,23],"SN":[0
 .wl-top h1 span, .wl-top h1 b{ display:block; }
 .wl-top h1 span{ font-size:.62em; letter-spacing:.5px; }
 .wl-top h1 b{ line-height:1.15; background:linear-gradient(90deg,#a9842f,#d9bd7d 50%,#a9842f); -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent; padding:0 .1em; filter:drop-shadow(0 6px 18px rgba(181,146,63,.3)); }
-.wl-stage{ position:relative; width:100%; flex:1; min-height:0; display:grid; place-items:center; }
+.wl-stage{ position:relative; width:100%; flex:1; min-height:0; display:grid; place-items:center; padding:clamp(6px,1.5vh,16px) 0; }
 .wl-list{ list-style:none; margin:0; padding:0; position:relative; z-index:1; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:clamp(10px,1.8vh,18px) clamp(12px,1.6vw,22px); width:100%; max-width:1180px; }
 .wl-rb{ position:relative; display:flex; align-items:center; gap:12px; padding:clamp(10px,1.7vh,16px) 16px; border-radius:16px; background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(255,251,242,.9)); border:1.5px solid rgba(181,146,63,.55); box-shadow:0 16px 34px rgba(22,41,66,.14), 0 0 0 5px rgba(227,196,133,.16), inset 0 1px 0 #fff; -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); cursor:default;
   opacity:0; transform:translateY(22px) scale(.97); transition:transform .35s var(--ez), box-shadow .35s, border-color .35s, background .35s; }
@@ -6786,15 +6790,14 @@ var WH_PRG={"SA":[5,11,106],"ET":[33,32,22],"BD":[1,16,57],"ID":[4,3,23],"SN":[0
 .wl-rb b{ flex:1; font:900 clamp(14px,1.25vw,17.5px)/1.35 var(--font-display); color:var(--nv); letter-spacing:0; }
 .wl-rb i{ font:800 11px var(--font-body); font-style:normal; color:var(--nv); white-space:nowrap; padding:4px 11px; border-radius:999px; background:linear-gradient(135deg,var(--gd4),var(--gd2)); border:0; box-shadow:0 4px 12px rgba(181,146,63,.3); }
 .wl-rb:hover{ transform:translateY(-4px) !important; border-color:var(--gd); box-shadow:0 22px 44px rgba(181,146,63,.3), 0 0 0 5px rgba(227,196,133,.26); background:#fff; }
-.wl-para{ position:relative; margin:0; max-width:880px; text-align:center; font-size:clamp(13px,1.15vw,15.5px); line-height:1.95; color:var(--tx2); padding-top:6px; }
-.wl-para::before{ content:"\201D"; position:absolute; top:-26px; inset-inline-end:-14px; font:900 80px/1 var(--font-display); color:rgba(181,146,63,.4); }
-.wl-foot{ display:flex; align-items:center; gap:16px; }
-.wl-cta{ display:inline-flex; align-items:center; gap:10px; cursor:pointer; border:0; font:800 14px var(--font-body); color:#fff; background:linear-gradient(135deg,var(--nv2),var(--nv)); padding:13px 30px; border-radius:999px; box-shadow:0 16px 34px rgba(22,41,66,.3); transition:.3s var(--ez); animation:wl-pulse 3s ease-in-out infinite; }
+.wl-para{ position:relative; margin:0; max-width:920px; text-align:center; font-size:clamp(14.5px,1.3vw,18px); font-weight:700; line-height:2; color:var(--nv); padding:clamp(10px,1.8vh,18px) clamp(18px,2vw,30px); background:rgba(255,255,255,.72); border:1px solid rgba(181,146,63,.4); border-radius:16px; box-shadow:0 10px 28px rgba(22,41,66,.08); }
+.wl-para::before{ content:"\201D"; position:absolute; top:-30px; inset-inline-end:6px; font:900 72px/1 var(--font-display); color:rgba(181,146,63,.55); }
+.wl-foot{ display:flex; flex-direction:column; align-items:center; gap:10px; }
+.wl-hint{ font:700 12.5px var(--font-body); color:var(--gd); letter-spacing:.2px; }
+.wl-cta{ display:inline-flex; align-items:center; gap:10px; cursor:pointer; border:0; font:800 15.5px var(--font-body); color:#fff; background:linear-gradient(135deg,var(--nv2),var(--nv)); padding:15px 38px; border-radius:999px; box-shadow:0 16px 34px rgba(22,41,66,.3); transition:.3s var(--ez); animation:wl-pulse 3s ease-in-out infinite; }
 .wl-cta:hover{ transform:translateY(-2px); }
 .wl-cta i{ width:8px; height:8px; border-radius:50%; background:var(--gd3); box-shadow:0 0 10px var(--gd3); }
 @keyframes wl-pulse{ 0%,100%{ box-shadow:0 16px 34px rgba(22,41,66,.3) } 50%{ box-shadow:0 16px 34px rgba(22,41,66,.3), 0 0 0 10px rgba(181,146,63,.18) } }
-.wl-skip{ border:1.5px solid rgba(181,146,63,.6); background:rgba(255,255,255,.7); cursor:pointer; font:700 12.5px var(--font-body); color:var(--gd); padding:11px 20px; border-radius:999px; }
-.wl-skip:hover{ background:#fff; text-decoration:underline; }
 #wl-layer .rv{ opacity:0; transform:translateY(16px); animation:wl-in .9s var(--ez) forwards; }
 #wl-layer .wl-top.rv{ animation-delay:.15s } #wl-layer .wl-para.rv{ animation-delay:1.9s } #wl-layer .wl-foot.rv{ animation-delay:2.2s }
 @media (max-width:900px){
@@ -6813,9 +6816,10 @@ var WH_PRG={"SA":[5,11,106],"ET":[33,32,22],"BD":[1,16,57],"ID":[4,3,23],"SN":[0
   function open(){ lay.hidden=false; lay.classList.remove('on'); document.documentElement.classList.add('sem-lock'); requestAnimationFrame(function(){ requestAnimationFrame(function(){ lay.classList.add('on'); }); }); }
   function close(){ try{ sessionStorage.setItem('wl-seen','1'); }catch(e){} lay.classList.remove('on'); document.documentElement.classList.remove('sem-lock'); setTimeout(function(){ lay.hidden=true; }, 650); }
   document.getElementById('wlEnter').addEventListener('click',close);
-  document.getElementById('wlSkip').addEventListener('click',close);
+  lay.addEventListener('click',function(){ close(); });
   document.addEventListener('keydown',function(e){ if(!lay.hidden&&(e.key==='Escape'||e.key==='Enter')){ e.stopPropagation(); close(); } }, true);
   var rb=document.getElementById('rpWlBtn'); if(rb) rb.addEventListener('click',function(e){ e.stopPropagation(); var m=document.getElementById('rpMenu'); if(m) m.classList.remove('open'); open(); });
+  var tb=document.getElementById('wlTbBtn'); if(tb) tb.addEventListener('click',function(e){ e.stopPropagation(); open(); });
   window.openWelcome=open;
   if(!seen){ if(document.readyState==='complete') open(); else window.addEventListener('load', open); }
 })();
