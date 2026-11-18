@@ -5618,11 +5618,12 @@ window.renderEntitySections = function(host){
   }
   function pick(kind, i, btn){
     var o = kind==='p' ? PARTNERS[i] : ORGU[i];
-    clearOn(); if (btn) btn.classList.add('on');
-    det.innerHTML = '<div class="eb">'+(kind==='p'?'كيان مؤسِّس':'مبادرة في المنظومة')+'</div><h3>'+esc(o.name)+'</h3>' +
+    var html = '<div class="eb">'+(kind==='p'?'كيان مؤسِّس':'مبادرة في المنظومة')+'</div><h3>'+esc(o.name)+'</h3>' +
       (kind==='p' && LG[o.logo] ? '<div class="dplate"><img src="'+LG[o.logo]+'" alt=""></div>' : '') +
       (kind==='p' ? partnerHTML(o).replace(/<div class="rp-blk" style="text-align:center">[\s\S]*?<\/div><\/div>/, '') : unitHTML(o));
-    det.scrollTop = 0;
+    if (window.__hmZoomDetail){ window.__hmZoomDetail('<div class="orb-det hm-zd">'+html+'</div>', btn); return; }
+    clearOn(); if (btn) btn.classList.add('on');
+    det.innerHTML = html; det.scrollTop = 0;
     if (innerWidth < 1080) det.scrollIntoView({ behavior:RED?'auto':'smooth', block:'start' });
   }
   home();
@@ -5657,6 +5658,7 @@ window.renderGoalCards = function(host){
 window.__imGoal = imOpenGoal;
 window.__imEntity = imOpenEntity;
 window.bnSheet = { push:pushSheet, close:function(){ closeSheet(true); }, el:sheetEl, home:L };
+window.bnProjSheet = function(i){ var p=PRJ[i]; if(!p) return; STACK=[]; pushSheet({ eb:'مشروع · خطة 2026', title:p.proj, html:projHTML(p) }); };
 window.bnImm = { el:immEl, openGoal:imOpenGoal, close:imClose, isOn:function(){ return !!(IMM && IMM.classList.contains('on')); } };
 window.bnGoalSheet = function(i){ STACK = []; pushSheet({ eb:'الغاية '+(AR_IDX[i]||(i+1))+' من '+MPTS.length, title:(GKEY[i]||MPTS[i].title), html:goalHTML(i) }); };
 window.bnCountUp = function(root){ [].slice.call((root||document).querySelectorAll('.cnt')).forEach(countUp); };
@@ -7318,20 +7320,33 @@ html.seminar-off #rpSemBtn, html.seminar-off #sem-layer{ display:none !important
 .mt-layer.light .hm-zscrim{ background:rgba(22,41,66,.45); }
 .hm-zoom.in .hm-zscrim{ opacity:1; }
 .hm-zx{ position:absolute; top:18px; inset-inline-start:18px; z-index:2; }
-.hm-zcard{ position:relative; z-index:1; width:min(880px, 100%); max-height:calc(100vh - 48px); overflow:auto; opacity:0; transform:scale(.86) translateY(16px); transition:opacity .35s, transform .4s cubic-bezier(.2,.7,.2,1); scrollbar-width:thin; }
+.hm-zcard{ position:relative; z-index:1; width:min(1180px, 100%); max-height:calc(100vh - 40px); overflow:auto; opacity:0; transform:scale(.86) translateY(16px); transition:opacity .35s, transform .4s cubic-bezier(.2,.7,.2,1); scrollbar-width:thin; }
 .hm-zoom.in .hm-zcard{ opacity:1; transform:none; }
 .hm-zcard .ag-card, .hm-zcard .rc-card{ cursor:default !important; transform:none !important; opacity:1 !important; animation:none !important; min-height:0; box-shadow:0 50px 120px rgba(0,0,0,.6), 0 0 0 1px rgba(227,196,133,.5); }
-.hm-zcard .ag-card{ padding:34px 38px; gap:30px; }
-.hm-zcard .ag-no{ width:84px; height:84px; font-size:30px; border-radius:24px; } .hm-zcard .ag-ic{ width:52px; height:52px; } .hm-zcard .ag-ic svg{ width:26px; height:26px; }
-.hm-zcard .ag-lab{ font-size:14px; } .hm-zcard .ag-card h3{ font-size:clamp(22px,2.4vw,32px); }
-.hm-zcard .hm-ul2{ gap:12px; margin-top:10px; } .hm-zcard .hm-ul2 li{ font-size:clamp(16px,1.5vw,19px); line-height:1.9; } .hm-zcard .hm-ul2 li i{ width:8px; height:8px; margin-top:11px; }
+.hm-zcard .ag-card{ padding:44px 50px; gap:36px; }
+.hm-zcard .ag-no{ width:100px; height:100px; font-size:36px; border-radius:28px; } .hm-zcard .ag-ic{ width:60px; height:60px; } .hm-zcard .ag-ic svg{ width:30px; height:30px; }
+.hm-zcard .ag-lab{ font-size:16px; } .hm-zcard .ag-card h3{ font-size:clamp(26px,3vw,42px); }
+.hm-zcard .hm-ul2{ gap:14px; margin-top:14px; } .hm-zcard .hm-ul2 li{ font-size:clamp(18px,1.9vw,24px); line-height:1.9; } .hm-zcard .hm-ul2 li i{ width:9px; height:9px; margin-top:14px; }
 .hm-zcard .ag-wm{ font-size:150px; }
-.hm-zcard .rc-card{ padding:34px 38px; gap:18px; }
-.hm-zcard .rc-cno{ width:56px; height:56px; font-size:20px; border-radius:16px; } .hm-zcard .rc-cic{ width:64px; height:64px; } .hm-zcard .rc-cic svg{ width:32px; height:32px; }
-.hm-zcard .hm-pc h3{ font-size:clamp(24px,2.6vw,34px); } .hm-zcard .hm-pc p{ font-size:clamp(16px,1.6vw,20px); line-height:2; color:rgba(244,248,253,.9); }
+.hm-zcard .rc-card{ padding:44px 50px; gap:22px; }
+.hm-zcard .rc-cno{ width:66px; height:66px; font-size:24px; border-radius:18px; } .hm-zcard .rc-cic{ width:72px; height:72px; } .hm-zcard .rc-cic svg{ width:36px; height:36px; }
+.hm-zcard .hm-pc h3{ font-size:clamp(28px,3.2vw,44px); } .hm-zcard .hm-pc p{ font-size:clamp(18px,2vw,26px); line-height:2; color:rgba(244,248,253,.9); }
 .mt-layer.light .hm-zcard .hm-pc p{ color:#2b3a52; }
 .mt-layer.light .hm-zcard .ag-card, .mt-layer.light .hm-zcard .rc-card{ box-shadow:0 50px 120px rgba(22,41,66,.35), 0 0 0 1px rgba(181,146,63,.6); }
 @media (max-width:700px){ .hm-zcard .ag-card{ padding:22px 20px; gap:16px } .hm-zcard .rc-card{ padding:22px 20px } .hm-zcard .ag-no{ width:60px; height:60px; font-size:22px } }
+
+/* الكيانات والمبادرات: بلا لوح جانبي — التفاصيل بالتكبير */
+.hm-entsec .ent-wrap{ grid-template-columns:1fr !important; } .hm-entsec .orb-det{ display:none !important; }
+@media (min-width:1081px){ .hm-entsec .ent-units{ grid-template-columns:repeat(4,1fr) !important; } }
+.hm-entsec .ent-f, .hm-entsec .ent-u{ cursor:zoom-in; }
+.hm-zd{ position:static !important; max-height:none !important; overflow:visible !important; padding:40px 46px !important; border-radius:28px !important; }
+.hm-zd .eb{ font-size:14px !important; } .hm-zd h3{ font-size:clamp(26px,3vw,40px) !important; line-height:1.4; }
+.hm-zd .rp-blk > h4{ font-size:18px !important; } .hm-zd .rp-lead2, .hm-zd .rp-bul div, .hm-zd .rp-pill span, .hm-zd .rp-pill button{ font-size:clamp(16px,1.6vw,20px) !important; line-height:1.95; }
+.hm-zd .rp-kv b{ font-size:30px !important; } .hm-zd .rp-kv span{ font-size:13px !important; }
+.hm-zd .rp-row .nm{ font-size:16px !important; } .hm-zd .rp-row .sub{ font-size:13px !important; }
+.hm-zd .dplate{ max-width:320px; }
+#home-layer.light .hm-zd{ background:linear-gradient(135deg,#ffffff,#fdfaf3) !important; border-color:rgba(181,146,63,.6) !important; }
+@media (max-width:700px){ .hm-zd{ padding:24px 20px !important; } }
 </style>
 <script>
 (function(){
@@ -7351,11 +7366,13 @@ html.seminar-off #rpSemBtn, html.seminar-off #sem-layer{ display:none !important
   /* تكبير بطاقات المبررات والسياسات */
   var zm=null, zmFrom=null;
   function zClose(){ if(!zm) return; zm.classList.remove('in'); var f=zmFrom; zmFrom=null; setTimeout(function(){ zm.hidden=true; zm.querySelector('.hm-zcard').innerHTML=''; if(f&&f.focus) f.focus({preventScroll:true}); }, 320); }
+  function zEnsure(){ if(zm) return; zm=document.createElement('div'); zm.className='hm-zoom'; zm.hidden=true; zm.innerHTML='<div class="hm-zscrim"></div><button type="button" class="sem-ibtn hm-zx" aria-label="إغلاق"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button><div class="hm-zcard" role="dialog" aria-modal="true"></div>'; lay.appendChild(zm);
+      zm.addEventListener('click',function(e){ var pr=e.target.closest('[data-prj]'); if(pr){ e.stopPropagation(); if(window.bnProjSheet) window.bnProjSheet(+pr.getAttribute('data-prj')); return; } if(e.target.closest('.hm-zcard')) return; e.stopPropagation(); zClose(); }); }
+  function zShow(node, from){ zEnsure(); zmFrom=from||null; var host=zm.querySelector('.hm-zcard'); host.innerHTML=''; host.appendChild(node); host.scrollTop=0; zm.hidden=false; requestAnimationFrame(function(){ requestAnimationFrame(function(){ zm.classList.add('in'); }); }); zm.querySelector('.hm-zx').focus({preventScroll:true}); try{ if(window.bnCountUp) window.bnCountUp(host); }catch(e){} }
+  window.__hmZoomDetail=function(html, from){ var d=document.createElement('div'); d.innerHTML=html; zShow(d.firstChild, from); };
   function zOpen(card){
-    if(!zm){ zm=document.createElement('div'); zm.className='hm-zoom'; zm.hidden=true; zm.innerHTML='<div class="hm-zscrim"></div><button type="button" class="sem-ibtn hm-zx" aria-label="إغلاق"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button><div class="hm-zcard" role="dialog" aria-modal="true"></div>'; lay.appendChild(zm);
-      zm.addEventListener('click',function(e){ if(e.target.closest('.hm-zcard')) return; e.stopPropagation(); zClose(); }); }
-    zmFrom=card; var c=card.cloneNode(true); c.classList.remove('rv'); c.removeAttribute('style'); c.removeAttribute('tabindex'); c.querySelectorAll('.rv').forEach(function(n){ n.classList.remove('rv'); });
-    var host=zm.querySelector('.hm-zcard'); host.innerHTML=''; host.appendChild(c); zm.hidden=false; requestAnimationFrame(function(){ requestAnimationFrame(function(){ zm.classList.add('in'); }); }); zm.querySelector('.hm-zx').focus({preventScroll:true});
+    var c=card.cloneNode(true); c.classList.remove('rv'); c.removeAttribute('style'); c.removeAttribute('tabindex'); c.querySelectorAll('.rv').forEach(function(n){ n.classList.remove('rv'); });
+    zShow(c, card);
   }
   lay.addEventListener('click',function(e){ if(e.target.closest('.hm-zoom')) return; var c=e.target.closest('.hm-rc, .hm-pc'); if(!c) return; e.stopPropagation(); zOpen(c); });
   lay.addEventListener('keydown',function(e){ var c=e.target.closest('.hm-rc, .hm-pc'); if(c&&(e.key==='Enter'||e.key===' ')){ e.preventDefault(); zOpen(c); } });
