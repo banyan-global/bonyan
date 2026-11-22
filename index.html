@@ -2698,7 +2698,7 @@ window.COUNTRY_CENTROIDS={"SA": [24.1, 44.7], "ET": [8.6, 39.6], "BD": [23.9, 90
         pt.px = pt.screen[0]; pt.py = pt.screen[1];
       });
       /* تباعد الدوائر المتقاربة حتى لا تتراكب، مع خط يشير إلى موقعها الحقيقي */
-      var hqS = proj(HQ), gap = compact ? 2 : 4, hqGeo = null, obst = [];
+      var hqS = proj(HQ), gap = opts.gap != null ? opts.gap : (compact ? 2 : 4), hqGeo = null, obst = [];
       if (hqS[2] > 0.05) {
         /* موضع الدبوس واسم المقر فوقه — تُبعَد عنهما الدوائر */
         var htxt = opts.hqText ? opts.hqText(compact) : '';
@@ -2733,6 +2733,13 @@ window.COUNTRY_CENTROIDS={"SA": [24.1, 44.7], "ET": [8.6, 39.6], "BD": [23.9, 90
           pt.px = Math.max(m, Math.min(W - m, pt.px)); pt.py = Math.max(mt, Math.min(H - m, pt.py));
         });
       }
+      /* تنعيم زمني للإزاحة حتى لا تهتز الدوائر أو تتضارب أثناء الدوران */
+      vis.forEach(function (pt) {
+        var tx = pt.px - pt.screen[0], ty = pt.py - pt.screen[1], k = (opts.smoothSep != null ? opts.smoothSep : 0);
+        if (k > 0 && pt.lastVis && now - pt.lastVis < 200) { pt.ox += (tx - pt.ox) * k; pt.oy += (ty - pt.oy) * k; }
+        else { pt.ox = tx; pt.oy = ty; }
+        pt.lastVis = now; pt.px = pt.screen[0] + pt.ox; pt.py = pt.screen[1] + pt.oy;
+      });
       vis.forEach(function (pt) {
         var q = pt.screen, moved = Math.hypot(pt.px - q[0], pt.py - q[1]);
         if (moved < 3) return;
@@ -6482,7 +6489,7 @@ var WH_PRG={"SA":[5,11,106],"ET":[33,32,22],"BD":[1,16,57],"ID":[4,3,23],"SN":[0
     var cv = $('wh-globe'); if (!cv || !cv.getBoundingClientRect().width) return;
     if (COMPACT) $('wh-gctl').style.display = 'none';
     globe = window.BonyanGlobe(cv, {
-      compact: COMPACT, centerLon: 30, tilt: 12, tip: $('wh-gtip'), sites: [], autoSpeed: 0.2094, holdMs: 8000, clickTip: true, keepSpinning: true, alwaysSpin: true, wheelZoom: true,
+      compact: COMPACT, centerLon: 30, tilt: 12, tip: $('wh-gtip'), sites: [], autoSpeed: 0.1795, holdMs: 8000, clickTip: true, keepSpinning: true, alwaysSpin: true, wheelZoom: true, smoothSep: 0.12, gap: 7,
       hq: { cc: 'SA', lat: 21.54, lon: 39.17, name: { ar: 'المقر الرئيسي · جدة' }, short: { ar: 'جدة' }, label: { ar: 'المقر الرئيسي · جدة' } },
       bubbleR: function (n, compact) {
         if (MODE === 'p') return compact ? Math.max(9, Math.min(20, 8 + 3 * Math.log2(1 + n))) : Math.max(14, Math.min(34, 12 + 4.6 * Math.log2(1 + n)));
