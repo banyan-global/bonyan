@@ -7373,19 +7373,21 @@ html.seminar-off #rpSemBtn, html.seminar-off #sem-layer{ display:none !important
 .hm-zcard .hm-st b{ font-size:clamp(26px,3vw,40px); } .hm-zcard .hm-st div > span{ font-size:clamp(16px,1.8vw,22px); margin-top:8px; }
 .mt-layer.light .hm-zcard .hm-st{ box-shadow:0 50px 120px rgba(22,41,66,.35), 0 0 0 1px rgba(181,146,63,.6); }
 @media (max-width:860px){ .hm-zarr{ width:46px; height:46px; top:auto; bottom:18px; transform:none; } .hm-zarr:hover{ transform:scale(1.06) } .hm-zprev{ right:16px } .hm-znext{ left:16px } .hm-zcnt{ bottom:30px } .hm-zcard{ max-height:calc(100vh - 120px) } }
-/* شعارات المبادرات — بلا حدود، بتدرج شفاف */
-.ent-u.has-lg{ padding-inline-end:124px; overflow:hidden; }
-.ent-u .lgw{ position:absolute; inset:-14% auto -14% -8%; width:70%; background-repeat:no-repeat; background-position:left center; background-size:contain; opacity:.06; pointer-events:none; -webkit-mask-image:linear-gradient(to right, #000 15%, transparent 80%); mask-image:linear-gradient(to right, #000 15%, transparent 80%); filter:grayscale(1) brightness(1.6); transition:opacity .5s, transform .6s cubic-bezier(.2,.7,.2,1); }
-.ent-u .lgp{ position:absolute; inset-inline-end:16px; top:50%; transform:translateY(-50%); width:98px; height:76px; display:grid; place-items:center; padding:4px; box-sizing:border-box; border:0; background:none; box-shadow:none; transition:transform .5s cubic-bezier(.2,.7,.2,1), filter .5s; }
-.ent-u .lgp::before{ content:""; position:absolute; inset:-18%; border-radius:50%; background:radial-gradient(closest-side, rgba(255,255,255,.92), rgba(255,255,255,.7) 45%, rgba(255,255,255,0) 100%); z-index:0; }
-.ent-u .lgp img{ position:relative; z-index:1; max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; filter:drop-shadow(0 8px 16px rgba(5,12,25,.25)); }
-.ent-u.has-lg:hover .lgp, .ent-u.has-lg.on .lgp{ transform:translateY(-50%) scale(1.08); }
-.ent-u.has-lg:hover .lgw{ opacity:.12; transform:scale(1.04); }
+/* شعارات المبادرات — بألوانها الكاملة على لوح متدرج ناعم */
+.ent-u.has-lg{ padding-inline-end:132px; }
+.ent-u .lgw{ display:none; }
+.ent-u .lgp{ position:absolute; inset-inline-end:14px; top:50%; transform:translateY(-50%); width:104px; height:82px; border-radius:22px; display:grid; place-items:center; padding:9px; box-sizing:border-box; background:linear-gradient(150deg,#ffffff 0%,#fbf7ee 55%,#efe3c8 100%); box-shadow:0 18px 36px rgba(5,12,25,.38), 0 2px 6px rgba(5,12,25,.2), inset 0 1px 0 #fff; transition:transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s; }
+.ent-u .lgp::after{ content:""; position:absolute; inset:0; border-radius:22px; background:linear-gradient(135deg, rgba(255,255,255,.7), transparent 45%, rgba(227,196,133,.25)); pointer-events:none; }
+.ent-u .lgp img{ position:relative; z-index:1; max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; }
+.ent-u.has-lg:hover .lgp, .ent-u.has-lg.on .lgp{ transform:translateY(-50%) scale(1.06) rotate(-1.5deg); box-shadow:0 24px 48px rgba(227,196,133,.32), 0 2px 6px rgba(5,12,25,.2), inset 0 1px 0 #fff; }
 .ent-u.has-lg .go{ display:none; }
-#home-layer.light .ent-u .lgp::before{ background:radial-gradient(closest-side, #fff, rgba(255,255,255,.9) 50%, rgba(255,255,255,0) 100%); }
-#home-layer.light .ent-u .lgp img{ filter:drop-shadow(0 8px 16px rgba(22,41,66,.12)); }
-#home-layer.light .ent-u .lgw{ opacity:.08; filter:grayscale(1); }
-@media (max-width:700px){ .ent-u.has-lg{ padding-inline-end:100px } .ent-u .lgp{ width:78px; height:60px; } }
+#home-layer.light .ent-u .lgp{ background:linear-gradient(150deg,#ffffff 0%,#fdfaf3 55%,#f3ecdc 100%); box-shadow:0 14px 30px rgba(22,41,66,.14), 0 1px 3px rgba(22,41,66,.1), inset 0 1px 0 #fff; }
+@media (max-width:700px){ .ent-u.has-lg{ padding-inline-end:104px } .ent-u .lgp{ width:82px; height:64px; border-radius:18px; } }
+/* البطاقة المكبّرة للمبادرة/الكيان: العنوان والشعار في الوسط */
+.hm-zd .eb, .hm-zd h3{ text-align:center !important; }
+.hm-zd .dplate{ margin:12px auto 20px !important; max-width:360px; padding:18px 24px; border-radius:22px; background:linear-gradient(150deg,#ffffff 0%,#fbf7ee 55%,#efe3c8 100%); box-shadow:0 20px 44px rgba(5,12,25,.3), inset 0 1px 0 #fff; display:grid; place-items:center; }
+.hm-zd .dplate img{ max-height:120px; width:auto; }
+#home-layer.light .hm-zd .dplate{ box-shadow:0 16px 36px rgba(22,41,66,.14), inset 0 1px 0 #fff; }
 </style>
 <script>
 (function(){
