@@ -5588,7 +5588,7 @@ function imOpenEntity(){
 
 /* --- أقسام المنظومة (الكيانات، المبادرات، ما أنجزته بنيان) للصفحة الرئيسية --- */
 var UNIT_LOGO_BASE='https://banyan-global.github.io/bonyan/logos/';
-var UNIT_LOGOS=[['جامعة بنيان','biu'],['شركة بنيان للتدريب','training'],['دار التمكين','tamkeen-dar'],['مركز بنيان للأبحاث','research'],['بنيان الإنسانية','insaniya'],['كلية المعارف','maaref'],['تمكين التعليم','tamkeen-edu'],['كفاءة','kafaa'],['طاقات','taqat'],['التعليم عن بعد','online-edu'],['القرآني','quranic'],['قياما','qiyama'],['جيل التقدم','jeel'],['بنيان كينيا','kenya'],['آفاق','afaq'],['بنيان تركيا','turkiye']];
+var UNIT_LOGOS=[['جامعة بنيان','biu'],['شركة بنيان للتدريب','training'],['دار التمكين','tamkeen-dar'],['مركز بنيان للأبحاث','research'],['بنيان الإنسانية','insaniya'],['كلية المعارف','maaref'],['تمكين التعليم','tamkeen-edu'],['كفاءة','kafaa'],['طاقات','taqat'],['التعليم عن بعد','online-edu'],['القرآني','quranic'],['قياما','qiyama'],['جيل التقدم','jeel'],['بنيان كينيا','kenya'],['آفاق','afaq'],['بنيان تركيا','turkiye'],['إنجازي','injazi']];
 function unitLogo(u){ var n=nrm(u.name); if(n.indexOf(nrm('وقف بنيان'))>-1) return UNIT_LOGO_BASE+'waqf.png'; for(var i=0;i<UNIT_LOGOS.length;i++){ if(n.indexOf(nrm(UNIT_LOGOS[i][0]))>-1) return UNIT_LOGO_BASE+UNIT_LOGOS[i][1]+'.png'; } return ''; }
 window.renderEntitySections = function(host){
   if (!host) return;
