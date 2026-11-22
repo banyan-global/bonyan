@@ -5589,6 +5589,7 @@ function imOpenEntity(){
 /* --- أقسام المنظومة (الكيانات، المبادرات، ما أنجزته بنيان) للصفحة الرئيسية --- */
 var UNIT_LOGO_BASE='https://banyan-global.github.io/bonyan/logos/';
 var UNIT_LOGOS=[['جامعة بنيان','biu'],['شركة بنيان للتدريب','training'],['دار التمكين','tamkeen-dar'],['مركز بنيان للأبحاث','research'],['بنيان الإنسانية','insaniya'],['كلية المعارف','maaref'],['تمكين التعليم','tamkeen-edu'],['كفاءة','kafaa'],['طاقات','taqat'],['التعليم عن بعد','online-edu'],['القرآني','quranic'],['قياما','qiyama'],['جيل التقدم','jeel'],['بنيان كينيا','kenya'],['آفاق','afaq'],['بنيان تركيا','turkiye'],['إنجازي','injazi']];
+function plateDk(lg){ return /\/(injazi)\.png$/.test(lg) ? ' dk' : ''; }
 function unitLogo(u){ var n=nrm(u.name); if(n.indexOf(nrm('وقف بنيان'))>-1) return UNIT_LOGO_BASE+'waqf.png'; for(var i=0;i<UNIT_LOGOS.length;i++){ if(n.indexOf(nrm(UNIT_LOGOS[i][0]))>-1) return UNIT_LOGO_BASE+UNIT_LOGOS[i][1]+'.png'; } return ''; }
 window.renderEntitySections = function(host){
   if (!host) return;
@@ -5611,7 +5612,7 @@ window.renderEntitySections = function(host){
   host.querySelector('#hm-ent-units').innerHTML = ORGU.map(function(u, i){
     var lg = unitLogo(u);
     return '<button class="ent-u rv'+(lg?' has-lg':'')+'" data-u="'+i+'" style="animation-delay:'+(0.15 + Math.min(i,11)*0.04)+'s">' +
-      (lg ? '<span class="lgw" style="background-image:url(\''+lg+'\')"></span><span class="lgp"><img src="'+lg+'" alt="" loading="lazy"></span>' : '') +
+      (lg ? '<span class="lgw" style="background-image:url(\''+lg+'\')"></span><span class="lgp'+plateDk(lg)+'"><img src="'+lg+'" alt="" loading="lazy"></span>' : '') +
       '<span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></span>' +
       '<span class="ix">'+(i+1<10?'0':'')+(i+1)+'</span><b>'+esc(u.name)+'</b>' +
       '<span class="v"><em>'+esc(u.value)+'</em><span>'+esc(u.unit||'')+'</span></span></button>';
@@ -5627,7 +5628,7 @@ window.renderEntitySections = function(host){
     var o = kind==='p' ? PARTNERS[i] : ORGU[i];
     var ulg = kind==='u' ? unitLogo(o) : '';
     var html = '<div class="eb">'+(kind==='p'?'كيان مؤسِّس':'مبادرة في المنظومة')+'</div><h3>'+esc(o.name)+'</h3>' +
-      (kind==='p' && LG[o.logo] ? '<div class="dplate"><img src="'+LG[o.logo]+'" alt=""></div>' : (ulg ? '<div class="dplate"><img src="'+ulg+'" alt=""></div>' : '')) +
+      (kind==='p' && LG[o.logo] ? '<div class="dplate"><img src="'+LG[o.logo]+'" alt=""></div>' : (ulg ? '<div class="dplate'+plateDk(ulg)+'"><img src="'+ulg+'" alt=""></div>' : '')) +
       (kind==='p' ? partnerHTML(o).replace(/<div class="rp-blk" style="text-align:center">[\s\S]*?<\/div><\/div>/, '') : unitHTML(o));
     if (window.__hmZoomDetail){ window.__hmZoomDetail('<div class="orb-det hm-zd">'+html+'</div>', btn); return; }
     clearOn(); if (btn) btn.classList.add('on');
@@ -6836,6 +6837,12 @@ var WH_PRG={"SA":[5,11,106],"ET":[33,32,22],"BD":[1,16,57],"ID":[4,3,23],"SN":[0
 #rp-layer .wh-gl .wh-gctl button:hover, #home-layer .hm-wherebox .wh-gl .wh-gctl button:hover{ background:#162942; }
 #rp-layer .wh-gl canvas, #home-layer .hm-wherebox .wh-gl canvas{ position:relative; z-index:1; }
 #rp-layer .wh-gl .rp-gsc, #home-layer .hm-wherebox .wh-gl .rp-gsc{ opacity:.18 !important; } #rp-layer .wh-gl .rp-gsc2, #home-layer .hm-wherebox .wh-gl .rp-gsc2{ opacity:.2 !important; }
+
+/* لوحات داكنة للشعارات البيضاء */
+.ent-u .lgp.dk, .hm-zd .dplate.dk, .orb-det .dplate.dk{ background:linear-gradient(150deg,#2c4573 0%,#1b3252 55%,#0d1a30 100%) !important; }
+.ent-u .lgp.dk::after{ background:linear-gradient(135deg, rgba(255,255,255,.18), transparent 45%, rgba(227,196,133,.18)); }
+#home-layer.light .ent-u .lgp.dk, #home-layer.light .hm-zd .dplate.dk{ box-shadow:0 14px 30px rgba(22,41,66,.28), 0 1px 3px rgba(22,41,66,.2), inset 0 1px 0 rgba(255,255,255,.15) !important; }
+#home-layer.light .ent-u.has-lg .lgw[style*="injazi"]{ filter:saturate(1.1) brightness(.55); opacity:.12; }
 </style>
 
 
