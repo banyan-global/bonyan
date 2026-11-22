@@ -4313,6 +4313,7 @@ html.rp-lock, body.rp-lock{ overflow:hidden !important; }
           <div class="rp-gctl" id="wh-gctl" role="group" aria-label="تكبير وتصغير">
             <button type="button" data-z="in" aria-label="تكبير"><svg viewBox="0 0 20 20"><path d="M10 4v12M4 10h12"/></svg></button>
             <button type="button" data-z="out" aria-label="تصغير"><svg viewBox="0 0 20 20"><path d="M4 10h12"/></svg></button>
+            <button type="button" data-z="reset" aria-label="إعادة الحجم الأصلي" title="الحجم الأصلي"><svg viewBox="0 0 20 20"><path d="M4 10a6 6 0 1 1 2 4.5M4 15v-4h4"/></svg></button>
           </div>
         </div>
         <div class="rp-glg" id="wh-glg"></div>
@@ -6509,7 +6510,7 @@ var WH_PRG={"SA":[5,11,106],"ET":[33,32,22],"BD":[1,16,57],"ID":[4,3,23],"SN":[0
   window.whInit = function(){ requestAnimationFrame(function(){ requestAnimationFrame(function(){ initGlobe(); paintGlobe(); }); }); };
   new MutationObserver(tryInit).observe(L, { attributes: true, attributeFilter: ['class'] });
   tryInit();
-  $('wh-gctl').addEventListener('click', function (e) { var b = e.target.closest('button'); if (b && globe) globe.zoomBy(b.getAttribute('data-z') === 'in' ? 1.35 : 1 / 1.35); });
+  $('wh-gctl').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b || !globe) return; var z = b.getAttribute('data-z'); if (z === 'reset') globe.setZoom(1); else globe.zoomBy(z === 'in' ? 1.35 : 1 / 1.35); });
   $('wh-gwrap').addEventListener('pointerdown', function () { this.classList.add('touched'); });
 
   /* خريطة العالم المسطّحة */
@@ -6857,6 +6858,12 @@ var WH_PRG={"SA":[5,11,106],"ET":[33,32,22],"BD":[1,16,57],"ID":[4,3,23],"SN":[0
 .ent-u .lgp.dk::after{ background:linear-gradient(135deg, rgba(255,255,255,.18), transparent 45%, rgba(227,196,133,.18)); }
 #home-layer.light .ent-u .lgp.dk, #home-layer.light .hm-zd .dplate.dk{ box-shadow:0 14px 30px rgba(22,41,66,.28), 0 1px 3px rgba(22,41,66,.2), inset 0 1px 0 rgba(255,255,255,.15) !important; }
 #home-layer.light .ent-u.has-lg .lgw[style*="injazi"]{ filter:saturate(1.1) brightness(.55); opacity:.12; }
+
+/* أزرار التكبير فوق الكرة: أعلى اليسار، أكبر وأوضح، تظهر دائمًا */
+#rp-layer .wh-gl .rp-gctl, #home-layer .hm-wherebox .wh-gl .rp-gctl{ top:14px; bottom:auto; display:flex !important; gap:8px; }
+#rp-layer .wh-gl .rp-gctl button, #home-layer .hm-wherebox .wh-gl .rp-gctl button{ width:42px; height:42px; border-radius:13px; box-shadow:0 10px 24px rgba(5,12,25,.3); background:linear-gradient(150deg,#2c4573,#162942) !important; color:#f3dca6 !important; border:1px solid rgba(227,196,133,.6) !important; }
+#rp-layer .wh-gl .rp-gctl button:hover, #home-layer .hm-wherebox .wh-gl .rp-gctl button:hover{ background:linear-gradient(150deg,#b5923f,#e3c485) !important; color:#162942 !important; }
+#rp-layer .wh-gl .rp-gctl svg, #home-layer .hm-wherebox .wh-gl .rp-gctl svg{ width:19px; height:19px; }
 </style>
 
 
