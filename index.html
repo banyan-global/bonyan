@@ -7389,7 +7389,14 @@ html.seminar-off #rpSemBtn, html.seminar-off #sem-layer{ display:none !important
 @media (max-width:860px){ .hm-zarr{ width:46px; height:46px; top:auto; bottom:18px; transform:none; } .hm-zarr:hover{ transform:scale(1.06) } .hm-zprev{ right:16px } .hm-znext{ left:16px } .hm-zcnt{ bottom:30px } .hm-zcard{ max-height:calc(100vh - 120px) } }
 /* شعارات المبادرات — بألوانها الكاملة على لوح متدرج ناعم */
 .ent-u.has-lg{ padding-inline-end:132px; }
-.ent-u .lgw{ display:none; }
+.ent-u.has-lg{ overflow:hidden; }
+.ent-u .lgw{ display:block; position:absolute; inset:-22% auto -22% -12%; width:78%; background-repeat:no-repeat; background-position:left center; background-size:contain; opacity:.16; pointer-events:none; z-index:0; -webkit-mask-image:linear-gradient(to right, #000 10%, rgba(0,0,0,.55) 45%, transparent 82%); mask-image:linear-gradient(to right, #000 10%, rgba(0,0,0,.55) 45%, transparent 82%); filter:saturate(1.15) brightness(1.25); transform:rotate(-6deg); transition:opacity .6s, transform .8s cubic-bezier(.2,.7,.2,1); }
+.ent-u .lgw::after{ content:""; position:absolute; inset:0; background:linear-gradient(135deg, rgba(227,196,133,.35), rgba(227,196,133,0) 60%); mix-blend-mode:overlay; }
+.ent-u.has-lg:hover .lgw{ opacity:.26; transform:rotate(-2deg) scale(1.05); }
+.ent-u.has-lg > *:not(.lgw){ position:relative; z-index:1; }
+.ent-u.has-lg .lgp{ position:absolute; z-index:2; }
+#home-layer.light .ent-u .lgw{ opacity:.13; filter:saturate(1.1); }
+#home-layer.light .ent-u.has-lg:hover .lgw{ opacity:.22; }
 .ent-u .lgp{ position:absolute; inset-inline-end:14px; top:50%; transform:translateY(-50%); width:104px; height:82px; border-radius:22px; display:grid; place-items:center; padding:9px; box-sizing:border-box; background:linear-gradient(150deg,#ffffff 0%,#fbf7ee 55%,#efe3c8 100%); box-shadow:0 18px 36px rgba(5,12,25,.38), 0 2px 6px rgba(5,12,25,.2), inset 0 1px 0 #fff; transition:transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s; }
 .ent-u .lgp::after{ content:""; position:absolute; inset:0; border-radius:22px; background:linear-gradient(135deg, rgba(255,255,255,.7), transparent 45%, rgba(227,196,133,.25)); pointer-events:none; }
 .ent-u .lgp img{ position:relative; z-index:1; max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; }
