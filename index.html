@@ -2641,7 +2641,7 @@ window.COUNTRY_CENTROIDS={"SA": [24.1, 44.7], "ET": [8.6, 39.6], "BD": [23.9, 90
       if (!drag) {
         if (Math.abs(vel) > 0.0001) { rotL += vel; vel *= 0.94; idleAt = now; }
         else if (now - idleAt > 2200) {
-          var tgt = focus && now < focus.until ? focus : user;
+          var tgt = focus && now < focus.until ? focus : (user && now < (user.holdUntil || 0) ? user : null);
           if (tgt) {
             var dl = tgt.lon * RAD - rotL;
             while (dl > Math.PI) dl -= 2 * Math.PI;
@@ -2649,7 +2649,7 @@ window.COUNTRY_CENTROIDS={"SA": [24.1, 44.7], "ET": [8.6, 39.6], "BD": [23.9, 90
             rotL += dl * 0.05;
             tilt += (Math.max(-40, Math.min(40, tgt.lat)) * RAD * 0.85 - tilt) * 0.05;
           } else {
-            if (!reduce) rotL += 0.0016;
+            if (!reduce) rotL += (opts.autoSpeed || 0.0016);
             tilt += (baseTilt - tilt) * 0.02;
           }
         }
@@ -2963,7 +2963,7 @@ window.COUNTRY_CENTROIDS={"SA": [24.1, 44.7], "ET": [8.6, 39.6], "BD": [23.9, 90
         if (!c) { user = null; return; }
         if (user && user.cc === cc) { user.label = label; return; }
         var v = vec(c.lat, c.lon);
-        user = { cc: cc, lat: c.lat, lon: c.lon, v: v, label: label, arc: arcPts(HQ, v, 0.28), at: performance.now() };
+        user = { cc: cc, lat: c.lat, lon: c.lon, v: v, label: label, arc: arcPts(HQ, v, 0.28), at: performance.now(), holdUntil: performance.now() + (opts.holdMs || 9000) };
         idleAt = 0;
       },
       /* map: { SA: { n: 12, nat: 3 }, ... } — fmt(cc, d) يعيد { name, tip, n, nat } نصوصًا جاهزة */
@@ -6473,7 +6473,7 @@ var WH_PRG={"SA":[5,11,106],"ET":[33,32,22],"BD":[1,16,57],"ID":[4,3,23],"SN":[0
     var cv = $('wh-globe'); if (!cv || !cv.getBoundingClientRect().width) return;
     if (COMPACT) $('wh-gctl').style.display = 'none';
     globe = window.BonyanGlobe(cv, {
-      compact: COMPACT, centerLon: 30, tilt: 12, tip: $('wh-gtip'), sites: [],
+      compact: COMPACT, centerLon: 30, tilt: 12, tip: $('wh-gtip'), sites: [], autoSpeed: 0.0038, holdMs: 9000,
       hq: { cc: 'SA', lat: 21.54, lon: 39.17, name: { ar: 'المقر الرئيسي · جدة' }, short: { ar: 'جدة' }, label: { ar: 'المقر الرئيسي · جدة' } },
       bubbleR: function (n, compact) {
         if (MODE === 'p') return compact ? Math.max(9, Math.min(20, 8 + 3 * Math.log2(1 + n))) : Math.max(14, Math.min(34, 12 + 4.6 * Math.log2(1 + n)));
