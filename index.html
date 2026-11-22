@@ -2642,7 +2642,7 @@ window.COUNTRY_CENTROIDS={"SA": [24.1, 44.7], "ET": [8.6, 39.6], "BD": [23.9, 90
       if (!drag) {
         if (Math.abs(vel) > 0.0001) { rotL += vel; vel *= 0.94; idleAt = now; }
         else if (now - idleAt > 1600) {
-          var tgt = focus && now < focus.until ? focus : (user && now < (user.holdUntil || 0) ? user : null);
+          var tgt = opts.keepSpinning ? null : (focus && now < focus.until ? focus : (user && now < (user.holdUntil || 0) ? user : null));
           if (tgt) {
             var dl = tgt.lon * RAD - rotL;
             while (dl > Math.PI) dl -= 2 * Math.PI;
@@ -2921,6 +2921,7 @@ window.COUNTRY_CENTROIDS={"SA": [24.1, 44.7], "ET": [8.6, 39.6], "BD": [23.9, 90
         idleAt = performance.now(); focus = null; return;
       }
       if (e.pointerType === 'touch') return;
+      if (opts.clickTip) { var hv = pick(p); canvas.style.cursor = hv ? 'pointer' : 'grab'; return; }
       hover = pick(p);
       var h = proj(HQ);
       hoverHQ = !hover && h[2] > 0 && Math.hypot(h[0] - p[0], h[1] - PIN.r * 1.4 - p[1]) < PIN.r * 2;
@@ -2931,7 +2932,8 @@ window.COUNTRY_CENTROIDS={"SA": [24.1, 44.7], "ET": [8.6, 39.6], "BD": [23.9, 90
       if (pinch) { if (Object.keys(ptrs).length < 2) pinch = null; drag = null; return; }
       if (drag && !drag.moved && e && e.type === 'pointerup') {
         var hit = pick(pos(e));
-        if (hit) { focus = { lat: hit.lat, lon: hit.lon, until: performance.now() + 6000 }; idleAt = 0; hover = hit; hoverHQ = false; if (opts.onPick) opts.onPick(hit.cc); }
+        if (hit) { focus = { lat: hit.lat, lon: hit.lon, until: performance.now() + 6000 }; idleAt = 0; hover = (opts.clickTip && hover === hit) ? null : hit; hoverHQ = false; if (opts.onPick) opts.onPick(hit.cc); }
+        else if (opts.clickTip) { hover = null; hoverHQ = false; }
         else if (e.pointerType === 'touch') { var hh = proj(HQ), pp2 = pos(e); hover = null; hoverHQ = hh[2] > 0 && Math.hypot(hh[0] - pp2[0], hh[1] - PIN.r * 1.4 - pp2[1]) < PIN.r * 2.4; }
       }
       drag = null; canvas.classList.remove('grab');
@@ -2979,11 +2981,13 @@ window.COUNTRY_CENTROIDS={"SA": [24.1, 44.7], "ET": [8.6, 39.6], "BD": [23.9, 90
           var v = vec(c.lat, c.lon), was = old[cc];
           return { cc: cc, lat: c.lat, lon: c.lon, v: v, arc: arcPts(HQ, v, 0.22), n: d.n, nat: d.nat || 0, name: f.name, tip: f.tip, tipHTML: f.tipHTML || '', nLabel: f.n, natLabel: f.nat, at: was && was.n === d.n ? was.at : performance.now() };
         }).filter(Boolean);
+        if (hover) { var hc = hover.cc; hover = null; points.forEach(function (q) { if (q.cc === hc) hover = q; }); }
       },
       focusOn: function (cc) { var c = CENT(cc); if (c) { focus = { lat: c.lat, lon: c.lon, until: performance.now() + 6000 }; idleAt = 0; } },
       zoomBy: function (f) { setZoom(zoomT * f); },
       setZoom: setZoom,
       getZoom: function () { return zoomT; },
+      getRot: function () { return rotL; },
       destroy: function () { running = false; cancelAnimationFrame(raf); if (io) io.disconnect(); if (ro) ro.disconnect(); clearTimeout(gridT); window.removeEventListener('scroll', onScroll); if (tip) tip.hidden = true; }
     };
   };
@@ -6475,7 +6479,7 @@ var WH_PRG={"SA":[5,11,106],"ET":[33,32,22],"BD":[1,16,57],"ID":[4,3,23],"SN":[0
     var cv = $('wh-globe'); if (!cv || !cv.getBoundingClientRect().width) return;
     if (COMPACT) $('wh-gctl').style.display = 'none';
     globe = window.BonyanGlobe(cv, {
-      compact: COMPACT, centerLon: 30, tilt: 12, tip: $('wh-gtip'), sites: [], autoSpeed: 0.18, holdMs: 8000,
+      compact: COMPACT, centerLon: 30, tilt: 12, tip: $('wh-gtip'), sites: [], autoSpeed: 0.18, holdMs: 8000, clickTip: true, keepSpinning: true,
       hq: { cc: 'SA', lat: 21.54, lon: 39.17, name: { ar: 'المقر الرئيسي · جدة' }, short: { ar: 'جدة' }, label: { ar: 'المقر الرئيسي · جدة' } },
       bubbleR: function (n, compact) {
         if (MODE === 'p') return compact ? Math.max(9, Math.min(20, 8 + 3 * Math.log2(1 + n))) : Math.max(14, Math.min(34, 12 + 4.6 * Math.log2(1 + n)));
