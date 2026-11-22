@@ -2947,7 +2947,8 @@ window.COUNTRY_CENTROIDS={"SA": [24.1, 44.7], "ET": [8.6, 39.6], "BD": [23.9, 90
     window.addEventListener('scroll', onScroll, { passive: true });
     canvas.addEventListener('dblclick', function () { setZoom(zoomT > 2 ? 1 : zoomT * 1.6); });
     canvas.addEventListener('wheel', function (e) {
-      if (compact || !(e.ctrlKey || canvas.closest('.is-full'))) return;
+      var onDisc = false; if (opts.wheelZoom) { var wp = pos(e); onDisc = Math.hypot(wp[0] - cx, wp[1] - cy) <= R; }
+      if (compact || !(e.ctrlKey || onDisc || canvas.closest('.is-full'))) return;
       e.preventDefault(); setZoom(zoomT * (e.deltaY < 0 ? 1.15 : 1 / 1.15));
     }, { passive: false });
 
@@ -4301,7 +4302,7 @@ html.rp-lock, body.rp-lock{ overflow:hidden !important; }
           <canvas id="wh-globe" role="img" aria-label="كرة أرضية تعرض انتشار بنيان حول العالم"></canvas>
           <div class="rp-gsc"></div><div class="rp-gsc2"></div>
           <div class="rp-gtip" id="wh-gtip" hidden></div>
-          <span class="rp-ghint"><i></i>اسحب لتدوير الكرة</span>
+          <span class="rp-ghint"><i></i>اسحب للتدوير · عجلة الفأرة للتكبير · اضغط دولة لتفاصيلها</span>
           <div class="rp-gctl" id="wh-gctl" role="group" aria-label="تكبير وتصغير">
             <button type="button" data-z="in" aria-label="تكبير"><svg viewBox="0 0 20 20"><path d="M10 4v12M4 10h12"/></svg></button>
             <button type="button" data-z="out" aria-label="تصغير"><svg viewBox="0 0 20 20"><path d="M4 10h12"/></svg></button>
@@ -6481,7 +6482,7 @@ var WH_PRG={"SA":[5,11,106],"ET":[33,32,22],"BD":[1,16,57],"ID":[4,3,23],"SN":[0
     var cv = $('wh-globe'); if (!cv || !cv.getBoundingClientRect().width) return;
     if (COMPACT) $('wh-gctl').style.display = 'none';
     globe = window.BonyanGlobe(cv, {
-      compact: COMPACT, centerLon: 30, tilt: 12, tip: $('wh-gtip'), sites: [], autoSpeed: 0.3, holdMs: 8000, clickTip: true, keepSpinning: true, alwaysSpin: true,
+      compact: COMPACT, centerLon: 30, tilt: 12, tip: $('wh-gtip'), sites: [], autoSpeed: 0.2094, holdMs: 8000, clickTip: true, keepSpinning: true, alwaysSpin: true, wheelZoom: true,
       hq: { cc: 'SA', lat: 21.54, lon: 39.17, name: { ar: 'المقر الرئيسي · جدة' }, short: { ar: 'جدة' }, label: { ar: 'المقر الرئيسي · جدة' } },
       bubbleR: function (n, compact) {
         if (MODE === 'p') return compact ? Math.max(9, Math.min(20, 8 + 3 * Math.log2(1 + n))) : Math.max(14, Math.min(34, 12 + 4.6 * Math.log2(1 + n)));
